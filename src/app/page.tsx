@@ -2,11 +2,12 @@ import {
   CornerCTA,
   Header,
   Hero,
-  About,
-  WhyChooseUs,
-  Features,
+  TrustBar,
+  Problem,
+  Impact,
+  Solution,
+  HowItWorks,
   Benefits,
-  Stats,
   Testimonials,
   Faq,
   Contact,
@@ -18,14 +19,19 @@ export default function Home() {
     <div className="min-h-screen bg-white font-inter text-black transition-all duration-1000">
       <CornerCTA />
       <Header />
+      {/* Problem-Impact-Solution-Proof Narrative Flow */}
       <Hero />
-      <About />
-      <WhyChooseUs />
-      <Features />
+      <TrustBar />
+      <Problem />
+      <Impact />
+      <Solution />
+      <HowItWorks />
       <Benefits />
-      <Stats />
       <Testimonials />
+      {/* Persona Triage section will be added here */}
+      {/* Integrations section will be added here */}
       <Faq />
+      {/* Final CTA section will be added here */}
       <Contact />
       <Footer />
     </div>

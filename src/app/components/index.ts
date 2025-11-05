@@ -1,6 +1,11 @@
 export { default as CornerCTA } from './CornerCTA';
 export { default as Header } from './Header';
 export { default as Hero } from './Hero';
+export { default as TrustBar } from './TrustBar';
+export { default as Problem } from './Problem';
+export { default as Impact } from './Impact';
+export { default as Solution } from './Solution';
+export { default as HowItWorks } from './HowItWorks';
 export { default as About } from './About';
 export { default as WhyChooseUs } from './WhyChooseUs';
 export { default as Features } from './Features';
@@ -10,3 +15,4 @@ export { default as Testimonials } from './Testimonials';
 export { default as Faq } from './Faq';
 export { default as Contact } from './Contact';
 export { default as Footer } from './Footer';
+export { useScrollAnimation, useStaggeredAnimation } from './useScrollAnimation';
