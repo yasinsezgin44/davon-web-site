@@ -18,8 +18,10 @@ export default function Hero() {
       className="relative text-center overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, #fef2f2 0%, #ffffff 50%, #fef2f2 100%)",
-        backgroundSize: "200% 200%",
+          "url('/hero-background.png'), linear-gradient(135deg, rgba(254, 242, 242, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(254, 242, 242, 0.8) 100%)",
+        backgroundSize: "cover, 200% 200%",
+        backgroundPosition: "center, center",
+        backgroundRepeat: "no-repeat, no-repeat",
         animation: "gradientShift 15s ease infinite",
         padding: "clamp(6rem, 15vh, 12rem) 0 clamp(4rem, 10vh, 8rem)",
       }}
@@ -91,6 +93,7 @@ export default function Hero() {
             fontSize: "clamp(2.5rem, 6vw, 5rem)",
             lineHeight: 1.1,
             textShadow: "0 2px 20px rgba(220, 38, 38, 0.1)",
+            fontFamily: "'Zalando Sans', sans-serif",
           }}
         >
           EMPOWERING HOSPITAL OPERATIONS WITH
@@ -111,6 +114,7 @@ export default function Hero() {
             lineHeight: 1.4,
             maxWidth: "48rem",
             margin: "0 auto",
+            fontFamily: "'Zalando Sans', sans-serif",
           }}
         >
           At Davon Information Technologies, we specialize in creating robust
