@@ -1,6 +1,7 @@
 "use client";
 
 import { useScrollAnimation } from "./useScrollAnimation";
+import ScrollReveal from "./ScrollReveal";
 import React, { ReactNode } from "react";
 
 interface GradientTextProps {
@@ -36,13 +37,8 @@ const GradientText: React.FC<GradientTextProps> = ({
 };
 
 export default function Hero() {
-  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation({
-    threshold: 0.3,
-  });
   const { elementRef: subtitleRef, isVisible: subtitleVisible } =
     useScrollAnimation({ threshold: 0.4 });
-  const { elementRef: descriptionRef, isVisible: descriptionVisible } =
-    useScrollAnimation({ threshold: 0.5 });
   const { elementRef: buttonsRef, isVisible: buttonsVisible } =
     useScrollAnimation({ threshold: 0.6 });
 
@@ -117,24 +113,28 @@ export default function Hero() {
         style={{ maxWidth: "64rem" }}
       >
         {/* Main Title with Enhanced Animation */}
-        <h1
-          ref={titleRef as any}
-          className={`font-black text-black uppercase tracking-tight transition-all duration-1000 mb-8 ${
-            titleVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
-          }`}
-          style={{
-            fontSize: "clamp(2.5rem, 6vw, 5rem)",
-            lineHeight: 1.1,
-            textShadow: "0 2px 20px rgba(220, 38, 38, 0.1)",
-            fontFamily: "'Zalando Sans', sans-serif",
-          }}
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={5}
+          blurStrength={10}
         >
-          EMPOWERING HOSPITAL OPERATIONS WITH
-          <br />
-          <span className="text-black">
-            CUTTING-EDGE CMMS AND EAM SOLUTIONS
-          </span>
-        </h1>
+          <h1
+            className="font-black text-black uppercase tracking-tight mb-8"
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              lineHeight: 1.1,
+              textShadow: "0 2px 20px rgba(220, 38, 38, 0.1)",
+              fontFamily: "'Zalando Sans', sans-serif",
+            }}
+          >
+            EMPOWERING HOSPITAL OPERATIONS WITH
+            <br />
+            <span className="text-black">
+              CUTTING-EDGE CMMS AND EAM SOLUTIONS
+            </span>
+          </h1>
+        </ScrollReveal>
 
         {/* Subtitle with Enhanced Typography */}
         <h2
