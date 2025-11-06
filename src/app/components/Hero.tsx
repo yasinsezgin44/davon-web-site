@@ -88,15 +88,15 @@ export default function Hero() {
             titleVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
           }`}
           style={{
-            fontSize: "clamp(2.5rem, 8vw, 8rem)",
+            fontSize: "clamp(2.5rem, 6vw, 5rem)",
             lineHeight: 1.1,
             textShadow: "0 2px 20px rgba(220, 38, 38, 0.1)",
           }}
         >
-          ENSURE PATIENT SAFETY &
+          EMPOWERING HOSPITAL OPERATIONS WITH
           <br />
           <span className="text-red-600 animate-glow">
-            OPTIMIZE HOSPITAL OPERATIONS
+            CUTTING-EDGE CMMS AND EAM SOLUTIONS
           </span>
         </h1>
 
@@ -107,36 +107,18 @@ export default function Hero() {
             subtitleVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
           }`}
           style={{
-            fontSize: "clamp(1.25rem, 3vw, 2.618rem)",
+            fontSize: "clamp(1.125rem, 2.5vw, 1.875rem)",
             lineHeight: 1.4,
             maxWidth: "48rem",
             margin: "0 auto",
           }}
         >
-          The Command Center for Hospital Asset Management: Reduce Costs,
-          Automate Maintenance, Ensure Compliance
+          At Davon Information Technologies, we specialize in creating robust
+          Computerized Maintenance Management Systems (CMMS) and Enterprise
+          Asset Management (EAM) software tailored specifically for hospitals.
+          Our innovative solutions streamline operations, improve efficiency,
+          and ensure the highest standards of care.
         </h2>
-
-        {/* Description with Enhanced Typography */}
-        <p
-          ref={descriptionRef as any}
-          className={`text-gray-600 leading-relaxed transition-all duration-1000 delay-400 mb-12 ${
-            descriptionVisible
-              ? "animate-fade-in-up"
-              : "opacity-0 translate-y-8"
-          }`}
-          style={{
-            fontSize: "clamp(1rem, 2vw, 1.236rem)",
-            lineHeight: 1.618,
-            maxWidth: "42rem",
-            margin: "0 auto",
-          }}
-        >
-          Your platform gives you the power to connect, track, and maintain
-          every asset in your hospital. Trusted by hospital operators nationwide
-          to automate maintenance, ensure compliance, and protect patient
-          safety.
-        </p>
 
         {/* Enhanced CTA Buttons */}
         <div
