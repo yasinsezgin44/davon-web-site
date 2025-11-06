@@ -1,3 +1,5 @@
+"use client";
+
 import { useScrollAnimation } from './useScrollAnimation';
 
 export default function Hero() {
