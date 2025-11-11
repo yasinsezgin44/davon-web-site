@@ -41,11 +41,7 @@ export default function Hero() {
     <section
       className="relative text-center overflow-hidden"
       style={{
-        background:
-          "url('/hero-background.png'), linear-gradient(135deg, rgba(254, 242, 242, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(254, 242, 242, 0.8) 100%)",
-        backgroundSize: "cover, 200% 200%",
-        backgroundPosition: "center, center",
-        backgroundRepeat: "no-repeat, no-repeat",
+        background: "linear-gradient(135deg, rgba(254, 242, 242, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(254, 242, 242, 0.8) 100%)",
         animation: "gradientShift 20s ease infinite",
         padding: "clamp(6rem, 15vh, 12rem) 0 clamp(4rem, 10vh, 8rem)",
       }}
@@ -84,16 +80,10 @@ export default function Hero() {
 
         <div className="flex gap-4 justify-center">
           <a
-            href="#contact"
-            className="bg-red-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-red-700 transition-all duration-300 hover:shadow-lg hover:scale-105"
-          >
-            Request a Demo
-          </a>
-          <a
-            href="#how-it-works"
+            href="#about"
             className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-red-50 hover:border-red-700 transition-all duration-300 hover:shadow-md hover:scale-105"
           >
-            Take the Product Tour
+            About Us
           </a>
         </div>
       </div>
