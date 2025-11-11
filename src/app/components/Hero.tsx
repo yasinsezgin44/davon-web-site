@@ -47,8 +47,8 @@ export default function Hero() {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Text Content (aligned with header container) */}
-        <div className="w-full md:w-[36%] lg:w-[32%]">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-100)] mb-4 transition-all duration-500 hover:scale-[1.02]">
+        <div className="w-full md:w-[36%] lg:w-[32%] mt-10 md:mt-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight font-bold text-[var(--text-100)] mb-4 transition-all duration-500 hover:scale-[1.02]">
             EMPOWERING HOSPITAL OPERATIONS WITH
             <br />
             <span className="text-[var(--accent-100)] transition-all duration-300">
