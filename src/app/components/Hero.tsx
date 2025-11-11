@@ -14,7 +14,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative text-left overflow-hidden min-h-[100svh] md:min-h-screen flex items-center pt-8 pb-16 md:pt-12 md:pb-24">
+    <section className="relative text-left overflow-hidden min-h-[100svh] md:min-h-screen flex items-start pt-0 pb-16 md:pb-24">
       {/* Intro overlay animation (only covers Hero) */}
       {isIntroAnimating && (
         <div className="hero-intro-overlay">
@@ -29,15 +29,15 @@ export default function Hero() {
         </div>
       )}
 
-      {/* Right-side decorative image (kept separate from copy area) */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-[55%] md:w-[58%] lg:w-[60%] hidden sm:block [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.3)_15%,rgba(0,0,0,0.7)_30%,black_50%)]">
+      {/* Right-side hero image (absolute, flush to viewport right) */}
+      <div className="pointer-events-none absolute [top:-2px] bottom-0 right-0 w-[80%] md:w-[76%] lg:w-[74%]">
         <Image
           src="/hero-background.png"
           alt=""
           fill
           priority
-          sizes="(min-width: 1024px) 60vw, (min-width: 640px) 58vw, 55vw"
-          className="object-contain object-right"
+          sizes="100vw"
+          className="object-cover object-right-top [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.35)_12%,rgba(0,0,0,0.8)_28%,black_48%)]"
         />
       </div>
 
@@ -46,7 +46,8 @@ export default function Hero() {
       <div className="absolute bottom-20 right-16 w-6 h-6 rounded-full animate-float opacity-25 bg-[rgba(255,0,0,0.15)] [animation-delay:2s] [animation-duration:8s]"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="w-full md:w-[42%] lg:w-[40%]">
+        {/* Text Content (aligned with header container) */}
+        <div className="w-full md:w-[36%] lg:w-[32%]">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-100)] mb-4 transition-all duration-500 hover:scale-[1.02]">
             EMPOWERING HOSPITAL OPERATIONS WITH
             <br />
