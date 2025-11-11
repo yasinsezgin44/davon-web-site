@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const [isIntroAnimating, setIsIntroAnimating] = useState(true);
@@ -71,9 +72,28 @@ export default function Hero() {
           <div className="flex gap-4">
             <a
               href="#about"
-              className="border-2 border-[var(--accent-100)] text-[var(--accent-100)] px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-md hover:scale-105"
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                e.currentTarget.style.setProperty("--x", `${x}px`);
+              }}
+              className="group/button relative inline-flex items-center rounded-xl p-[2px] text-[var(--accent-100)] [background:linear-gradient(135deg,#ff1a1a_0%,#ff6a6a_50%,#ff1a1a_100%)] [background-size:200%_200%] transition-all duration-500 hover:[background-position:100%_0%] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-100)]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-100)] hover:scale-[1.02] active:scale-[0.995]"
+              aria-label="Learn more about us"
             >
-              About Us
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-1 rounded-[14px] opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 [background:radial-gradient(120px_60px_at_var(--x,50%)_-20%,rgba(255,0,0,0.18),transparent_70%)]"
+              />
+              <span className="relative z-10 inline-flex items-center gap-2 rounded-[10px] px-6 py-3 bg-[var(--bg-100)]/90 text-[var(--accent-100)] shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-[2px] transition-colors group-hover/button:bg-[var(--bg-100)]/95">
+                <span className="font-semibold tracking-wide">About Us</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-0.5" />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-[10px]"
+                >
+                  <span className="absolute left-[-30%] top-0 h-full w-[30%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent)] opacity-0 group-hover/button:opacity-100 [animation:buttonShine_900ms_ease-in-out]" />
+                </span>
+              </span>
             </a>
           </div>
         </div>

@@ -93,3 +93,9 @@ body {
   pointer-events: none;
   will-change: transform, opacity;
 }
+
+/* Premium button micro-interactions */
+@keyframes buttonShine {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(150%) skewX(-20deg); }
+}
