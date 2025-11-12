@@ -119,10 +119,10 @@ export default function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Text Content (aligned with header container) */}
         <div className="w-full md:w-[50%] lg:w-[45%] xl:w-[40%] mt-8 md:mt-12 max-w-none">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight font-bold text-[var(--text-100)] mb-3 transition-all duration-500 hover:scale-[1.02]">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight font-bold text-[var(--text-100)] mb-3">
             EMPOWERING HOSPITAL OPERATIONS WITH
             <br />
-            <span className="text-[var(--accent-100)] transition-all duration-300">
+            <span className="text-[var(--accent-100)]">
               CUTTING-EDGE CMMS AND EAM SOLUTIONS
             </span>
           </h1>
