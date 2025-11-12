@@ -156,7 +156,7 @@ export default function Hero() {
               />
               <span className="relative z-10 inline-flex items-center gap-2 rounded-[10px] px-6 py-3 bg-[var(--bg-100)]/90 text-[var(--accent-100)] shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-[2px] transition-colors group-hover/button:bg-[var(--bg-100)]/95">
                 <span className="font-semibold tracking-wide">About Us</span>
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-0.5" />
+                <ArrowRight className="h-4 w-4 transform-gpu transition-transform ease-in-out duration-[160ms] group-hover/button:translate-x-1" />
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 overflow-hidden rounded-[10px]"
