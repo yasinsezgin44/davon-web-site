@@ -49,7 +49,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative text-left overflow-hidden min-h-[100svh] md:min-h-screen flex items-start pt-0 pb-16 md:pb-24"
+      className="relative text-left overflow-hidden min-h-screen flex items-center pt-0 pb-8 md:pb-12"
     >
       {/* Intro overlay animation (only covers Hero) */}
       {isIntroAnimating && (
@@ -118,8 +118,8 @@ export default function Hero() {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Text Content (aligned with header container) */}
-        <div className="w-full md:w-[36%] lg:w-[32%] mt-10 md:mt-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight font-bold text-[var(--text-100)] mb-4 transition-all duration-500 hover:scale-[1.02]">
+        <div className="w-full md:w-[50%] lg:w-[45%] xl:w-[40%] mt-8 md:mt-12 max-w-none">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight font-bold text-[var(--text-100)] mb-3 transition-all duration-500 hover:scale-[1.02]">
             EMPOWERING HOSPITAL OPERATIONS WITH
             <br />
             <span className="text-[var(--accent-100)] transition-all duration-300">
@@ -127,11 +127,11 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-[var(--text-200)] max-w-2xl mb-8 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[var(--text-200)] mb-6 leading-relaxed">
             At{" "}
             <span className="font-semibold text-[var(--text-100)]">
               Davon Information Technologies
-            </span>{" "}
+            </span>
             , we specialize in creating robust Computerized Maintenance
             Management Systems (CMMS) and Enterprise Asset Management (EAM)
             software tailored specifically for hospitals. Our innovative
