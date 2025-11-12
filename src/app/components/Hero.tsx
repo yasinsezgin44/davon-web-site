@@ -55,7 +55,7 @@ export default function Hero() {
       {isIntroAnimating && (
         <div className="hero-intro-overlay">
           <Image
-            src="/home-circle.webp"
+            src="/home-circle.png"
             alt="Intro circle"
             width={320}
             height={320}
