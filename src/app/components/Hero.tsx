@@ -1,11 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const [isIntroAnimating, setIsIntroAnimating] = useState(true);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Adjustable parallax intensity (higher = more movement)
+  const PARALLAX_INTENSITY = 20;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,8 +19,38 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!heroRef.current) return;
+
+      const rect = heroRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      // Calculate mouse position relative to center (range: -0.5 to 0.5)
+      const x = (e.clientX - centerX) / rect.width;
+      const y = (e.clientY - centerY) / rect.height;
+
+      setMousePosition({ x, y });
+    };
+
+    const heroElement = heroRef.current;
+    if (heroElement) {
+      heroElement.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      if (heroElement) {
+        heroElement.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative text-left overflow-hidden min-h-[100svh] md:min-h-screen flex items-start pt-0 pb-16 md:pb-24">
+    <section
+      ref={heroRef}
+      className="relative text-left overflow-hidden min-h-[100svh] md:min-h-screen flex items-start pt-0 pb-16 md:pb-24"
+    >
       {/* Intro overlay animation (only covers Hero) */}
       {isIntroAnimating && (
         <div className="hero-intro-overlay">
@@ -30,15 +65,50 @@ export default function Hero() {
         </div>
       )}
 
-      {/* Right-side hero image (absolute, flush to viewport right) */}
-      <div className="pointer-events-none absolute [top:-2px] bottom-0 right-0 w-[80%] md:w-[76%] lg:w-[74%]">
+      {/* Right-side hero image layers (absolute, flush to viewport right) */}
+      {/* Base image layer */}
+      <div
+        className="pointer-events-none absolute [top:-2px] bottom-0 right-0 w-[80%] md:w-[76%] lg:w-[74%]"
+        style={{
+          transform: `translate(${mousePosition.x * -PARALLAX_INTENSITY}px, ${
+            mousePosition.y * -PARALLAX_INTENSITY
+          }px)`,
+          transition: "transform 0.2s ease-out",
+        }}
+      >
         <Image
-          src="/hero-background.png"
+          src="/hero-background-base.png"
           alt=""
           fill
           priority
           sizes="100vw"
           className="object-cover object-right-top [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.35)_12%,rgba(0,0,0,0.8)_28%,black_48%)]"
+        />
+      </div>
+
+      {/* Glow image layer (on top of base) */}
+      <div
+        className="pointer-events-none absolute [top:-2px] bottom-0 right-0 w-[80%] md:w-[76%] lg:w-[74%] z-10"
+        style={{
+          transform: `translate(${mousePosition.x * -PARALLAX_INTENSITY}px, ${
+            mousePosition.y * -PARALLAX_INTENSITY
+          }px)`,
+          transition: "transform 0.2s ease-out",
+        }}
+      >
+        <Image
+          src="/hero-background-glow.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right-top animate-pulse-glow mix-blend-screen"
+          style={{
+            filter:
+              "drop-shadow(0 0 24px rgba(255,0,0,0.45)) drop-shadow(0 0 48px rgba(255,0,0,0.25))",
+            opacity: 0.9,
+            willChange: "transform, opacity, filter",
+          }}
         />
       </div>
 

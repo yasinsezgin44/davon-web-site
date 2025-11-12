@@ -39,8 +39,24 @@
   }
 }
 
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    filter: brightness(1) saturate(1) blur(0.5px);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.35) saturate(1.15) blur(1.2px);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+  will-change: opacity, filter;
 }
 
 @media (prefers-color-scheme: dark) {
