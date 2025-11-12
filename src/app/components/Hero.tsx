@@ -119,6 +119,11 @@ export default function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Text Content (aligned with header container) */}
         <div className="w-full md:w-[50%] lg:w-[45%] xl:w-[40%] mt-8 md:mt-12 max-w-none">
+          {/* TYPOGRAPHY SYSTEM: Golden Ratio Scaling (φ ≈ 1.618)
+             AI AGENTS: Always maintain golden ratio between font sizes for optimal visual harmony.
+             Heading scale: text-xl → text-2xl → text-3xl → text-4xl → text-5xl (approximates φ ratios)
+             Body scale: text-xs → text-sm → text-base → text-lg (approximates φ ratios)
+             Each size should be approximately 1.618x the previous size for aesthetic balance. */}
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight font-bold text-[var(--text-100)] mb-3">
             EMPOWERING HOSPITAL OPERATIONS WITH
             <br />
