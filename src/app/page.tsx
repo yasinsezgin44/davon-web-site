@@ -15,7 +15,7 @@ export default function HomePage() {
       <main className="min-h-screen relative overflow-hidden">
         <div className="fixed inset-0 w-full h-full">
           <Aurora
-            colorStops={["#475569", "#64748b", "#475569"]}
+            colorStops={["#DC2626", "#B91C1C", "#7F1D1D"]}
             amplitude={1.2}
             blend={0.6}
             speed={0.8}
