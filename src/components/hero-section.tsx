@@ -99,114 +99,114 @@ export function HeroSection() {
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
             <div className="flex items-center gap-8 transition-all duration-500 animate-slide-left">
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
                     alt="Amerikan Hastanesi"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Hastanesi"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
                     alt="Koç Üniversitesi"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
                     alt="Acıbadem Grup"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
                     alt="Siemens"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
                     alt="Amerikan Hastanesi"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Hastanesi"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
                     alt="Koç Üniversitesi"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
                     alt="Acıbadem Grup"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
                     alt="Siemens"
-                    width={96}
-                    height={48}
+                    width={144}
+                    height={72}
                     className="object-contain w-full h-full"
                   />
                 </div>
@@ -227,78 +227,78 @@ export function HeroSection() {
             <div className="absolute right-0 top-0 w-8 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
             <div className="flex items-center gap-6 animate-slide-left-mobile">
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
                     alt="Amerikan Hastanesi"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Hastanesi"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
                     alt="Koç Üniversitesi"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
                     alt="Amerikan Hastanesi"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Hastanesi"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
                     alt="Koç Üniversitesi"
-                    width={80}
-                    height={40}
+                    width={120}
+                    height={60}
                     className="object-contain w-full h-full"
                   />
                 </div>
