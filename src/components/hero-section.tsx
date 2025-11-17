@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import RotatingText from "./RotatingText";
+import Image from "next/image";
 
 const ArrowRight = () => (
   <svg
@@ -93,45 +94,121 @@ export function HeroSection() {
         {/* Trust Indicators */}
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
           <p className="text-sm text-white mb-6">
-            Trusted by University and Hospitals
+            Trusted by leading healthcare institutions
           </p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
-            <div className="flex items-center gap-8 opacity-60 hover:opacity-80 transition-all duration-500 animate-slide-left">
+            <div className="flex items-center gap-8 transition-all duration-500 animate-slide-left">
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold">
-                  TechCorp
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
+                    alt="Amerikan Hastanesi"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">
-                  InnovateLab
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Hastanesi"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">
-                  FutureScale
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">
-                  AutoFlow
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/koc-universitesi-logo.png"
+                    alt="Koç Üniversitesi"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">eScale</div>
-                <div className="text-base sm:text-lg font-semibold">
-                  DataFlow
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
+                    alt="Acıbadem Grup"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Siemens-logo.png"
+                    alt="Siemens"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold">
-                  TechCorp
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
+                    alt="Amerikan Hastanesi"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">
-                  InnovateLab
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Hastanesi"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">
-                  FutureScale
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">
-                  AutoFlow
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/koc-universitesi-logo.png"
+                    alt="Koç Üniversitesi"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="text-base sm:text-lg font-semibold">eScale</div>
-                <div className="text-base sm:text-lg font-semibold">
-                  DataFlow
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
+                    alt="Acıbadem Grup"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-24 h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Siemens-logo.png"
+                    alt="Siemens"
+                    width={96}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
               </div>
             </div>
@@ -141,30 +218,90 @@ export function HeroSection() {
         {/* Mobile Trust Indicators */}
         <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
           <p className="text-sm text-white mb-6">
-            Trusted by innovative companies worldwide
+            Trusted by leading healthcare institutions
           </p>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto">
             {/* Left blur fade */}
             <div className="absolute left-0 top-0 w-8 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
             {/* Right blur fade */}
             <div className="absolute right-0 top-0 w-8 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
-            <div className="flex items-center gap-6 opacity-60 animate-slide-left-mobile">
+            <div className="flex items-center gap-6 animate-slide-left-mobile">
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
+                    alt="Amerikan Hastanesi"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Hastanesi"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/koc-universitesi-logo.png"
+                    alt="Koç Üniversitesi"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
+                    alt="Amerikan Hastanesi"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Hastanesi"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="w-20 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/koc-universitesi-logo.png"
+                    alt="Koç Üniversitesi"
+                    width={80}
+                    height={40}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
               </div>
             </div>
           </div>

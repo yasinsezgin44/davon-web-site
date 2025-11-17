@@ -21,6 +21,183 @@ const navigation = [
 ];
 
 export function GlassmorphismNav() {
+  const renderDropdownItem = (
+    dropdownItem: { name: string; href: string },
+    dropdownIndex: number,
+    index: number,
+    isOpen: boolean
+  ) => (
+    <button
+      key={dropdownItem.name}
+      onClick={() => {
+        scrollToSection(dropdownItem.href);
+        setIsOpen(false);
+        setDropdownOpen(false);
+      }}
+      className={`text-white/70 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 w-full ${
+        isOpen ? "animate-mobile-menu-item" : ""
+      }`}
+      style={{
+        animationDelay: isOpen
+          ? `${(index + dropdownIndex + 1) * 80 + 100}ms`
+          : "0ms",
+      }}
+    >
+      {dropdownItem.name}
+    </button>
+  );
+
+  const renderDropdownNavItem = (
+    item: (typeof navigation)[0],
+    index: number,
+    isOpen: boolean
+  ) => (
+    <div key={item.name}>
+      <button
+        onClick={() => setDropdownOpen(!dropdownOpen)}
+        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 flex items-center justify-between w-full ${
+          isOpen ? "animate-mobile-menu-item" : ""
+        }`}
+        style={{
+          animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+        }}
+      >
+        {item.name}
+        <ChevronDown
+          size={16}
+          className={`transition-transform duration-200 ${
+            dropdownOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {dropdownOpen && (
+        <div className="ml-4 mt-1 space-y-1">
+          {item.dropdownItems?.map((dropdownItem, dropdownIndex) =>
+            renderDropdownItem(dropdownItem, dropdownIndex, index, isOpen)
+          )}
+        </div>
+      )}
+    </div>
+  );
+
+  const renderLinkNavItem = (
+    item: (typeof navigation)[0],
+    index: number,
+    isOpen: boolean
+  ) => (
+    <Link
+      key={item.name}
+      href={item.href}
+      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+        isOpen ? "animate-mobile-menu-item" : ""
+      }`}
+      style={{
+        animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+      }}
+      onClick={() => setIsOpen(false)}
+    >
+      {item.name}
+    </Link>
+  );
+
+  const renderButtonNavItem = (
+    item: (typeof navigation)[0],
+    index: number,
+    isOpen: boolean
+  ) => (
+    <button
+      key={item.name}
+      onClick={() => scrollToSection(item.href)}
+      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+        isOpen ? "animate-mobile-menu-item" : ""
+      }`}
+      style={{
+        animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+      }}
+    >
+      {item.name}
+    </button>
+  );
+
+  const renderMobileNavItem = (
+    item: (typeof navigation)[0],
+    index: number,
+    isOpen: boolean
+  ) => {
+    if (item.hasDropdown) {
+      return renderDropdownNavItem(item, index, isOpen);
+    }
+    if (item.href.startsWith("/")) {
+      return renderLinkNavItem(item, index, isOpen);
+    }
+    return renderButtonNavItem(item, index, isOpen);
+  };
+
+  const renderDesktopDropdownItem = (dropdownItem: {
+    name: string;
+    href: string;
+  }) => (
+    <button
+      key={dropdownItem.name}
+      onClick={() => scrollToSection(dropdownItem.href)}
+      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+    >
+      {dropdownItem.name}
+    </button>
+  );
+
+  const renderDesktopNavItem = (item: (typeof navigation)[0]) => {
+    if (item.hasDropdown) {
+      return (
+        <div
+          key={item.name}
+          className="relative dropdown-container"
+          onMouseEnter={() => setDropdownOpen(true)}
+          onMouseLeave={() => setDropdownOpen(false)}
+          onFocus={() => setDropdownOpen(true)}
+          onBlur={() => setDropdownOpen(false)}
+          tabIndex={0}
+        >
+          <button className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-1">
+            {item.name}
+            <ChevronDown
+              size={16}
+              className={`transition-transform duration-200 ${
+                dropdownOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          {dropdownOpen && (
+            <div className="absolute top-full mt-2 w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-lg py-2 z-50">
+              {item.dropdownItems?.map(renderDesktopDropdownItem)}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (item.href.startsWith("/")) {
+      return (
+        <Link
+          key={item.name}
+          href={item.href}
+          className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
+        >
+          {item.name}
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        key={item.name}
+        onClick={() => scrollToSection(item.href)}
+        className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
+      >
+        {item.name}
+      </button>
+    );
+  };
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -42,18 +219,9 @@ export function GlassmorphismNav() {
       }
     };
 
-    if (dropdownOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      clearTimeout(timer);
-    };
-
     const controlNavbar = () => {
-      if (typeof window !== "undefined") {
-        const currentScrollY = window.scrollY;
+      if (globalThis.window !== undefined) {
+        const currentScrollY = globalThis.window.scrollY;
 
         console.log(
           "[v0] Scroll event - currentScrollY:",
@@ -86,24 +254,29 @@ export function GlassmorphismNav() {
       }
     };
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar, { passive: true });
+    if (dropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    if (globalThis.window !== undefined) {
+      globalThis.window.addEventListener("scroll", controlNavbar, {
+        passive: true,
+      });
       console.log("[v0] Scroll listener added");
 
       return () => {
-        window.removeEventListener("scroll", controlNavbar);
+        globalThis.window.removeEventListener("scroll", controlNavbar);
+        document.removeEventListener("mousedown", handleClickOutside);
         clearTimeout(timer);
         console.log("[v0] Scroll listener removed");
       };
     }
 
-    return () => clearTimeout(timer);
-  }, []); // Removed lastScrollY dependency to prevent infinite re-renders
-
-  const scrollToTop = () => {
-    console.log("[v0] Scrolling to top");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      clearTimeout(timer);
+    };
+  }, [dropdownOpen]);
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("/")) {
@@ -117,7 +290,7 @@ export function GlassmorphismNav() {
 
       const rect = element.getBoundingClientRect();
       const currentScrollY =
-        window.pageYOffset || document.documentElement.scrollTop;
+        globalThis.window.pageYOffset || document.documentElement.scrollTop;
       const elementAbsoluteTop = rect.top + currentScrollY;
       const navbarHeight = 100;
       const targetPosition = Math.max(0, elementAbsoluteTop - navbarHeight);
@@ -127,7 +300,7 @@ export function GlassmorphismNav() {
       console.log("[v0] Element absolute top:", elementAbsoluteTop);
       console.log("[v0] Target scroll position:", targetPosition);
 
-      window.scrollTo({
+      globalThis.window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
       });
@@ -138,263 +311,137 @@ export function GlassmorphismNav() {
   };
 
   return (
-    <>
-      <nav
-        className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-          isVisible
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-20 md:-translate-y-24 opacity-0"
-        } ${
-          hasLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
-        style={{
-          transition: hasLoaded
-            ? "all 0.5s ease-out"
-            : "opacity 0.8s ease-out, transform 0.8s ease-out",
-        }}
-      >
-        {/* Main Navigation */}
-        <div className="w-[90vw] max-w-xs md:max-w-4xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-3 md:px-6 md:py-2">
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <Link
-                href="/"
-                className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer"
-              >
-                <div className="w-12 h-12 md:w-12 md:h-12 flex items-center justify-center">
-                  <Image
-                    src="/logo-white.webp"
-                    alt="davon logo"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </Link>
-
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
-                {navigation.map((item) =>
-                  item.hasDropdown ? (
-                    <div
-                      key={item.name}
-                      className="relative dropdown-container"
-                      onMouseEnter={() => setDropdownOpen(true)}
-                      onMouseLeave={() => setDropdownOpen(false)}
-                    >
-                      <button className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-1">
-                        {item.name}
-                        <ChevronDown
-                          size={16}
-                          className={`transition-transform duration-200 ${
-                            dropdownOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                      {dropdownOpen && (
-                        <div className="absolute top-full mt-2 w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-lg py-2 z-50">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <button
-                              key={dropdownItem.name}
-                              onClick={() => scrollToSection(dropdownItem.href)}
-                              className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
-                            >
-                              {dropdownItem.name}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : item.href.startsWith("/") ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
-                    >
-                      {item.name}
-                    </button>
-                  )
-                )}
+    <nav
+      className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 ${
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "-translate-y-20 md:-translate-y-24 opacity-0"
+      } ${
+        hasLoaded
+          ? "opacity-100 translate-y-0 nav-transition-loaded"
+          : "opacity-0 translate-y-4 nav-transition-initial"
+      }`}
+    >
+      {/* Main Navigation */}
+      <div className="w-[90vw] max-w-xs md:max-w-4xl mx-auto">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-3 md:px-6 md:py-2">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer"
+            >
+              <div className="w-12 h-12 md:w-12 md:h-12 flex items-center justify-center">
+                <Image
+                  src="/logo-white.webp"
+                  alt="davon logo"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
+                />
               </div>
+            </Link>
 
-              {/* Desktop CTA Button */}
-              <div className="hidden md:block">
-                <button
-                  className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
-                  onClick={() => scrollToSection("#contact")}
-                >
-                  <span className="mr-2">Contact</span>
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </button>
-              </div>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navigation.map(renderDesktopNavItem)}
+            </div>
 
-              {/* Mobile Menu Button */}
+            {/* Desktop CTA Button */}
+            <div className="hidden md:block">
               <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden text-white hover:scale-110 transition-transform duration-200 cursor-pointer"
+                className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
+                onClick={() => scrollToSection("#contact")}
               >
-                <div className="relative w-6 h-6">
-                  <Menu
-                    size={24}
-                    className={`absolute inset-0 transition-all duration-300 ${
-                      isOpen
-                        ? "opacity-0 rotate-180 scale-75"
-                        : "opacity-100 rotate-0 scale-100"
-                    }`}
-                  />
-                  <X
-                    size={24}
-                    className={`absolute inset-0 transition-all duration-300 ${
-                      isOpen
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-180 scale-75"
-                    }`}
-                  />
-                </div>
+                <span className="mr-2">Contact</span>
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-white hover:scale-110 transition-transform duration-200 cursor-pointer"
+              title={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              <div className="relative w-6 h-6">
+                <Menu
+                  size={24}
+                  className={`absolute inset-0 transition-all duration-300 ${
+                    isOpen
+                      ? "opacity-0 rotate-180 scale-75"
+                      : "opacity-100 rotate-0 scale-100"
+                  }`}
+                />
+                <X
+                  size={24}
+                  className={`absolute inset-0 transition-all duration-300 ${
+                    isOpen
+                      ? "opacity-100 rotate-0 scale-100"
+                      : "opacity-0 -rotate-180 scale-75"
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="md:hidden relative">
+        {/* Backdrop overlay */}
+        <button
+          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 backdrop-overlay ${
+            isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+          onClick={() => setIsOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+              setIsOpen(false);
+            }
+          }}
+          tabIndex={isOpen ? 0 : -1}
+          aria-label="Close menu"
+        />
+
+        {/* Menu container */}
+        <div
+          className={`mt-2 w-[90vw] max-w-xs mx-auto transition-all duration-500 ease-out transform-gpu ${
+            isOpen
+              ? "opacity-100 translate-y-0 scale-100"
+              : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
+          }`}
+        >
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-2xl">
+            <div className="flex flex-col space-y-1">
+              {navigation.map((item, index) =>
+                renderMobileNavItem(item, index, isOpen)
+              )}
+              <div className="h-px bg-white/10 my-2" />
+              <button
+                className={`relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
+                  isOpen ? "animate-mobile-menu-item" : ""
+                }`}
+                style={{
+                  animationDelay: isOpen
+                    ? `${navigation.length * 80 + 150}ms`
+                    : "0ms",
+                }}
+                onClick={() => scrollToSection("#contact")}
+              >
+                <span className="mr-2">Contact</span>
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
               </button>
             </div>
           </div>
         </div>
-
-        <div className="md:hidden relative">
-          {/* Backdrop overlay */}
-          <div
-            className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 ${
-              isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-            onClick={() => setIsOpen(false)}
-            style={{ top: "0", left: "0", right: "0", bottom: "0", zIndex: -1 }}
-          />
-
-          {/* Menu container */}
-          <div
-            className={`mt-2 w-[90vw] max-w-xs mx-auto transition-all duration-500 ease-out transform-gpu ${
-              isOpen
-                ? "opacity-100 translate-y-0 scale-100"
-                : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
-            }`}
-          >
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-2xl">
-              <div className="flex flex-col space-y-1">
-                {navigation.map((item, index) =>
-                  item.hasDropdown ? (
-                    <div key={item.name}>
-                      <button
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
-                        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 flex items-center justify-between w-full ${
-                          isOpen ? "animate-mobile-menu-item" : ""
-                        }`}
-                        style={{
-                          animationDelay: isOpen
-                            ? `${index * 80 + 100}ms`
-                            : "0ms",
-                        }}
-                      >
-                        {item.name}
-                        <ChevronDown
-                          size={16}
-                          className={`transition-transform duration-200 ${
-                            dropdownOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                      {dropdownOpen && (
-                        <div className="ml-4 mt-1 space-y-1">
-                          {item.dropdownItems?.map(
-                            (dropdownItem, dropdownIndex) => (
-                              <button
-                                key={dropdownItem.name}
-                                onClick={() => {
-                                  scrollToSection(dropdownItem.href);
-                                  setIsOpen(false);
-                                  setDropdownOpen(false);
-                                }}
-                                className={`text-white/70 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 w-full ${
-                                  isOpen ? "animate-mobile-menu-item" : ""
-                                }`}
-                                style={{
-                                  animationDelay: isOpen
-                                    ? `${
-                                        (index + dropdownIndex + 1) * 80 + 100
-                                      }ms`
-                                    : "0ms",
-                                }}
-                              >
-                                {dropdownItem.name}
-                              </button>
-                            )
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  ) : item.href.startsWith("/") ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
-                        isOpen ? "animate-mobile-menu-item" : ""
-                      }`}
-                      style={{
-                        animationDelay: isOpen
-                          ? `${index * 80 + 100}ms`
-                          : "0ms",
-                      }}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
-                        isOpen ? "animate-mobile-menu-item" : ""
-                      }`}
-                      style={{
-                        animationDelay: isOpen
-                          ? `${index * 80 + 100}ms`
-                          : "0ms",
-                      }}
-                    >
-                      {item.name}
-                    </button>
-                  )
-                )}
-                <div className="h-px bg-white/10 my-2" />
-                <button
-                  className={`relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
-                    isOpen ? "animate-mobile-menu-item" : ""
-                  }`}
-                  style={{
-                    animationDelay: isOpen
-                      ? `${navigation.length * 80 + 150}ms`
-                      : "0ms",
-                  }}
-                  onClick={() => scrollToSection("#contact")}
-                >
-                  <span className="mr-2">Contact</span>
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }
