@@ -77,16 +77,7 @@ export function TestimonialsSection() {
     <section id="testimonials" ref={sectionRef} className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-10">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "80px 80px",
-          }}
-        />
+        <div className="h-full w-full testimonials-grid-bg" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
@@ -107,13 +98,7 @@ export function TestimonialsSection() {
 
         {/* Testimonials Carousel */}
         <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out relative flex justify-center items-center min-h-[600px] md:min-h-[800px] overflow-hidden">
-          <div
-            className="flex gap-8 max-w-6xl"
-            style={{
-              maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-            }}
-          >
+          <div className="flex gap-8 max-w-6xl testimonials-mask">
             <TestimonialsColumn testimonials={testimonials.slice(0, 3)} duration={15} className="flex-1" />
             <TestimonialsColumn
               testimonials={testimonials.slice(2, 5)}
