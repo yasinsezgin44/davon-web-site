@@ -10,9 +10,5 @@
   body {
     @apply antialiased;
   }
-
-  a {
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950;
-  }
 }
 
