@@ -162,12 +162,12 @@ export function GlassmorphismNav() {
                 href="/"
                 className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer"
               >
-                <div className="w-10 h-10 md:w-10 md:h-10 flex items-center justify-center">
+                <div className="w-12 h-12 md:w-12 md:h-12 flex items-center justify-center">
                   <Image
                     src="/logo-white.webp"
                     alt="davon logo"
-                    width={40}
-                    height={40}
+                    width={48}
+                    height={48}
                     className="w-full h-full object-contain"
                   />
                 </div>

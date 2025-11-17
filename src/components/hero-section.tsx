@@ -93,7 +93,7 @@ export function HeroSection() {
         {/* Trust Indicators */}
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
           <p className="text-sm text-white mb-6">
-            Trusted by innovative companies worldwide
+            Trusted by University and Hospitals
           </p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
             <div className="flex items-center gap-8 opacity-60 hover:opacity-80 transition-all duration-500 animate-slide-left">
