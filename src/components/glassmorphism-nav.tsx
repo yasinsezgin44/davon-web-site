@@ -1,27 +1,52 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Menu, X, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 const navigation = [
-  { name: "Dentists", href: "#features" },
-  { name: "Barbers & Salons", href: "#ai-team" },
-  { name: "Restaurants", href: "#testimonials" },
-  { name: "Car Dealerships", href: "/car-dealerships" },
+  { name: "Home Page", href: "#hero" },
+  {
+    name: "Davon",
+    href: "#",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "About Davon", href: "#about" },
+      { name: "Why Choose Us?", href: "#why-choose-us" },
+    ]
+  },
+  { name: "Features", href: "#features" },
+  { name: "R&D", href: "#rnd" },
 ]
 
 export function GlassmorphismNav() {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [hasLoaded, setHasLoaded] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
   const lastScrollY = useRef(0)
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setHasLoaded(true)
     }, 100)
+
+    // Close dropdown when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownOpen && !(event.target as Element).closest('.dropdown-container')) {
+        setDropdownOpen(false)
+      }
+    }
+
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      clearTimeout(timer)
+    }
 
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
@@ -133,7 +158,37 @@ export function GlassmorphismNav() {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8">
                 {navigation.map((item) =>
-                  item.href.startsWith("/") ? (
+                  item.hasDropdown ? (
+                    <div
+                      key={item.name}
+                      className="relative dropdown-container"
+                      onMouseEnter={() => setDropdownOpen(true)}
+                      onMouseLeave={() => setDropdownOpen(false)}
+                    >
+                      <button
+                        className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-1"
+                      >
+                        {item.name}
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      {dropdownOpen && (
+                        <div className="absolute top-full mt-2 w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-lg py-2 z-50">
+                          {item.dropdownItems?.map((dropdownItem) => (
+                            <button
+                              key={dropdownItem.name}
+                              onClick={() => scrollToSection(dropdownItem.href)}
+                              className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+                            >
+                              {dropdownItem.name}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : item.href.startsWith("/") ? (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -159,7 +214,7 @@ export function GlassmorphismNav() {
                   className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-2">Get Started</span>
+                  <span className="mr-2">Contact</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
@@ -207,7 +262,47 @@ export function GlassmorphismNav() {
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-2xl">
               <div className="flex flex-col space-y-1">
                 {navigation.map((item, index) =>
-                  item.href.startsWith("/") ? (
+                  item.hasDropdown ? (
+                    <div key={item.name}>
+                      <button
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 flex items-center justify-between w-full ${
+                          isOpen ? "animate-mobile-menu-item" : ""
+                        }`}
+                        style={{
+                          animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+                        }}
+                      >
+                        {item.name}
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      {dropdownOpen && (
+                        <div className="ml-4 mt-1 space-y-1">
+                          {item.dropdownItems?.map((dropdownItem, dropdownIndex) => (
+                            <button
+                              key={dropdownItem.name}
+                              onClick={() => {
+                                scrollToSection(dropdownItem.href)
+                                setIsOpen(false)
+                                setDropdownOpen(false)
+                              }}
+                              className={`text-white/70 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 w-full ${
+                                isOpen ? "animate-mobile-menu-item" : ""
+                              }`}
+                              style={{
+                                animationDelay: isOpen ? `${(index + dropdownIndex + 1) * 80 + 100}ms` : "0ms",
+                              }}
+                            >
+                              {dropdownItem.name}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : item.href.startsWith("/") ? (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -246,7 +341,7 @@ export function GlassmorphismNav() {
                   }}
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-2">Get Started</span>
+                  <span className="mr-2">Contact</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
