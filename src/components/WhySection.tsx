@@ -3,10 +3,11 @@ export default function WhySection() {
     <section id="why" className="section-muted">
       <div className="container-narrow section-padding">
         <div className="text-center mb-16">
-          <h2 className="text-balance mb-6">
-            Why Healthcare Institutions Choose Davon
+          <p className="section-eyebrow mb-3">Why Davon</p>
+          <h2 className="section-heading text-balance mb-4">
+            Why healthcare institutions choose Davon
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="section-subtitle max-w-3xl mx-auto">
             We combine deep healthcare expertise with innovative technology to
             deliver solutions that prioritize patient safety while maximizing
             operational efficiency. From specialized CMMS capabilities to

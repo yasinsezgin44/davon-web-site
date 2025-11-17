@@ -36,7 +36,7 @@ function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
       <div className="container-page">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-6">
           {/* Logo */}
           <Link
             href="#hero"
@@ -60,40 +60,40 @@ function SiteHeader() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
             <a
               href="#about"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="nav-link"
             >
-              About Davon
+              Solutions
             </a>
             <a
               href="#why"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="nav-link"
             >
-              Why Choose Us?
+              Why Davon
             </a>
             <a
               href="#features"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="nav-link"
             >
-              Features
+              Product
             </a>
             <a
               href="#benefits"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="nav-link"
             >
-              Key Benefits
+              Benefits
             </a>
             <a
-              href="#rd"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              href="#roi"
+              className="nav-link"
             >
-              R&amp;D
+              ROI
             </a>
             <a
               href="#contact"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="nav-link"
             >
               Contact
             </a>
@@ -103,12 +103,12 @@ function SiteHeader() {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="hidden md:inline-flex text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="hidden md:inline-flex text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               Contact sales
             </a>
-            <a href="#hero" className="btn-primary">
-              Book a demo
+            <a href="#hero" className="btn-primary whitespace-nowrap">
+              Start now – it&apos;s free
             </a>
           </div>
         </div>

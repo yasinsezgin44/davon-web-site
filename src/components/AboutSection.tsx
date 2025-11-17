@@ -1,14 +1,16 @@
 export default function AboutSection() {
   return (
     <section id="about" className="section-padding">
-      <div className="container-narrow">
+      <div className="container-page">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
             <div>
-              <h2 className="text-balance mb-6">
-                20+ Years of Healthcare Innovation
+              <p className="section-eyebrow mb-3">About Davon</p>
+              <h2 className="section-heading text-balance mb-4">
+                20+ years of innovation in hospital maintenance and asset
+                management
               </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-4 section-subtitle max-w-xl">
                 <p>
                   Davon enhances the operational efficiency of healthcare
                   institutions and contributes to their success through the
@@ -28,7 +30,7 @@ export default function AboutSection() {
           </div>
 
           <div className="card card-hover p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">
               Global Innovation, Local Trust
             </h3>
             <div className="grid grid-cols-2 gap-6">

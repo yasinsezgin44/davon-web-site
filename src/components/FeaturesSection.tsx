@@ -23,10 +23,11 @@ export default function FeaturesSection() {
     <section id="features" className="section-padding">
       <div className="container-narrow">
         <div className="text-center mb-16">
-          <h2 className="text-balance mb-6">
-            Comprehensive Healthcare Solutions
+          <p className="section-eyebrow mb-3">Product</p>
+          <h2 className="section-heading text-balance mb-4">
+            All your maintenance and asset workflows in one place
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="section-subtitle max-w-3xl mx-auto">
             A complete suite of healthcare-specific solutions designed to
             streamline maintenance, optimize asset management, and ensure
             operational excellence across your entire institution.

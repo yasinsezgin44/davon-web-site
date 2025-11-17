@@ -15,17 +15,14 @@ export default function StatsAndRoiSection() {
   ];
 
   return (
-    <section className="section-padding bg-white">
+    <section id="roi" className="section-padding bg-white">
       <div className="container-narrow">
         <div className="text-center mb-16">
-          <div className="pill mb-6">
-            <span className="h-2 w-2 rounded-full bg-red-600" />
-            <span>ROI Calculator</span>
-          </div>
-          <h2 className="text-balance mb-6">
-            Measure Your Return on Smarter Maintenance
+          <p className="section-eyebrow mb-3">ROI calculator</p>
+          <h2 className="section-heading text-balance mb-4">
+            Measure your return on smarter maintenance
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="section-subtitle max-w-3xl mx-auto">
             Digitizing maintenance and asset management with Davon delivers
             measurable improvements in efficiency, cost savings, and equipment
             reliability. Calculate your potential ROI using these industry

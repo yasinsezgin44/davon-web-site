@@ -6,6 +6,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ExcellenceSection from "@/components/ExcellenceSection";
 import StatsAndRoiSection from "@/components/StatsAndRoiSection";
+import TestimonialSection from "@/components/TestimonialSection";
 import NewsletterSection from "@/components/NewsletterSection";
 import FinalCtaSection from "@/components/FinalCtaSection";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <BenefitsSection />
       <ExcellenceSection />
       <StatsAndRoiSection />
+      <TestimonialSection />
       <NewsletterSection />
       <FinalCtaSection />
     </div>
