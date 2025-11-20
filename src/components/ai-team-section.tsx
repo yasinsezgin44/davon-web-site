@@ -170,14 +170,13 @@ export function AITeamSection() {
                         </div>
 
                         {/* Count app carousel */}
-                        <div className="relative w-full aspect-[9/19] bg-black">
+                        <div className="relative w-full aspect-[9/19] bg-black overflow-hidden rounded-[1.5rem]">
                           <Image
-                            key={screenshots[currentScreenshot]}
                             src={screenshots[currentScreenshot]}
                             alt="Davon Count App used to count hospital equipment"
                             fill
                             sizes="(min-width: 1024px) 24rem, 100vw"
-                            className="object-contain transition-opacity duration-700"
+                            className="object-cover object-top transition-opacity duration-700"
                           />
 
                           {/* Carousel dots */}

@@ -74,7 +74,7 @@ export function TestimonialsSection() {
   ]
 
   return (
-    <section id="testimonials" ref={sectionRef} className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" ref={sectionRef} className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-black">
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="h-full w-full testimonials-grid-bg" />
