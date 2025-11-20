@@ -55,7 +55,7 @@ export function GlassmorphismNav() {
     <div key={item.name}>
       <button
         onClick={() => setDropdownOpen(!dropdownOpen)}
-        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 flex items-center justify-between w-full ${
+        className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 flex items-center justify-between w-full nav-text-glow ${
           isOpen ? "animate-mobile-menu-item" : ""
         }`}
         style={{
@@ -88,7 +88,7 @@ export function GlassmorphismNav() {
     <Link
       key={item.name}
       href={item.href}
-      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 nav-text-glow ${
         isOpen ? "animate-mobile-menu-item" : ""
       }`}
       style={{
@@ -108,7 +108,7 @@ export function GlassmorphismNav() {
     <button
       key={item.name}
       onClick={() => scrollToSection(item.href)}
-      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 nav-text-glow ${
         isOpen ? "animate-mobile-menu-item" : ""
       }`}
       style={{
@@ -158,7 +158,7 @@ export function GlassmorphismNav() {
           onBlur={() => setDropdownOpen(false)}
           tabIndex={0}
         >
-          <button className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-1">
+          <button className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer flex items-center gap-1 nav-text-glow">
             {item.name}
             <ChevronDown
               size={16}
@@ -181,7 +181,7 @@ export function GlassmorphismNav() {
         <Link
           key={item.name}
           href={item.href}
-          className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
+          className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer nav-text-glow"
         >
           {item.name}
         </Link>
@@ -192,7 +192,7 @@ export function GlassmorphismNav() {
       <button
         key={item.name}
         onClick={() => scrollToSection(item.href)}
-        className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
+        className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer nav-text-glow"
       >
         {item.name}
       </button>
@@ -329,7 +329,7 @@ export function GlassmorphismNav() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer"
+              className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer nav-text-glow"
             >
               <div className="w-12 h-12 md:w-12 md:h-12 flex items-center justify-center">
                 <Image
@@ -350,7 +350,7 @@ export function GlassmorphismNav() {
             {/* Desktop CTA Button */}
             <div className="hidden md:block">
               <button
-                className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
+                className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group nav-text-glow"
                 onClick={() => scrollToSection("#contact")}
               >
                 <span className="mr-2">Contact</span>

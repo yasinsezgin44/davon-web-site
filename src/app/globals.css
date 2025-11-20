@@ -896,6 +896,13 @@
   z-index: -1;
 }
 
+/* Improve nav text legibility on light backgrounds without changing color */
+.nav-text-glow {
+  text-shadow:
+    0 0 6px rgba(0, 0, 0, 0.45),
+    0 0 14px rgba(0, 0, 0, 0.35);
+}
+
 /* Testimonials Section Styles */
 .testimonials-grid-bg {
   background-image:
