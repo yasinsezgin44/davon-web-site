@@ -329,7 +329,7 @@ export function GlassmorphismNav() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer nav-text-glow"
+              className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer nav-text-glow ml-1 md:ml-2"
             >
               <div className="w-12 h-12 md:w-12 md:h-12 flex items-center justify-center">
                 <Image
@@ -337,7 +337,7 @@ export function GlassmorphismNav() {
                   alt="davon logo"
                   width={48}
                   height={48}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain scale-150 md:scale-175 transform-gpu"
                 />
               </div>
             </Link>

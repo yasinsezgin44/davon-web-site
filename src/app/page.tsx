@@ -8,12 +8,26 @@ import { TestimonialsSection } from "@/components/testimonials-section";
 import { ROICalculatorSection } from "@/components/roi-calculator-section";
 import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
-        <div className="fixed inset-0 w-full h-full">
+        {/* Background MRI image with Davon girl */}
+        <div className="fixed inset-0 z-0">
+          <Image
+            src="/davon-girl/davon-girl-mri-fix.png"
+            alt="Biomedical engineer standing by MRI scanner"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+
+        {/* Red aurora overlay, rendered above background image */}
+        <div className="fixed inset-0 w-full h-full z-10 pointer-events-none">
           <Aurora
             colorStops={["#DC2626", "#B91C1C", "#7F1D1D"]}
             amplitude={1.2}
@@ -21,7 +35,8 @@ export default function HomePage() {
             speed={0.8}
           />
         </div>
-        <div className="relative z-10">
+        {/* Page content above aurora and background image */}
+        <div className="relative z-20">
           <GlassmorphismNav />
           <HeroSection />
           <ProblemSolutionSection />
