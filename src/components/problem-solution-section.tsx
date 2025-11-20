@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const AlertTriangle = () => (
@@ -215,9 +216,71 @@ export function ProblemSolutionSection() {
           </div>
         </div>
 
+        {/* Visual Before/After: Chaos vs Clarity */}
+        <div
+          className={`grid lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16 transition-all duration-1000 delay-600 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {/* Chaos Image */}
+          <div className="group">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <Image
+                src="/mri-chaos.png"
+                alt="Biomedical engineer stressed in front of MRI with red error alerts on the screen"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-red-300/80 mb-1">
+                    Before Davon
+                  </p>
+                  <p className="text-sm sm:text-base font-semibold text-white">
+                    Chaos & Unplanned Downtime
+                  </p>
+                </div>
+                <span className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-red-500/80 text-xs font-medium text-white backdrop-blur">
+                  Chaos
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Clarity Image */}
+          <div className="group">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <Image
+                src="/calm-mri.png"
+                alt="Biomedical engineer confidently standing beside MRI with a clean analytics dashboard"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-emerald-200/80 mb-1">
+                    With Davon
+                  </p>
+                  <p className="text-sm sm:text-base font-semibold text-white">
+                    Clarity, Control & Uptime
+                  </p>
+                </div>
+                <span className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-emerald-500/80 text-xs font-medium text-white backdrop-blur">
+                  Clarity
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Stats Row */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 transition-all duration-1000 delay-600 ${
+          className={`grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 transition-all duration-1000 delay-[750ms] ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
