@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 
-export function AiTeamDealershipSection() {
+export function HealthcareSupportSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [callsToday, setCallsToday] = useState(142)

@@ -24,7 +24,7 @@ const AlertIcon = () => (
   </svg>
 )
 
-export function DealershipHeroHeader() {
+export function HealthcareRoiHeader() {
   const [counter, setCounter] = useState(0)
   const targetValue = 200
 

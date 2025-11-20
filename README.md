@@ -1,16 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Davon.Health Website
+
+This is the frontend implementation of the Davon.Health website, a healthcare EAM/CMMS platform built with [Next.js](https://nextjs.org).
+
+## About Davon.Health
+
+Davon.Health provides the EAM/CMMS platform for healthcare institutions. Manage critical assets, maintain audit-proof compliance, and protect patient outcomes with our comprehensive healthcare asset management solution.
+
+## Tech Stack
+
+- **Framework:** Next.js 16
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** Radix UI
+- **Animations:** Framer Motion, GSAP
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
 # or
+yarn install
 yarn dev
 # or
+pnpm install
 pnpm dev
 # or
+bun install
 bun dev
 ```
 
@@ -18,7 +37,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
+
+- `src/app/` - Next.js app router pages and layouts
+- `src/components/` - Reusable React components
+- `src/components/ui/` - UI component library (Radix UI)
+- `src/lib/` - Utility functions and configurations
+- `public/` - Static assets and images
 
 ## Learn More
 
