@@ -4,9 +4,21 @@ import { useEffect, useRef, useState } from "react"
 
 const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
   const [messages, setMessages] = useState([
-    { text: "Hi! How can I help you today?", isBot: true, visible: false },
-    { text: "I'd like to book an appointment", isBot: false, visible: false },
-    { text: "Perfect! I can help with that. What service are you interested in?", isBot: true, visible: false },
+    {
+      text: "Monitoring MRI-3: performance looks stable.",
+      isBot: true,
+      visible: false,
+    },
+    {
+      text: "Any assets at risk for today?",
+      isBot: false,
+      visible: false,
+    },
+    {
+      text: "CT-2 is drifting from baseline. Recommending inspection within 24 hours.",
+      isBot: true,
+      visible: false,
+    },
   ])
   const [typingDots, setTypingDots] = useState(0)
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -24,19 +36,37 @@ const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
 
     const scenarios = [
       [
-        { text: "Hi! How can I help you today?", isBot: true },
-        { text: "I'd like to book an appointment", isBot: false },
-        { text: "Perfect! I can help with that. What service are you interested in?", isBot: true },
+        {
+          text: "Monitoring MRI-3: performance looks stable.",
+          isBot: true,
+        },
+        { text: "Any assets at risk for today?", isBot: false },
+        {
+          text: "CT-2 is drifting from baseline. Recommending inspection within 24 hours.",
+          isBot: true,
+        },
       ],
       [
-        { text: "Hello! I'm available 24/7 to assist you.", isBot: true },
-        { text: "Do you have weekend availability?", isBot: false },
-        { text: "I can check our weekend slots for you.", isBot: true },
+        {
+          text: "Hello! Davon is watching all critical imaging 24/7.",
+          isBot: true,
+        },
+        { text: "Show me assets with rising failure risk.", isBot: false },
+        {
+          text: "3 systems above threshold. I've prioritized them by clinical impact.",
+          isBot: true,
+        },
       ],
       [
-        { text: "Good evening! How may I assist you?", isBot: true },
-        { text: "I need help with pricing", isBot: false },
-        { text: "I'd be happy to provide pricing information right away!", isBot: true },
+        {
+          text: "Good evening! OR ventilators and anesthesia machines are green.",
+          isBot: true,
+        },
+        { text: "Can we delay service on CT-1?", isBot: false },
+        {
+          text: "Yes. Utilization is low and risk is stable. I'll reschedule to next week.",
+          isBot: true,
+        },
       ],
     ]
 
@@ -73,7 +103,7 @@ const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
     <div className="bg-slate-50 rounded-lg p-4 h-32 overflow-hidden relative">
       <div className="absolute top-2 right-2 flex items-center gap-1">
         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        <span className="text-xs text-slate-500 font-medium">24/7</span>
+        <span className="text-xs text-slate-500 font-medium">Live</span>
       </div>
       <div className="space-y-2">
         {messages.map((msg, i) => (
@@ -114,7 +144,9 @@ const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
 }
 
 const AnimatedPhoneDemo = ({ isActive }: { isActive: boolean }) => {
-  const [callState, setCallState] = useState<"idle" | "ringing" | "answered">("idle")
+  const [callState, setCallState] = useState<"idle" | "ringing" | "answered">(
+    "idle",
+  )
   const [callCount, setCallCount] = useState(0)
 
   useEffect(() => {
@@ -138,7 +170,9 @@ const AnimatedPhoneDemo = ({ isActive }: { isActive: boolean }) => {
 
   return (
     <div className="bg-slate-50 rounded-lg p-4 h-32 flex items-center justify-center relative">
-      <div className="absolute top-2 right-2 text-xs text-slate-500 font-medium">Calls: {callCount + 1}</div>
+      <div className="absolute top-2 right-2 text-xs text-slate-500 font-medium">
+        Work orders: {callCount + 1}
+      </div>
       <div className="relative">
         <div
           className={`w-16 h-16 rounded-full bg-green-500 flex items-center justify-center transition-all duration-500 ${
@@ -157,7 +191,9 @@ const AnimatedPhoneDemo = ({ isActive }: { isActive: boolean }) => {
         )}
         {callState === "answered" && (
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-            <div className="bg-blue-100 px-2 py-1 rounded text-xs text-blue-700 whitespace-nowrap">Call answered</div>
+            <div className="bg-blue-100 px-2 py-1 rounded text-xs text-blue-700 whitespace-nowrap">
+              Ticket assigned
+            </div>
           </div>
         )}
       </div>
@@ -201,7 +237,9 @@ const AnimatedCalendarDemo = ({ isActive }: { isActive: boolean }) => {
         ))}
       </div>
       {booked && (
-        <div className="mt-2 text-xs text-green-600 font-medium animate-fade-in">✓ Appointment booked for the 15th</div>
+        <div className="mt-2 text-xs text-green-600 font-medium animate-fade-in">
+          ✓ Downtime scheduled with clinical team
+        </div>
       )}
     </div>
   )
@@ -209,9 +247,9 @@ const AnimatedCalendarDemo = ({ isActive }: { isActive: boolean }) => {
 
 const AnimatedEmailDemo = ({ isActive }: { isActive: boolean }) => {
   const [emails, setEmails] = useState([
-    { subject: "Service inquiry", status: "unread" },
-    { subject: "Appointment request", status: "unread" },
-    { subject: "Quote needed", status: "unread" },
+    { subject: "JCI audit follow‑up", status: "unread" },
+    { subject: "Missed PM task", status: "unread" },
+    { subject: "Critical alert summary", status: "unread" },
   ])
 
   useEffect(() => {
@@ -257,9 +295,9 @@ const AnimatedEmailDemo = ({ isActive }: { isActive: boolean }) => {
 
 const AnimatedLeadsDemo = ({ isActive }: { isActive: boolean }) => {
   const [leads, setLeads] = useState([
-    { name: "Sarah M.", score: 0, qualified: false },
-    { name: "John D.", score: 0, qualified: false },
-    { name: "Mike R.", score: 0, qualified: false },
+    { name: "MRI-3", score: 0, qualified: false },
+    { name: "CT-2", score: 0, qualified: false },
+    { name: "Linac-1", score: 0, qualified: false },
   ])
 
   useEffect(() => {
@@ -294,7 +332,7 @@ const AnimatedLeadsDemo = ({ isActive }: { isActive: boolean }) => {
       <div className="space-y-2">
         {leads.map((lead, i) => (
           <div key={i} className="flex items-center gap-2">
-            <span className="text-xs text-slate-700 w-12">{lead.name}</span>
+            <span className="text-xs text-slate-700 w-16">{lead.name}</span>
             <div className="flex-1 bg-slate-200 rounded-full h-2">
               <div
                 className={`h-2 rounded-full transition-all duration-500 ${
@@ -314,10 +352,10 @@ const AnimatedLeadsDemo = ({ isActive }: { isActive: boolean }) => {
 
 const AnimatedIntegrationsDemo = ({ isActive }: { isActive: boolean }) => {
   const [connections, setConnections] = useState([
-    { name: "CRM", connected: false },
-    { name: "WhatsApp", connected: false },
-    { name: "Calendar", connected: false },
-    { name: "Email", connected: false },
+    { name: "CMMS", connected: false },
+    { name: "IoT Gateway", connected: false },
+    { name: "EHR", connected: false },
+    { name: "BMS", connected: false },
   ])
 
   useEffect(() => {
@@ -361,44 +399,44 @@ const AnimatedIntegrationsDemo = ({ isActive }: { isActive: boolean }) => {
 
 const features = [
   {
-    title: "24/7 AI Chat Support",
+    title: "Predictive Asset Monitoring",
     description:
-      "Intelligent chatbots that handle customer inquiries, answer questions, and capture leads across your website and social channels.",
+      "Continuous AI monitoring for MRI, CT, lab, and OR equipment so you see issues days before they become downtime.",
     demo: AnimatedChatDemo,
     size: "large",
   },
   {
-    title: "AI Phone Receptionist",
+    title: "Smart Work Order Automation",
     description:
-      "Professional AI voice assistant that answers calls, takes messages, and books appointments when you're busy or closed.",
+      "Automatically generates and routes work orders based on real‑time risk, utilization, and clinical priorities.",
     demo: AnimatedPhoneDemo,
     size: "medium",
   },
   {
-    title: "Smart Appointment Booking",
+    title: "Downtime-Aware Scheduling",
     description:
-      "Automated scheduling system that checks availability, books appointments, and sends confirmations without human intervention.",
+      "Coordinate maintenance windows with radiology, surgery, and wards so you fix equipment without disrupting care.",
     demo: AnimatedCalendarDemo,
     size: "medium",
   },
   {
-    title: "Email Response Automation",
+    title: "Compliance & Audit Copilot",
     description:
-      "AI-powered email assistant that responds to inquiries, provides information, and forwards complex queries to your team.",
+      "Keeps PMs, calibrations, and documentation on track—and surfaces gaps before your next JCI or ministry audit.",
     demo: AnimatedEmailDemo,
     size: "large",
   },
   {
-    title: "Lead Qualification & Handoff",
+    title: "Asset Risk Scoring",
     description:
-      "Intelligent system that qualifies prospects, gathers key information, and seamlessly hands off hot leads to your sales team.",
+      "Dynamic health scores for every critical device so your team knows exactly where to focus time and budget.",
     demo: AnimatedLeadsDemo,
     size: "medium",
   },
   {
-    title: "Multi-Platform Integration",
+    title: "Hospital System Integrations",
     description:
-      "Connect with your existing tools including CRM, calendar, WhatsApp, SMS, and more for a unified customer experience.",
+      "Connect Davon with your CMMS, IoT sensors, EHR, and BMS to get a single, trusted view of asset health.",
     demo: AnimatedIntegrationsDemo,
     size: "medium",
   },
@@ -472,17 +510,17 @@ export function FeaturesSection() {
               <svg className="w-4 h-4 mr-2 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V7H1V9H3V15H1V17H3V21C3 22.11 3.89 23 5 23H19C20.11 23 21 22.11 21 21V17H23V15H21V9H23ZM19 9V15H5V9H19ZM7.5 11.5C7.5 10.67 8.17 10 9 10S10.5 10.67 10.5 11.5 9.83 13 9 13 7.5 12.33 7.5 11.5ZM13.5 11.5C13.5 10.67 14.17 10 15 10S16.5 10.67 16.5 11.5 15.83 13 15 13 13.5 12.33 13.5 11.5ZM12 16C13.11 16 14.08 16.59 14.71 17.5H9.29C9.92 16.59 10.89 16 12 16Z" />
               </svg>
-              AI Working 24/7 - Never Miss a Lead
+              Continuous Monitoring 24/7 - Never Miss a Failure
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 text-balance mb-4 sm:mb-6">
-              Your AI Team{" "}
+              Your Equipment{" "}
               <span className="bg-gradient-to-r from-slate-600 to-slate-400 bg-clip-text text-transparent">
                 Never Sleeps
               </span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Watch our AI handle real customer interactions around the clock, automatically qualifying leads and
-              booking appointments while you focus on growing your business.
+              Davon watches every critical device across your hospitals around the clock, predicting failures, protecting
+              uptime, and keeping you audit‑ready while your team focuses on patient care.
             </p>
           </div>
 
