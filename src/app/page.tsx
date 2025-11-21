@@ -1,31 +1,29 @@
-import { GlassmorphismNav } from "@/components/glassmorphism-nav";
-import { HeroSection } from "@/components/hero-section";
-import { ProblemSolutionSection } from "@/components/problem-solution-section";
-import { FeaturesSection } from "@/components/features-section";
-import { AITeamSection } from "@/components/ai-team-section";
-import { TestimonialsSection } from "@/components/testimonials-section";
-import { ROICalculatorSection } from "@/components/roi-calculator-section";
-import { CTASection } from "@/components/cta-section";
-import { Footer } from "@/components/footer";
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import ReferenceLogos from "@/components/ReferenceLogos";
+import AboutSection from "@/components/AboutSection";
+import WhySection from "@/components/WhySection";
+import FeaturesSection from "@/components/FeaturesSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import ExcellenceSection from "@/components/ExcellenceSection";
+import StatsAndRoiSection from "@/components/StatsAndRoiSection";
+import TestimonialSection from "@/components/TestimonialSection";
+import NewsletterSection from "@/components/NewsletterSection";
+import FinalCtaSection from "@/components/FinalCtaSection";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-black overflow-hidden">
-      <main className="min-h-screen relative overflow-hidden">
-        {/* Page content above aurora and background image */}
-        <div className="relative z-20">
-          <GlassmorphismNav />
-          <HeroSection />
-          <ProblemSolutionSection />
-          <FeaturesSection />
-          <AITeamSection />
-          <TestimonialsSection />
-          <ROICalculatorSection />
-          <CTASection />
-          <Footer />
-        </div>
-      </main>
+    <div className="pb-16">
+      <HeroSection />
+      <ReferenceLogos />
+      <AboutSection />
+      <WhySection />
+      <FeaturesSection />
+      <BenefitsSection />
+      <ExcellenceSection />
+      <StatsAndRoiSection />
+      <TestimonialSection />
+      <NewsletterSection />
+      <FinalCtaSection />
     </div>
   );
 }
