@@ -2,12 +2,17 @@ import type React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import { Inter, Dancing_Script, Caveat } from "next/font/google";
 import "./globals.css";
 import { PageTransition } from "@/components/page-transition";
 import { NavigationTransition } from "@/components/navigation-transition";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Dancing_Script, Caveat } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -35,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-[var(--davon-bg)] text-[var(--davon-text)] antialiased`}
+        className={`${inter.variable} ${dancingScript.variable} ${caveat.variable} bg-[var(--davon-bg)] text-[var(--davon-text)] antialiased`}
       >
         <div className="min-h-screen flex flex-col">
           <SiteHeader />
