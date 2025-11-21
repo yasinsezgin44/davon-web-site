@@ -1,45 +1,56 @@
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
   {
     question: "Who is Davon built for inside the hospital?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "How is Davon different from a traditional CMMS or EAM platform?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "Which types of equipment and departments can Davon monitor?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "How does Davon connect with our existing CMMS, EHR, BMS, and IoT gateways?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "Where is our data stored and how do you handle security, privacy, and compliance?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "How long does it typically take to go live in one hospital?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "Can Davon support multi‑hospital groups and system‑wide visibility?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "What does onboarding and training look like for our clinical engineering team?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "What kind of support do you provide after go‑live?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
   {
     question: "How do you price Davon—per asset, per site, or per user?",
-    placeholder: "Add your answer here.",
+    shortAnswerPlaceholder: "Add your short, high-level answer here.",
+    detailedAnswerPlaceholder: "Add your detailed, in-depth explanation here.",
   },
 ];
 
@@ -72,7 +83,17 @@ export function FAQSection() {
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                {item.placeholder}
+                <p>{item.shortAnswerPlaceholder}</p>
+                <Collapsible>
+                  <CollapsibleTrigger className="mt-3 inline-flex items-center text-xs sm:text-sm font-medium text-slate-700 hover:text-slate-900 underline underline-offset-4">
+                    Show detailed answer
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-2">
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                      {item.detailedAnswerPlaceholder}
+                    </p>
+                  </CollapsibleContent>
+                </Collapsible>
               </AccordionContent>
             </AccordionItem>
           ))}
