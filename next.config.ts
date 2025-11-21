@@ -2,14 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    loader: 'default',
+    loader: "default",
     domains: [],
-    unoptimized: true, // Disable optimization to serve images statically
+    // Use Next.js built‑in optimization for local images
+    unoptimized: false,
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Ensure static files are served correctly
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
 };
 
 export default nextConfig;
