@@ -121,8 +121,8 @@ export function SplitScreenBeforeAfter() {
             >
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/dealership-showroom.jpg"
-                  alt="Modern car dealership showroom"
+                  src="/calm-mri.png"
+                  alt="Advanced MRI scanning technology"
                   fill
                   className="object-cover"
                 />
