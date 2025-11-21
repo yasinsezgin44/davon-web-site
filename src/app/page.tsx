@@ -7,6 +7,7 @@ import { TestimonialsSection } from "@/components/testimonials-section";
 import { ROICalculatorSection } from "@/components/roi-calculator-section";
 import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
+import { FAQSection } from "@/components/faq-section";
 import Image from "next/image";
 
 export default function HomePage() {
@@ -22,6 +23,7 @@ export default function HomePage() {
           <AITeamSection />
           <TestimonialsSection />
           <ROICalculatorSection />
+          <FAQSection />
           <CTASection />
           <Footer />
         </div>
