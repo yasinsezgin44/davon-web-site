@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import RotatingText from "./RotatingText";
-import Aurora from "./Aurora";
 import Image from "next/image";
 
 const ArrowRight = () => (
@@ -50,15 +49,6 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Red aurora overlay, rendered above background image */}
-      <div className="absolute inset-0 w-full h-full z-10 pointer-events-none">
-        <Aurora
-          colorStops={["#DC2626", "#B91C1C", "#7F1D1D"]}
-          amplitude={1.2}
-          blend={0.6}
-          speed={0.8}
-        />
-      </div>
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
