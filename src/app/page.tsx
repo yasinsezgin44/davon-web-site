@@ -8,7 +8,6 @@ import { ROICalculatorSection } from "@/components/roi-calculator-section";
 import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
 import { FAQSection } from "@/components/faq-section";
-import Image from "next/image";
 
 // FAQ data for structured data
 const faqData = [
@@ -68,34 +67,169 @@ const faqData = [
   },
 ];
 
-// Generate FAQPage structured data
-const generateFAQStructuredData = () => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqData.map((faq, index) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+// Generate comprehensive structured data
+const generateStructuredData = () => {
+  return [
+    // Organization Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Davon.Health",
+      url: "https://davon.health",
+      logo: "https://davon.health/logo-white.webp",
+      description:
+        "AI-powered healthcare equipment monitoring and predictive maintenance platform for hospitals and healthcare facilities.",
+      foundingDate: "2024",
+      industry: "Healthcare Technology",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        availableLanguage: "English",
       },
-    })),
-  };
+      sameAs: [
+        "https://linkedin.com/company/davon-health",
+        "https://twitter.com/davonhealth",
+      ],
+    },
+    // WebSite Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Davon.Health",
+      url: "https://davon.health",
+      description:
+        "AI-powered predictive maintenance platform for healthcare equipment monitoring and management.",
+      publisher: {
+        "@type": "Organization",
+        name: "Davon.Health",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://davon.health/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+    // FAQPage Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      name: "Davon - AI-Powered Healthcare Equipment Monitoring FAQ",
+      description:
+        "Frequently asked questions about Davon's AI-powered predictive maintenance platform for healthcare equipment monitoring and management.",
+      url: "https://davon.health",
+      datePublished: "2025-11-24",
+      dateModified: "2025-11-24",
+      publisher: {
+        "@type": "Organization",
+        name: "Davon.Health",
+        url: "https://davon.health",
+      },
+      mainEntity: faqData.map((faq, index) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+    // Healthcare Institution References - Organizations that trust Davon.Health
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Amerikan Hastanesi",
+      url: "https://amerikanhastanesi.org",
+      logo: "https://davon.health/reference-logos/Amerikan_Hastanesi_Logo.png",
+      description: "Leading healthcare institution in Turkey that uses Davon.Health for AI-powered equipment monitoring and predictive maintenance.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Anadolu Hastanesi",
+      url: "https://anadolumedicalcenter.com.tr",
+      logo: "https://davon.health/reference-logos/anadolu-hastanesi-logo.png",
+      description: "Premier healthcare facility in Turkey implementing Davon.Health's predictive maintenance solutions for medical equipment.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Medipol Üniversitesi Hastanesi",
+      url: "https://medipol.edu.tr",
+      logo: "https://davon.health/reference-logos/medipol-logo.svg",
+      description: "University hospital in Turkey utilizing Davon.Health's AI-powered healthcare equipment monitoring platform.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Koç Üniversitesi Hastanesi",
+      url: "https://kuh.ku.edu.tr",
+      logo: "https://davon.health/reference-logos/koc-universitesi-logo.png",
+      description: "Academic medical center in Turkey that partners with Davon.Health for comprehensive equipment management solutions.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Acıbadem Sağlık Grubu",
+      url: "https://acibadem.com.tr",
+      logo: "https://davon.health/reference-logos/Acıbadem_Grup_logo.svg.png",
+      description: "Major healthcare group in Turkey that relies on Davon.Health's predictive maintenance technology for equipment reliability.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Siemens Healthineers",
+      url: "https://siemens-healthineers.com",
+      logo: "https://davon.health/reference-logos/Siemens-logo.png",
+      description: "Global medical technology company that collaborates with Davon.Health to enhance equipment monitoring and maintenance workflows.",
+      industry: "Medical Technology",
+      location: {
+        "@type": "Place",
+        addressCountry: "DE"
+      }
+    }
+  ];
 };
 
 export default function HomePage() {
-  const structuredData = generateFAQStructuredData();
+  const structuredData = generateStructuredData();
 
   return (
     <div className="min-h-screen bg-black overflow-hidden">
-      {/* FAQPage Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      {/* Organization, WebSite, and FAQPage Structured Data */}
+      {structuredData.map((data, index) => (
+        <script
+          key={`structured-data-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(data),
+          }}
+        />
+      ))}
       <main className="min-h-screen relative overflow-hidden">
         {/* Page content above aurora and background image */}
         <div className="relative z-20">

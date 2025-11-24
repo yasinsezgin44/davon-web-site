@@ -108,13 +108,22 @@ export function HeroSection() {
           <p className="text-sm text-white mb-6">
             Trusted by leading healthcare institutions
           </p>
+          {/* Hidden descriptive text for AI crawlers and screen readers */}
+          <div className="sr-only">
+            Davon.Health partners with leading Turkish healthcare institutions
+            including Amerikan Hastanesi, Anadolu Hastanesi, Medipol
+            Üniversitesi Hastanesi, Koç Üniversitesi Hastanesi, and Acıbadem
+            Sağlık Grubu. We also collaborate with Siemens Healthineers to
+            enhance medical equipment monitoring and predictive maintenance
+            solutions.
+          </div>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
             <div className="flex items-center gap-8 transition-all duration-500 animate-slide-left">
               <div className="flex items-center gap-8 whitespace-nowrap">
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                    alt="Amerikan Hastanesi"
+                    alt="Amerikan Hastanesi - Leading Turkish healthcare institution that trusts Davon.Health for AI-powered equipment monitoring"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -123,7 +132,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Hastanesi"
+                    alt="Anadolu Hastanesi - Premier healthcare facility in Turkey implementing Davon.Health's predictive maintenance solutions"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -132,7 +141,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol"
+                    alt="Medipol Üniversitesi Hastanesi - University hospital in Turkey utilizing Davon.Health's AI-powered healthcare equipment monitoring platform"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -141,7 +150,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
-                    alt="Koç Üniversitesi"
+                    alt="Koç Üniversitesi Hastanesi - Academic medical center in Turkey that partners with Davon.Health for comprehensive equipment management"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -150,7 +159,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                    alt="Acıbadem Grup"
+                    alt="Acıbadem Sağlık Grubu - Major healthcare group in Turkey that relies on Davon.Health's predictive maintenance technology"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -159,7 +168,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
-                    alt="Siemens"
+                    alt="Siemens Healthineers - Global medical technology company that collaborates with Davon.Health to enhance equipment monitoring workflows"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -171,7 +180,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                    alt="Amerikan Hastanesi"
+                    alt="Amerikan Hastanesi - Leading Turkish healthcare institution that trusts Davon.Health for AI-powered equipment monitoring"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -180,7 +189,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Hastanesi"
+                    alt="Anadolu Hastanesi - Premier healthcare facility in Turkey implementing Davon.Health's predictive maintenance solutions"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -189,7 +198,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol"
+                    alt="Medipol Üniversitesi Hastanesi - University hospital in Turkey utilizing Davon.Health's AI-powered healthcare equipment monitoring platform"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -198,7 +207,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
-                    alt="Koç Üniversitesi"
+                    alt="Koç Üniversitesi Hastanesi - Academic medical center in Turkey that partners with Davon.Health for comprehensive equipment management"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -207,7 +216,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                    alt="Acıbadem Grup"
+                    alt="Acıbadem Sağlık Grubu - Major healthcare group in Turkey that relies on Davon.Health's predictive maintenance technology"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -216,7 +225,7 @@ export function HeroSection() {
                 <div className="w-36 h-18 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
-                    alt="Siemens"
+                    alt="Siemens Healthineers - Global medical technology company that collaborates with Davon.Health to enhance equipment monitoring workflows"
                     width={144}
                     height={72}
                     className="object-contain w-full h-full"
@@ -232,6 +241,15 @@ export function HeroSection() {
           <p className="text-sm text-white mb-6">
             Trusted by leading healthcare institutions
           </p>
+          {/* Hidden descriptive text for AI crawlers and screen readers */}
+          <div className="sr-only">
+            Davon.Health partners with leading Turkish healthcare institutions
+            including Amerikan Hastanesi, Anadolu Hastanesi, Medipol
+            Üniversitesi Hastanesi, Koç Üniversitesi Hastanesi, and Acıbadem
+            Sağlık Grubu. We also collaborate with Siemens Healthineers to
+            enhance medical equipment monitoring and predictive maintenance
+            solutions.
+          </div>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto">
             {/* Left blur fade */}
             <div className="absolute left-0 top-0 w-8 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
@@ -242,7 +260,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                    alt="Amerikan Hastanesi"
+                    alt="Amerikan Hastanesi - Leading Turkish healthcare institution that trusts Davon.Health for AI-powered equipment monitoring"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
@@ -251,7 +269,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Hastanesi"
+                    alt="Anadolu Hastanesi - Premier healthcare facility in Turkey implementing Davon.Health's predictive maintenance solutions"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
@@ -260,7 +278,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol"
+                    alt="Medipol Üniversitesi Hastanesi - University hospital in Turkey utilizing Davon.Health's AI-powered healthcare equipment monitoring platform"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
@@ -269,7 +287,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
-                    alt="Koç Üniversitesi"
+                    alt="Koç Üniversitesi Hastanesi - Academic medical center in Turkey that partners with Davon.Health for comprehensive equipment management"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
@@ -281,7 +299,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                    alt="Amerikan Hastanesi"
+                    alt="Amerikan Hastanesi - Leading Turkish healthcare institution that trusts Davon.Health for AI-powered equipment monitoring"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
@@ -290,7 +308,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Hastanesi"
+                    alt="Anadolu Hastanesi - Premier healthcare facility in Turkey implementing Davon.Health's predictive maintenance solutions"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
@@ -299,7 +317,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol"
+                    alt="Medipol Üniversitesi Hastanesi - University hospital in Turkey utilizing Davon.Health's AI-powered healthcare equipment monitoring platform"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
@@ -308,7 +326,7 @@ export function HeroSection() {
                 <div className="w-30 h-15 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
-                    alt="Koç Üniversitesi"
+                    alt="Koç Üniversitesi Hastanesi - Academic medical center in Turkey that partners with Davon.Health for comprehensive equipment management"
                     width={120}
                     height={60}
                     className="object-contain w-full h-full"
