@@ -8,7 +8,6 @@ import { ROICalculatorSection } from "@/components/roi-calculator-section";
 import { CTASection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
 import { FAQSection } from "@/components/faq-section";
-import Image from "next/image";
 
 // FAQ data for structured data
 const faqData = [
@@ -68,45 +67,90 @@ const faqData = [
   },
 ];
 
-// Generate FAQPage structured data
-const generateFAQStructuredData = () => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    name: "Davon - AI-Powered Healthcare Equipment Monitoring FAQ",
-    description:
-      "Frequently asked questions about Davon's AI-powered predictive maintenance platform for healthcare equipment monitoring and management.",
-    url: "https://davon.health",
-    datePublished: "2025-11-24",
-    dateModified: "2025-11-24",
-    publisher: {
+// Generate comprehensive structured data
+const generateStructuredData = () => {
+  return [
+    // Organization Schema
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
       name: "Davon.Health",
       url: "https://davon.health",
-    },
-    mainEntity: faqData.map((faq, index) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+      logo: "https://davon.health/logo-white.webp",
+      description:
+        "AI-powered healthcare equipment monitoring and predictive maintenance platform for hospitals and healthcare facilities.",
+      foundingDate: "2024",
+      industry: "Healthcare Technology",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        availableLanguage: "English",
       },
-    })),
-  };
+      sameAs: [
+        "https://linkedin.com/company/davon-health",
+        "https://twitter.com/davonhealth",
+      ],
+    },
+    // WebSite Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Davon.Health",
+      url: "https://davon.health",
+      description:
+        "AI-powered predictive maintenance platform for healthcare equipment monitoring and management.",
+      publisher: {
+        "@type": "Organization",
+        name: "Davon.Health",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://davon.health/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+    // FAQPage Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      name: "Davon - AI-Powered Healthcare Equipment Monitoring FAQ",
+      description:
+        "Frequently asked questions about Davon's AI-powered predictive maintenance platform for healthcare equipment monitoring and management.",
+      url: "https://davon.health",
+      datePublished: "2025-11-24",
+      dateModified: "2025-11-24",
+      publisher: {
+        "@type": "Organization",
+        name: "Davon.Health",
+        url: "https://davon.health",
+      },
+      mainEntity: faqData.map((faq, index) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  ];
 };
 
 export default function HomePage() {
-  const structuredData = generateFAQStructuredData();
+  const structuredData = generateStructuredData();
 
   return (
     <div className="min-h-screen bg-black overflow-hidden">
-      {/* FAQPage Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      {/* Organization, WebSite, and FAQPage Structured Data */}
+      {structuredData.map((data, index) => (
+        <script
+          key={`structured-data-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(data),
+          }}
+        />
+      ))}
       <main className="min-h-screen relative overflow-hidden">
         {/* Page content above aurora and background image */}
         <div className="relative z-20">
