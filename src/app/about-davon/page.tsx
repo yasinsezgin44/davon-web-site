@@ -94,7 +94,7 @@ export default function AboutPage() {
         {/* Aurora background effect */}
         <div className="fixed inset-0 w-full h-full z-10 pointer-events-none">
           <Aurora
-            colorStops={["#3b82f6", "#8b5cf6", "#06b6d4"]}
+            colorStops={["#DC2626", "#B91C1C", "#7F1D1D"]}
             amplitude={1.2}
             blend={0.6}
             speed={0.8}
