@@ -2,6 +2,7 @@ import { GlassmorphismNav } from "@/components/glassmorphism-nav";
 import { Footer } from "@/components/footer";
 import Aurora from "@/components/Aurora";
 import "@/components/Aurora.css";
+import Image from "next/image";
 
 // Generate comprehensive structured data for About page
 const generateStructuredData = () => {
@@ -148,13 +149,15 @@ export default function AboutPage() {
               {/* Image Placeholder 1 - Hero/Team Image */}
               <div className="mb-16 sm:mb-24">
                 <div className="relative w-full h-96 sm:h-[500px] md:h-[600px] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/30 to-purple-900/30 border border-white/10">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-white/60">
-                      <div className="text-4xl mb-4">🖼️</div>
-                      <p className="text-lg">AI Generated Image Placeholder</p>
-                      <p className="text-sm">Team/Innovation/Technology Image</p>
-                    </div>
-                  </div>
+                  <Image
+                    src="/patient-safety-shield.png"
+                    alt="Patient resting safely under a protective technology shield surrounded by monitored medical equipment"
+                    fill
+                    priority={false}
+                    sizes="(min-width: 1024px) 1024px, 100vw"
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 </div>
               </div>
             </div>
