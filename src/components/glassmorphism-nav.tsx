@@ -12,7 +12,7 @@ const navigation = [
     href: "#",
     hasDropdown: true,
     dropdownItems: [
-      { name: "About Davon", href: "#about" },
+      { name: "About Davon", href: "/about-davon" },
       { name: "Why Choose Us?", href: "#why-choose-us" },
     ],
   },
@@ -26,26 +26,51 @@ export function GlassmorphismNav() {
     dropdownIndex: number,
     index: number,
     isOpen: boolean
-  ) => (
-    <button
-      key={dropdownItem.name}
-      onClick={() => {
-        scrollToSection(dropdownItem.href);
-        setIsOpen(false);
-        setDropdownOpen(false);
-      }}
-      className={`text-white/70 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 w-full ${
-        isOpen ? "animate-mobile-menu-item" : ""
-      }`}
-      style={{
-        animationDelay: isOpen
-          ? `${(index + dropdownIndex + 1) * 80 + 100}ms`
-          : "0ms",
-      }}
-    >
-      {dropdownItem.name}
-    </button>
-  );
+  ) => {
+    if (dropdownItem.href.startsWith("/")) {
+      return (
+        <Link
+          key={dropdownItem.name}
+          href={dropdownItem.href}
+          onClick={() => {
+            setIsOpen(false);
+            setDropdownOpen(false);
+          }}
+          className={`text-white/70 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 w-full block ${
+            isOpen ? "animate-mobile-menu-item" : ""
+          }`}
+          style={{
+            animationDelay: isOpen
+              ? `${(index + dropdownIndex + 1) * 80 + 100}ms`
+              : "0ms",
+          }}
+        >
+          {dropdownItem.name}
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        key={dropdownItem.name}
+        onClick={() => {
+          scrollToSection(dropdownItem.href);
+          setIsOpen(false);
+          setDropdownOpen(false);
+        }}
+        className={`text-white/70 hover:text-white hover:bg-white/10 rounded-lg px-3 py-2 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 w-full ${
+          isOpen ? "animate-mobile-menu-item" : ""
+        }`}
+        style={{
+          animationDelay: isOpen
+            ? `${(index + dropdownIndex + 1) * 80 + 100}ms`
+            : "0ms",
+        }}
+      >
+        {dropdownItem.name}
+      </button>
+    );
+  };
 
   const renderDropdownNavItem = (
     item: (typeof navigation)[0],
@@ -136,15 +161,29 @@ export function GlassmorphismNav() {
   const renderDesktopDropdownItem = (dropdownItem: {
     name: string;
     href: string;
-  }) => (
-    <button
-      key={dropdownItem.name}
-      onClick={() => scrollToSection(dropdownItem.href)}
-      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
-    >
-      {dropdownItem.name}
-    </button>
-  );
+  }) => {
+    if (dropdownItem.href.startsWith("/")) {
+      return (
+        <Link
+          key={dropdownItem.name}
+          href={dropdownItem.href}
+          className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200 block"
+        >
+          {dropdownItem.name}
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        key={dropdownItem.name}
+        onClick={() => scrollToSection(dropdownItem.href)}
+        className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+      >
+        {dropdownItem.name}
+      </button>
+    );
+  };
 
   const renderDesktopNavItem = (item: (typeof navigation)[0]) => {
     if (item.hasDropdown) {
@@ -168,7 +207,11 @@ export function GlassmorphismNav() {
             />
           </button>
           {dropdownOpen && (
-            <div className="absolute top-full mt-2 w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-lg py-2 z-50">
+            <div
+              className="absolute top-full w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-lg py-2 z-50"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
               {item.dropdownItems?.map(renderDesktopDropdownItem)}
             </div>
           )}
