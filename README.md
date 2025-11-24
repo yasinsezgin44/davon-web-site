@@ -2,6 +2,10 @@
 
 This is the frontend implementation of the Davon.Health website, a healthcare EAM/CMMS platform built with [Next.js](https://nextjs.org).
 
+## 🚨 Important: Maintenance Guide
+
+**Before making any changes or deploying, read [MAINTENANCE.md](MAINTENANCE.md)** - it contains critical update checklists for dates, URLs, content placeholders, and deployment requirements.
+
 ## About Davon.Health
 
 Davon.Health provides the EAM/CMMS platform for healthcare institutions. Manage critical assets, maintain audit-proof compliance, and protect patient outcomes with our comprehensive healthcare asset management solution.
@@ -262,7 +266,169 @@ Combined Score = (SEO Score × 0.60) + (AI Visibility Score × 0.40)
 - [ ] Engage in industry partnerships
 - [ ] Monitor and optimize rich results performance
 
-## Deployment Checklist
+## Maintenance Guide
+
+This guide outlines what needs to be updated when content changes, dates need refreshing, or new features are added.
+
+### Date Updates (Update Monthly)
+
+#### Files Requiring Date Updates:
+- **`src/app/page.tsx`**: FAQPage structured data dates
+  ```typescript
+  datePublished: "2025-11-24",  // Keep as original publication date
+  dateModified: "2025-11-24",   // Update to current date when content changes
+  ```
+- **`public/sitemap.xml`**: Last modified date
+  ```xml
+  <lastmod>2025-11-24T00:00:00+00:00</lastmod>  <!-- Update to current date -->
+  ```
+
+#### When to Update Dates:
+- **Content Changes**: FAQ answers, descriptions, or major content updates
+- **New Features**: Adding new sections or functionality
+- **Monthly Review**: At minimum, update `dateModified` monthly for freshness signals
+
+### URL Updates (Update on Domain Changes)
+
+#### Files Requiring URL Updates:
+- **`public/robots.txt`**: Sitemap URL
+  ```txt
+  Sitemap: https://davon.health/sitemap.xml  # Update domain
+  ```
+- **`public/sitemap.xml`**: Page URLs
+  ```xml
+  <loc>https://davon.health/</loc>  # Update domain
+  ```
+- **`src/app/layout.tsx`**: Metadata URLs
+  ```typescript
+  metadataBase: new URL("https://davon.health"),  # Update domain
+  canonical: "/",  # Usually stays the same
+  ```
+- **`src/app/page.tsx`**: Structured data URLs
+  ```typescript
+  url: "https://davon.health",  # Update domain in all schemas
+  ```
+
+### Content Placeholders to Fill
+
+#### High Priority (Fill Before Launch):
+- **`src/components/hero-section.tsx`**: Hero headline and description
+- **`src/components/features-section.tsx`**: Feature descriptions and benefits
+- **`src/components/testimonials-section.tsx`**: Customer testimonials and logos
+- **`src/components/cta-section.tsx`**: Call-to-action messaging
+
+#### Medium Priority (Fill Within First Month):
+- **`src/components/roi-calculator-section.tsx`**: ROI calculation logic and examples
+- **`src/components/ai-team-section.tsx`**: AI team information and credentials
+- **`src/components/healthcare-support-section.tsx`**: Support details and SLAs
+
+#### Low Priority (Fill As Available):
+- **`src/components/problem-solution-section.tsx`**: Case studies and examples
+- **`src/components/stats-column.tsx`**: Performance metrics and statistics
+
+### Image Optimization Checklist
+
+#### Images Requiring Updates:
+- **`/public/home-circle.png`**: Hero/Open Graph image (1200x630px recommended)
+- **`/public/logo-white.webp`**: Logo for structured data (should be WebP format)
+- **`/public/mri-chaos.png`**: Problem/solution imagery
+- **`/public/calm-mri.png`**: Solution/results imagery
+
+#### Image Optimization Requirements:
+- [ ] Convert to WebP format for better performance
+- [ ] Add descriptive alt text to all images
+- [ ] Optimize file sizes (<100KB for above-the-fold images)
+- [ ] Create responsive image versions
+- [ ] Update image references in structured data
+
+### SEO Meta Tags Updates
+
+#### When Content Changes:
+- **`src/app/layout.tsx`**: Update title and description if main value proposition changes
+  ```typescript
+  title: "Updated Title - AI-Powered Healthcare Equipment Monitoring",
+  description: "Updated compelling description with new keywords",
+  ```
+
+#### Keyword Updates:
+- Add new primary keywords to `keywords` array
+- Update Open Graph and Twitter meta descriptions
+- Ensure keywords appear naturally in H1, H2, and early content
+
+### Structured Data Maintenance
+
+#### FAQ Updates:
+- **`src/app/page.tsx`**: Update FAQ data array when adding new questions
+  ```typescript
+  const faqData = [
+    {
+      question: "New question here?",
+      answer: "Comprehensive answer here..."
+    }
+  ];
+  ```
+
+#### Organization Updates:
+- Update contact information, social media links, or company description
+- Add new social media profiles to `sameAs` array
+- Update logo URL if company branding changes
+
+#### Content Changes Requiring Schema Updates:
+- [ ] New service offerings → Update WebSite/Service schemas
+- [ ] New team members → Update Organization/Person schemas
+- [ ] New locations → Update Organization/LocalBusiness schemas
+- [ ] New products → Update Product/Service schemas
+
+### llms.txt Maintenance
+
+#### Update Triggers:
+- [ ] New product features or services
+- [ ] Company milestones or achievements
+- [ ] New team members or partnerships
+- [ ] Technology stack changes
+- [ ] Contact information updates
+
+#### Update Process:
+1. Review AI model instructions for accuracy
+2. Update technical specifications
+3. Add new industry partnerships
+4. Refresh competitive advantages
+5. Update contact and resource links
+
+### Performance Monitoring
+
+#### Monthly Checks:
+- [ ] Core Web Vitals scores (Lighthouse)
+- [ ] Page load speeds (<3 seconds target)
+- [ ] Mobile usability (Google Search Console)
+- [ ] Structured data validation (Rich Results Test)
+
+#### SEO Performance Monitoring:
+- [ ] Keyword rankings (SEMrush/Ahrefs)
+- [ ] Organic traffic trends
+- [ ] Backlink profile health
+- [ ] Rich snippet appearances
+
+### Content Freshness Schedule
+
+#### Daily/Weekly:
+- [ ] Check for broken links
+- [ ] Review Google Search Console for crawl errors
+- [ ] Monitor Core Web Vitals regressions
+
+#### Monthly:
+- [ ] Update `dateModified` in structured data
+- [ ] Review and update meta descriptions
+- [ ] Check for outdated statistics or information
+- [ ] Audit internal linking structure
+
+#### Quarterly:
+- [ ] Comprehensive content audit
+- [ ] Keyword performance review
+- [ ] Competitor analysis
+- [ ] Technology stack updates
+
+### Deployment Checklist
 
 Before deploying to production:
 
@@ -273,6 +439,10 @@ Before deploying to production:
 - [ ] Submit sitemap to Google Search Console and Bing Webmaster Tools
 - [ ] Verify robots.txt is accessible
 - [ ] Test llms.txt content for accuracy
+- [ ] Update `dateModified` fields to deployment date
+- [ ] Test all meta tags and Open Graph previews
+- [ ] Verify mobile responsiveness
+- [ ] Check for console errors
 
 ## Project Structure
 
