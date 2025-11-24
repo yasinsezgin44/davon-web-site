@@ -133,6 +133,85 @@ const generateStructuredData = () => {
         },
       })),
     },
+    // Healthcare Institution References - Organizations that trust Davon.Health
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Amerikan Hastanesi",
+      url: "https://amerikanhastanesi.org",
+      logo: "https://davon.health/reference-logos/Amerikan_Hastanesi_Logo.png",
+      description: "Leading healthcare institution in Turkey that uses Davon.Health for AI-powered equipment monitoring and predictive maintenance.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Anadolu Hastanesi",
+      url: "https://anadolumedicalcenter.com.tr",
+      logo: "https://davon.health/reference-logos/anadolu-hastanesi-logo.png",
+      description: "Premier healthcare facility in Turkey implementing Davon.Health's predictive maintenance solutions for medical equipment.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Medipol Üniversitesi Hastanesi",
+      url: "https://medipol.edu.tr",
+      logo: "https://davon.health/reference-logos/medipol-logo.svg",
+      description: "University hospital in Turkey utilizing Davon.Health's AI-powered healthcare equipment monitoring platform.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Koç Üniversitesi Hastanesi",
+      url: "https://kuh.ku.edu.tr",
+      logo: "https://davon.health/reference-logos/koc-universitesi-logo.png",
+      description: "Academic medical center in Turkey that partners with Davon.Health for comprehensive equipment management solutions.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Acıbadem Sağlık Grubu",
+      url: "https://acibadem.com.tr",
+      logo: "https://davon.health/reference-logos/Acıbadem_Grup_logo.svg.png",
+      description: "Major healthcare group in Turkey that relies on Davon.Health's predictive maintenance technology for equipment reliability.",
+      industry: "Healthcare",
+      location: {
+        "@type": "Place",
+        addressCountry: "TR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Siemens Healthineers",
+      url: "https://siemens-healthineers.com",
+      logo: "https://davon.health/reference-logos/Siemens-logo.png",
+      description: "Global medical technology company that collaborates with Davon.Health to enhance equipment monitoring and maintenance workflows.",
+      industry: "Medical Technology",
+      location: {
+        "@type": "Place",
+        addressCountry: "DE"
+      }
+    }
   ];
 };
 
