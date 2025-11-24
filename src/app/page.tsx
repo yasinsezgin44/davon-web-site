@@ -73,6 +73,17 @@ const generateFAQStructuredData = () => {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    name: "Davon - AI-Powered Healthcare Equipment Monitoring FAQ",
+    description:
+      "Frequently asked questions about Davon's AI-powered predictive maintenance platform for healthcare equipment monitoring and management.",
+    url: "https://davon.health",
+    datePublished: "2025-11-24",
+    dateModified: "2025-11-24",
+    publisher: {
+      "@type": "Organization",
+      name: "Davon.Health",
+      url: "https://davon.health",
+    },
     mainEntity: faqData.map((faq, index) => ({
       "@type": "Question",
       name: faq.question,

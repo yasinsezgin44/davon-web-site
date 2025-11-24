@@ -6,6 +6,39 @@ This is the frontend implementation of the Davon.Health website, a healthcare EA
 
 Davon.Health provides the EAM/CMMS platform for healthcare institutions. Manage critical assets, maintain audit-proof compliance, and protect patient outcomes with our comprehensive healthcare asset management solution.
 
+## SEO & Structured Data
+
+This website implements comprehensive SEO optimization and Schema.org structured data for better search engine visibility and AI model understanding.
+
+### Implemented Schema.org Features
+
+- **FAQPage Schema**: Complete FAQ structured data following [Schema.org FAQPage](https://schema.org/FAQPage) specification
+- **JSON-LD Format**: Structured data implemented using JSON-LD for optimal search engine parsing
+- **Rich Snippets**: FAQ content eligible for Google/Bing rich snippets and featured snippets
+
+### SEO Files
+
+- **`public/robots.txt`**: Search engine crawling instructions
+- **`public/sitemap.xml`**: XML sitemap for search engine discovery
+- **`public/llms.txt`**: AI context file for Large Language Models
+
+### Structured Data Validation
+
+The FAQPage schema includes:
+- `@context`: `"https://schema.org"`
+- `@type`: `"FAQPage"`
+- `name`: Page title
+- `description`: Page description
+- `url`: Canonical URL
+- `datePublished` & `dateModified`: Content timestamps
+- `publisher`: Organization information
+- `mainEntity`: Array of Question/Answer pairs
+
+Each FAQ entry follows the Question schema with:
+- `@type`: `"Question"`
+- `name`: Question text
+- `acceptedAnswer`: Answer object with `@type`: `"Answer"` and `text`
+
 ## Tech Stack
 
 - **Framework:** Next.js 16
@@ -14,6 +47,7 @@ Davon.Health provides the EAM/CMMS platform for healthcare institutions. Manage 
 - **UI Components:** Radix UI
 - **Animations:** Framer Motion, GSAP
 - **Deployment:** Vercel
+- **SEO:** Schema.org structured data, JSON-LD
 
 ## Getting Started
 
@@ -37,6 +71,37 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Testing Structured Data
+
+### Local Testing (Without Deployment)
+
+1. **Google Rich Results Test**: Copy the JSON-LD from your page source and paste into [Google's Rich Results Test](https://search.google.com/test/rich-results)
+2. **Schema.org Validator**: Use the [Schema.org validator](https://validator.schema.org/) to validate markup
+3. **View Page Source**: Check that `<script type="application/ld+json">` contains valid JSON
+
+### Post-Deployment Testing
+
+1. **Submit to Search Consoles**:
+   - [Google Search Console](https://search.google.com/search-console)
+   - [Bing Webmaster Tools](https://www.bing.com/webmasters)
+2. **Test Live URLs**:
+   - `https://davon.health/robots.txt`
+   - `https://davon.health/sitemap.xml`
+   - `https://davon.health/llms.txt`
+3. **Rich Results Testing**: Use live URLs in Google's Rich Results Test
+
+## Deployment Checklist
+
+Before deploying to production:
+
+- [ ] Update domain URLs in `robots.txt` and `sitemap.xml`
+- [ ] Update `url` field in FAQPage structured data
+- [ ] Verify all images load correctly
+- [ ] Test structured data validation
+- [ ] Submit sitemap to Google Search Console and Bing Webmaster Tools
+- [ ] Verify robots.txt is accessible
+- [ ] Test llms.txt content for accuracy
+
 ## Project Structure
 
 - `src/app/` - Next.js app router pages and layouts
@@ -44,6 +109,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - `src/components/ui/` - UI component library (Radix UI)
 - `src/lib/` - Utility functions and configurations
 - `public/` - Static assets and images
+  - `robots.txt` - Search engine crawling instructions
+  - `sitemap.xml` - XML sitemap for search engines
+  - `llms.txt` - AI context file for Large Language Models
 
 ## Learn More
 
