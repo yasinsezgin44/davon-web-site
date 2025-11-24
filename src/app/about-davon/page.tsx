@@ -1,5 +1,7 @@
 import { GlassmorphismNav } from "@/components/glassmorphism-nav";
 import { Footer } from "@/components/footer";
+import Aurora from "@/components/Aurora";
+import "@/components/Aurora.css";
 
 // Generate comprehensive structured data for About page
 const generateStructuredData = () => {
@@ -89,6 +91,17 @@ export default function AboutPage() {
       ))}
 
       <main className="min-h-screen relative overflow-hidden">
+        {/* Aurora background effect */}
+        <div className="fixed inset-0 w-full h-full z-10 pointer-events-none">
+          <Aurora
+            colorStops={["#3b82f6", "#8b5cf6", "#06b6d4"]}
+            amplitude={1.2}
+            blend={0.6}
+            speed={0.8}
+          />
+        </div>
+
+        {/* Page content above aurora */}
         <div className="relative z-20">
           <GlassmorphismNav />
 
