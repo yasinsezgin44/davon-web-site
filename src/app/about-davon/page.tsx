@@ -109,7 +109,7 @@ export default function AboutPage() {
           <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
             {/* Background Image Placeholder - Replace with AI generated image */}
             <div className="absolute inset-0 z-0">
-              <div className="w-full h-full bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+              <div className="w-full h-full bg-black/50"></div>
             </div>
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
