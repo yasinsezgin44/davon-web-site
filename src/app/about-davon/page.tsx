@@ -257,17 +257,25 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Image Placeholder 2 - Innovation/Technology Image */}
+          {/* Image Placeholder 2 - Innovation/Technology Video */}
           <section className="py-16 sm:py-24 px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="relative w-full h-96 sm:h-[500px] md:h-[600px] rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-900/30 to-blue-900/30 border border-white/10 mb-16">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white/60">
-                    <div className="text-4xl mb-4">🚀</div>
-                    <p className="text-lg">AI Generated Image Placeholder</p>
-                    <p className="text-sm">Innovation/Technology/AI Solutions Image</p>
-                  </div>
-                </div>
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-label="AI-powered innovation and technology transformation metaphor video"
+                >
+                  <source
+                    src="/Cinematic_Innovation_Metaphor_Video_Generation.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               </div>
             </div>
           </section>
