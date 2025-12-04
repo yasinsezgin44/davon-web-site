@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
-import RotatingText from "./RotatingText"
-import Image from "next/image"
-import Aurora from "./Aurora"
+import { Button } from "@/components/ui/button";
+import RotatingText from "./RotatingText";
+import Image from "next/image";
+import Aurora from "./Aurora";
 
 const ArrowRight = () => (
   <svg
@@ -10,9 +10,14 @@ const ArrowRight = () => (
     stroke="currentColor"
     viewBox="0 0 24 24"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9 5l7 7-7 7"
+    />
   </svg>
-)
+);
 
 const Play = () => (
   <svg
@@ -28,18 +33,23 @@ const Play = () => (
       d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m-6-8h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z"
     />
   </svg>
-)
+);
 
 export function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0">
-        <Aurora colorStops={["#7f1d1d", "#dc2626", "#450a0a"]} amplitude={1.2} blend={0.6} speed={0.8} />
+        <Aurora
+          colorStops={["#7f1d1d", "#dc2626", "#450a0a"]}
+          amplitude={1.2}
+          blend={0.6}
+          speed={0.8}
+        />
       </div>
 
       <div className="absolute inset-0 w-full h-full z-[1] pointer-events-none">
         <Image
-          src="/images/davon-girl-mri-fix.png"
+          src="/davon-girl/davon-girl-mri-fix.png"
           alt="Healthcare professional with MRI equipment"
           fill
           className="object-cover object-center"
@@ -79,8 +89,9 @@ export function HeroSection() {
 
         {/* Subheading - White text with shadow for visibility */}
         <p className="text-base sm:text-xl md:text-2xl text-white drop-shadow-lg text-balance max-w-sm sm:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          At Davon, we specialize in creating robust Computerized Maintenance Management Systems and Enterprise Asset
-          Management software tailored specifically for hospitals.
+          At Davon, we specialize in creating robust Computerized Maintenance
+          Management Systems and Enterprise Asset Management software tailored
+          specifically for hospitals.
         </p>
 
         {/* CTA Buttons */}
@@ -105,25 +116,51 @@ export function HeroSection() {
 
         {/* Trust Indicators - Added dark background for visibility */}
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white drop-shadow-lg mb-6">Trusted by leading healthcare institutions</p>
+          <p className="text-sm text-white drop-shadow-lg mb-6">
+            Trusted by leading healthcare institutions
+          </p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-4 px-6">
             <div className="flex items-center gap-8 opacity-80 hover:opacity-100 transition-all duration-500 animate-slide-left">
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold text-white">SIEMENS</div>
-                <div className="text-base sm:text-lg font-semibold text-white">MEDİPOL</div>
-                <div className="text-base sm:text-lg font-semibold text-white">ACIBADEM</div>
-                <div className="text-base sm:text-lg font-semibold text-white">ANADOLU</div>
-                <div className="text-base sm:text-lg font-semibold text-white">KOÇ ÜNİVERSİTESİ</div>
-                <div className="text-base sm:text-lg font-semibold text-white">AMERİKAN HASTANESİ</div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  SIEMENS
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  MEDİPOL
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  ACIBADEM
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  ANADOLU
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  KOÇ ÜNİVERSİTESİ
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  AMERİKAN HASTANESİ
+                </div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold text-white">SIEMENS</div>
-                <div className="text-base sm:text-lg font-semibold text-white">MEDİPOL</div>
-                <div className="text-base sm:text-lg font-semibold text-white">ACIBADEM</div>
-                <div className="text-base sm:text-lg font-semibold text-white">ANADOLU</div>
-                <div className="text-base sm:text-lg font-semibold text-white">KOÇ ÜNİVERSİTESİ</div>
-                <div className="text-base sm:text-lg font-semibold text-white">AMERİKAN HASTANESİ</div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  SIEMENS
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  MEDİPOL
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  ACIBADEM
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  ANADOLU
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  KOÇ ÜNİVERSİTESİ
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-white">
+                  AMERİKAN HASTANESİ
+                </div>
               </div>
             </div>
           </div>
@@ -131,7 +168,9 @@ export function HeroSection() {
 
         {/* Mobile Trust Indicators */}
         <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white drop-shadow-lg mb-6">Trusted by leading healthcare institutions</p>
+          <p className="text-sm text-white drop-shadow-lg mb-6">
+            Trusted by leading healthcare institutions
+          </p>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-3 px-4">
             <div className="flex items-center gap-6 opacity-80 animate-slide-left-mobile">
               <div className="flex items-center gap-6 whitespace-nowrap">
@@ -151,5 +190,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

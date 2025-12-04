@@ -1,28 +1,28 @@
-import { GlassmorphismNav } from "@/components/glassmorphism-nav"
-import { Footer } from "@/components/footer"
-import { CheckCircle } from "lucide-react"
-import Image from "next/image"
+import { GlassmorphismNav } from "@/components/glassmorphism-nav";
+import { Footer } from "@/components/footer";
+import { CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 const reasons = [
   {
     title: "Experience and Expertise in the Healthcare Sector",
     description:
       "CMMS/EAM solutions in general are different from those specifically designed for healthcare facilities. Davon offers solutions tailored to the needs of healthcare institutions, drawing on years of experience and a team of experts in the healthcare field.",
-    image: "/images/calm-mri.png",
+    image: "/calm-mri.png",
   },
   {
     title: "Innovation and Technology",
     description:
       "Davon continuously enhances the competitive edge of healthcare institutions with its innovative technologies and solutions. We stay ahead of industry trends to deliver cutting-edge features.",
-    image: "/images/davon-girl-mri-fix.png",
+    image: "/davon-girl/davon-girl-mri-fix.png",
   },
   {
     title: "Customer Satisfaction Focused Service",
     description:
       "Davon not only provides a software solution but also actively participates in your business development processes, helping your technical teams improve and achieve success. Prioritizing customer satisfaction, Davon meets and supports the needs of healthcare institutions.",
-    image: "/images/calm-mri.png",
+    image: "/calm-mri.png",
   },
-]
+];
 
 const benefits = [
   "Reduce equipment downtime by up to 40%",
@@ -33,7 +33,7 @@ const benefits = [
   "Access comprehensive analytics and reports",
   "Mobile-first approach for on-the-go management",
   "24/7 technical support from healthcare experts",
-]
+];
 
 export default function SolutionsPage() {
   return (
@@ -51,7 +51,8 @@ export default function SolutionsPage() {
             Why Choose <span className="text-red-500">Us?</span>
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Transform Your Institution with Davon, and Step Confidently Towards Success!
+            Transform Your Institution with Davon, and Step Confidently Towards
+            Success!
           </p>
         </div>
       </section>
@@ -64,7 +65,9 @@ export default function SolutionsPage() {
               {reasons.map((reason, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12`}
+                  className={`flex flex-col ${
+                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } items-center gap-12`}
                 >
                   <div className="lg:w-1/2">
                     <div className="relative rounded-2xl overflow-hidden shadow-xl">
@@ -78,8 +81,12 @@ export default function SolutionsPage() {
                     </div>
                   </div>
                   <div className="lg:w-1/2">
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{reason.title}</h3>
-                    <p className="text-lg text-slate-600 leading-relaxed">{reason.description}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                      {reason.title}
+                    </h3>
+                    <p className="text-lg text-slate-600 leading-relaxed">
+                      {reason.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -96,7 +103,8 @@ export default function SolutionsPage() {
               Benefits of Choosing <span className="text-red-500">Davon</span>
             </h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Experience the advantages that set us apart from other CMMS providers.
+              Experience the advantages that set us apart from other CMMS
+              providers.
             </p>
           </div>
 
@@ -122,19 +130,27 @@ export default function SolutionsPage() {
           <div className="container mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">20+</div>
+                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">
+                  20+
+                </div>
                 <p className="text-slate-600">Years Experience</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">1000+</div>
+                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">
+                  1000+
+                </div>
                 <p className="text-slate-600">Active Users</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">15K+</div>
+                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">
+                  15K+
+                </div>
                 <p className="text-slate-600">Hospital Beds</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">400K+</div>
+                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">
+                  400K+
+                </div>
                 <p className="text-slate-600">Assets Managed</p>
               </div>
             </div>
@@ -145,9 +161,13 @@ export default function SolutionsPage() {
       {/* CTA Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Get Started?
+          </h2>
           <p className="text-xl text-white/60 mb-8 max-w-2xl mx-auto">
-            {"Let's discuss how Davon can help transform your healthcare institution's maintenance operations."}
+            {
+              "Let's discuss how Davon can help transform your healthcare institution's maintenance operations."
+            }
           </p>
           <a
             href="/#contact"
@@ -160,5 +180,5 @@ export default function SolutionsPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
