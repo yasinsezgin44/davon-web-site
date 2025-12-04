@@ -1,7 +1,14 @@
-import { GlassmorphismNav } from "@/components/glassmorphism-nav"
-import { Footer } from "@/components/footer"
-import { Microscope, Cpu, Database, Sparkles, BarChart3, Shield } from "lucide-react"
-import Image from "next/image"
+import { GlassmorphismNav } from "@/components/glassmorphism-nav";
+import { Footer } from "@/components/footer";
+import {
+  Microscope,
+  Cpu,
+  Database,
+  Sparkles,
+  BarChart3,
+  Shield,
+} from "lucide-react";
+import Image from "next/image";
 
 const researchAreas = [
   {
@@ -40,14 +47,14 @@ const researchAreas = [
     description:
       "Collaborating with healthcare professionals to develop solutions that address real-world challenges in medical facility management.",
   },
-]
+];
 
 const innovations = [
   {
     title: "Davon Count",
     description:
       "Revolutionary mobile app for medical equipment inventory management with QR code scanning, real-time tracking, and location-based counting.",
-    image: "/images/count-app1.jpeg",
+    image: "/count-app/count-app1.jpeg",
   },
   {
     title: "Predictive Maintenance AI",
@@ -61,7 +68,7 @@ const innovations = [
       "Scalable, secure, and accessible from anywhere - our cloud infrastructure ensures your data is always available when you need it.",
     image: "/cloud-computing-network-diagram.jpg",
   },
-]
+];
 
 export default function RnDPage() {
   return (
@@ -80,8 +87,8 @@ export default function RnDPage() {
             Research & <span className="text-red-500">Development</span>
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Pioneering the future of healthcare technology through continuous innovation, research, and development of
-            cutting-edge solutions.
+            Pioneering the future of healthcare technology through continuous
+            innovation, research, and development of cutting-edge solutions.
           </p>
         </div>
       </section>
@@ -96,15 +103,20 @@ export default function RnDPage() {
                   Our Approach
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  Innovation Driven by <span className="text-red-600">Healthcare Needs</span>
+                  Innovation Driven by{" "}
+                  <span className="text-red-600">Healthcare Needs</span>
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed mb-4">
-                  At Davon, our R&D team works closely with healthcare professionals to understand their challenges and
-                  develop solutions that make a real difference in patient care and operational efficiency.
+                  At Davon, our R&D team works closely with healthcare
+                  professionals to understand their challenges and develop
+                  solutions that make a real difference in patient care and
+                  operational efficiency.
                 </p>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  We invest heavily in research and development to ensure our CMMS and EAM solutions remain at the
-                  forefront of healthcare technology, incorporating the latest advances in AI, IoT, and cloud computing.
+                  We invest heavily in research and development to ensure our
+                  CMMS and EAM solutions remain at the forefront of healthcare
+                  technology, incorporating the latest advances in AI, IoT, and
+                  cloud computing.
                 </p>
               </div>
               <div className="lg:w-1/2">
@@ -131,7 +143,8 @@ export default function RnDPage() {
               Our Research <span className="text-red-500">Focus Areas</span>
             </h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              Exploring multiple domains to deliver comprehensive solutions for modern healthcare facilities
+              Exploring multiple domains to deliver comprehensive solutions for
+              modern healthcare facilities
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,7 +156,9 @@ export default function RnDPage() {
                 <div className="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-600/30 transition-colors">
                   <area.icon className="w-6 h-6 text-red-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{area.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {area.title}
+                </h3>
                 <p className="text-white/60">{area.description}</p>
               </div>
             ))}
@@ -173,8 +188,12 @@ export default function RnDPage() {
                   }`}
                 >
                   <div className="lg:w-1/2">
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{innovation.title}</h3>
-                    <p className="text-lg text-slate-600 leading-relaxed">{innovation.description}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                      {innovation.title}
+                    </h3>
+                    <p className="text-lg text-slate-600 leading-relaxed">
+                      {innovation.description}
+                    </p>
                   </div>
                   <div className="lg:w-1/2">
                     <div className="relative rounded-2xl overflow-hidden shadow-xl">
@@ -199,19 +218,27 @@ export default function RnDPage() {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">20+</div>
+              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
+                20+
+              </div>
               <div className="text-white/60">Years of Innovation</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">50+</div>
+              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
+                50+
+              </div>
               <div className="text-white/60">R&D Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">15+</div>
+              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
+                15+
+              </div>
               <div className="text-white/60">Patents & Innovations</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">100%</div>
+              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
+                100%
+              </div>
               <div className="text-white/60">Healthcare Focused</div>
             </div>
           </div>
@@ -220,5 +247,5 @@ export default function RnDPage() {
 
       <Footer />
     </div>
-  )
+  );
 }

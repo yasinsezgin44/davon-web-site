@@ -1,7 +1,7 @@
-import { GlassmorphismNav } from "@/components/glassmorphism-nav"
-import { Footer } from "@/components/footer"
-import { Target, Heart, Shield, Globe, Users, Leaf } from "lucide-react"
-import Image from "next/image"
+import { GlassmorphismNav } from "@/components/glassmorphism-nav";
+import { Footer } from "@/components/footer";
+import { Target, Heart, Shield, Globe, Users, Leaf } from "lucide-react";
+import Image from "next/image";
 
 const values = [
   {
@@ -13,12 +13,14 @@ const values = [
   {
     icon: Heart,
     title: "Healthcare Focus",
-    description: "We emphasize understanding our customers' needs and delivering value to them.",
+    description:
+      "We emphasize understanding our customers' needs and delivering value to them.",
   },
   {
     icon: Shield,
     title: "Reliability",
-    description: "Davon earns and maintains customer trust by providing reliable solutions and services.",
+    description:
+      "Davon earns and maintains customer trust by providing reliable solutions and services.",
   },
   {
     icon: Globe,
@@ -38,7 +40,7 @@ const values = [
     description:
       "Davon supports the long-term success of both healthcare institutions and the environment through sustainable business practices.",
   },
-]
+];
 
 export default function AboutDavonPage() {
   return (
@@ -57,8 +59,9 @@ export default function AboutDavonPage() {
             About <span className="text-red-500">Davon</span>
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            We Are Here to Support You For Better Healthcare Services. With our experience and innovative approach, we
-            are here to develop, improve, and carry your institution into the future.
+            We Are Here to Support You For Better Healthcare Services. With our
+            experience and innovative approach, we are here to develop, improve,
+            and carry your institution into the future.
           </p>
         </div>
       </section>
@@ -70,18 +73,21 @@ export default function AboutDavonPage() {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  We Prioritize <span className="text-red-600">Patient Safety</span>
+                  We Prioritize{" "}
+                  <span className="text-red-600">Patient Safety</span>
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Davon provides innovative solutions to shape the future of healthcare institutions, ensuring they
-                  deliver operational excellence to their patients. Our CMMS and EAM solutions are specifically designed
-                  for the unique challenges of healthcare environments.
+                  Davon provides innovative solutions to shape the future of
+                  healthcare institutions, ensuring they deliver operational
+                  excellence to their patients. Our CMMS and EAM solutions are
+                  specifically designed for the unique challenges of healthcare
+                  environments.
                 </p>
               </div>
               <div className="lg:w-1/2">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/calm-mri.png"
+                    src="/calm-mri.png"
                     alt="Healthcare professional"
                     width={600}
                     height={400}
@@ -109,7 +115,9 @@ export default function AboutDavonPage() {
                 <div className="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-600/30 transition-colors">
                   <value.icon className="w-6 h-6 text-red-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{value.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {value.title}
+                </h3>
                 <p className="text-white/60">{value.description}</p>
               </div>
             ))}
@@ -132,27 +140,36 @@ export default function AboutDavonPage() {
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-8 bg-slate-50 rounded-2xl">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Our Vision
+                </h3>
                 <p className="text-slate-600">
-                  We adopt a visionary approach to provide innovative solutions that ensure uninterrupted access to
-                  healthcare services for patients, shape the future of healthcare institutions, and support their
-                  sustainable success.
+                  We adopt a visionary approach to provide innovative solutions
+                  that ensure uninterrupted access to healthcare services for
+                  patients, shape the future of healthcare institutions, and
+                  support their sustainable success.
                 </p>
               </div>
               <div className="text-center p-8 bg-slate-50 rounded-2xl">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Our Mission
+                </h3>
                 <p className="text-slate-600">
-                  Our mission is to always prioritize customer satisfaction by understanding the needs of healthcare
-                  institutions and providing the best solutions. We work diligently to support the success of our
-                  clients.
+                  Our mission is to always prioritize customer satisfaction by
+                  understanding the needs of healthcare institutions and
+                  providing the best solutions. We work diligently to support
+                  the success of our clients.
                 </p>
               </div>
               <div className="text-center p-8 bg-slate-50 rounded-2xl">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Values</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Our Values
+                </h3>
                 <p className="text-slate-600">
-                  Our core values include reliability, continuous innovation, and customer focus. At Davon, we aim to
-                  contribute to the success of institutions by providing reliable solutions and building long-term
-                  relationships.
+                  Our core values include reliability, continuous innovation,
+                  and customer focus. At Davon, we aim to contribute to the
+                  success of institutions by providing reliable solutions and
+                  building long-term relationships.
                 </p>
               </div>
             </div>
@@ -162,5 +179,5 @@ export default function AboutDavonPage() {
 
       <Footer />
     </div>
-  )
+  );
 }

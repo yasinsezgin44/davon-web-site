@@ -1,7 +1,17 @@
-import { GlassmorphismNav } from "@/components/glassmorphism-nav"
-import { Footer } from "@/components/footer"
-import { DollarSign, Clock, FileCheck, Wrench, Database, BookOpen, Zap, Settings, TrendingUp } from "lucide-react"
-import Image from "next/image"
+import { GlassmorphismNav } from "@/components/glassmorphism-nav";
+import { Footer } from "@/components/footer";
+import {
+  DollarSign,
+  Clock,
+  FileCheck,
+  Wrench,
+  Database,
+  BookOpen,
+  Zap,
+  Settings,
+  TrendingUp,
+} from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
@@ -55,9 +65,10 @@ const features = [
   {
     icon: TrendingUp,
     title: "Optimize Your Processes",
-    description: "Easily access analyses related to maintenance and calibration processes for optimization.",
+    description:
+      "Easily access analyses related to maintenance and calibration processes for optimization.",
   },
-]
+];
 
 export default function FeaturesPage() {
   return (
@@ -71,12 +82,14 @@ export default function FeaturesPage() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 text-center lg:text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Asset Operations Management System <span className="text-red-500">Tailored for Your Hospital</span>
+                Asset Operations Management System{" "}
+                <span className="text-red-500">Tailored for Your Hospital</span>
               </h1>
               <p className="text-xl text-white/80 leading-relaxed mb-8">
-                Davon is an innovative maintenance management system specifically developed for technical teams in the
-                Healthcare sector. It provides tailored solutions by supporting all processes related to your assets in
-                the hospital environment.
+                Davon is an innovative maintenance management system
+                specifically developed for technical teams in the Healthcare
+                sector. It provides tailored solutions by supporting all
+                processes related to your assets in the hospital environment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
@@ -96,7 +109,7 @@ export default function FeaturesPage() {
             <div className="lg:w-1/2">
               <div className="relative">
                 <Image
-                  src="/images/calm-mri.png"
+                  src="/calm-mri.png"
                   alt="Davon CMMS Dashboard"
                   width={600}
                   height={400}
@@ -114,10 +127,12 @@ export default function FeaturesPage() {
           <div className="container mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                {"It's a Comprehensive Solution For Your"} <span className="text-red-600">Healthcare Facilities</span>
+                {"It's a Comprehensive Solution For Your"}{" "}
+                <span className="text-red-600">Healthcare Facilities</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Everything you need to manage your hospital assets efficiently and maintain compliance.
+                Everything you need to manage your hospital assets efficiently
+                and maintain compliance.
               </p>
             </div>
 
@@ -130,7 +145,9 @@ export default function FeaturesPage() {
                   <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors">
                     <feature.icon className="w-7 h-7 text-red-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                    {feature.title}
+                  </h3>
                   <p className="text-slate-600">{feature.description}</p>
                 </div>
               ))}
@@ -146,7 +163,8 @@ export default function FeaturesPage() {
             Ready to Transform Your Hospital Operations?
           </h2>
           <p className="text-xl text-white/60 mb-8 max-w-2xl mx-auto">
-            Join leading healthcare institutions that trust Davon for their maintenance management needs.
+            Join leading healthcare institutions that trust Davon for their
+            maintenance management needs.
           </p>
           <a
             href="/#contact"
@@ -159,5 +177,5 @@ export default function FeaturesPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
