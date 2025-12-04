@@ -35,6 +35,33 @@ const Play = () => (
   </svg>
 );
 
+const referenceInstitutions = [
+  {
+    name: "SIEMENS",
+    logoSrc: "/reference-logos/Siemens-logo.png",
+  },
+  {
+    name: "MEDIPOL",
+    logoSrc: "/reference-logos/medipol-logo.svg",
+  },
+  {
+    name: "ACIBADEM",
+    logoSrc: "/reference-logos/Acıbadem_Grup_logo.svg.png",
+  },
+  {
+    name: "ANADOLU",
+    logoSrc: "/reference-logos/anadolu-hastanesi-logo.png",
+  },
+  {
+    name: "KOÇ ÜNİVERSİTESİ",
+    logoSrc: "/reference-logos/koc-universitesi-logo.png",
+  },
+  {
+    name: "AMERİKAN HASTANESİ",
+    logoSrc: "/reference-logos/Amerikan_Hastanesi_Logo.png",
+  },
+];
+
 export function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
@@ -121,47 +148,33 @@ export function HeroSection() {
           </p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-4 px-6">
             <div className="flex items-center gap-8 opacity-80 hover:opacity-100 transition-all duration-500 animate-slide-left">
-              <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  SIEMENS
+              {[...new Array(2)].map((_, rowIndex) => (
+                <div
+                  key={rowIndex}
+                  className="flex items-center gap-8 whitespace-nowrap"
+                >
+                  {referenceInstitutions.map((institution) => (
+                    <div
+                      key={`${rowIndex}-${institution.name}`}
+                      className="flex items-center"
+                    >
+                      {institution.logoSrc ? (
+                        <Image
+                          src={institution.logoSrc}
+                          alt={`${institution.name} logo`}
+                          width={160}
+                          height={56}
+                          className="h-10 sm:h-14 w-auto object-contain"
+                        />
+                      ) : (
+                        <span className="text-base sm:text-lg font-semibold text-white">
+                          {institution.name}
+                        </span>
+                      )}
+                    </div>
+                  ))}
                 </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  MEDİPOL
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  ACIBADEM
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  ANADOLU
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  KOÇ ÜNİVERSİTESİ
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  AMERİKAN HASTANESİ
-                </div>
-              </div>
-              {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  SIEMENS
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  MEDİPOL
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  ACIBADEM
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  ANADOLU
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  KOÇ ÜNİVERSİTESİ
-                </div>
-                <div className="text-base sm:text-lg font-semibold text-white">
-                  AMERİKAN HASTANESİ
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -173,18 +186,33 @@ export function HeroSection() {
           </p>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-3 px-4">
             <div className="flex items-center gap-6 opacity-80 animate-slide-left-mobile">
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold text-white">SIEMENS</div>
-                <div className="text-sm font-semibold text-white">MEDİPOL</div>
-                <div className="text-sm font-semibold text-white">ACIBADEM</div>
-                <div className="text-sm font-semibold text-white">ANADOLU</div>
-              </div>
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold text-white">SIEMENS</div>
-                <div className="text-sm font-semibold text-white">MEDİPOL</div>
-                <div className="text-sm font-semibold text-white">ACIBADEM</div>
-                <div className="text-sm font-semibold text-white">ANADOLU</div>
-              </div>
+              {[...new Array(2)].map((_, rowIndex) => (
+                <div
+                  key={rowIndex}
+                  className="flex items-center gap-6 whitespace-nowrap"
+                >
+                  {referenceInstitutions.map((institution) => (
+                    <div
+                      key={`${rowIndex}-${institution.name}`}
+                      className="flex items-center"
+                    >
+                      {institution.logoSrc ? (
+                        <Image
+                          src={institution.logoSrc}
+                          alt={`${institution.name} logo`}
+                          width={130}
+                          height={44}
+                          className="h-8 w-auto object-contain"
+                        />
+                      ) : (
+                        <span className="text-sm font-semibold text-white">
+                          {institution.name}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
