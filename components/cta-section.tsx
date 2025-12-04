@@ -6,7 +6,7 @@ import { ArrowRight, Volume2, VolumeX } from "lucide-react"
 export function CTASection() {
   const sectionRef = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [isMuted, setIsMuted] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
 
   const toggleMute = () => {
     if (videoRef.current) {
