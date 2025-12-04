@@ -1,10 +1,19 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { ArrowRight } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { ArrowRight, Volume2, VolumeX } from "lucide-react"
 
 export function CTASection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isMuted, setIsMuted] = useState(false)
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(videoRef.current.muted)
+    }
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,9 +45,29 @@ export function CTASection() {
         <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             {/* Video background */}
-            <video autoPlay muted loop playsInline className="w-full h-[500px] md:h-[600px] object-cover">
-              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1204-2%20%281%29-uZkEOHeCR3I3z8vnW94BTU5Q4hqE29.mp4" type="video/mp4" />
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              playsInline
+              muted={isMuted}
+              className="w-full h-[500px] md:h-[600px] object-cover"
+            >
+              <source src="/cta-video.mp4" type="video/mp4" />
             </video>
+
+            {/* Mute/Unmute Button */}
+            <button
+              onClick={toggleMute}
+              className="absolute top-4 right-4 z-10 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-200 hover:scale-110 backdrop-blur-sm"
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+              {isMuted ? (
+                <VolumeX className="w-5 h-5" />
+              ) : (
+                <Volume2 className="w-5 h-5" />
+              )}
+            </button>
 
             {/* Overlay gradient for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />

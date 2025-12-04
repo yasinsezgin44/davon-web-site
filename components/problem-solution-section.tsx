@@ -59,52 +59,8 @@ function BeforeAfterSlider() {
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
     >
-      {/* Chaos image (background - right side) */}
+      {/* Calm image (background - right side) */}
       <div className="absolute inset-0">
-        <Image
-          src="/mri-chaos.png"
-          alt="Hospital maintenance challenges"
-          fill
-          className="object-cover"
-          draggable={false}
-        />
-        {/* Challenge text overlay on right side */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/70" />
-        <div className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-right max-w-[40%]">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/30 mb-3">
-            <svg
-              className="h-4 w-4 text-red-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-2.186-.833-2.956 0L3.858 16.5c-.77.833.192 2.5 1.732 2.5z"
-              />
-            </svg>
-            <span className="text-red-300 text-xs sm:text-sm font-medium">
-              Before Davon
-            </span>
-          </div>
-          <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg">
-            The Challenge
-          </h3>
-          <p className="text-white/80 text-xs sm:text-sm drop-shadow-md hidden sm:block">
-            Equipment downtime & maintenance chaos
-          </p>
-        </div>
-      </div>
-
-      {/* Calm image (foreground - left side, revealed by slider) */}
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{
-          clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
-        }}
-      >
         <Image
           src="/calm-mri.png"
           alt="Davon CMMS solution"
@@ -112,9 +68,9 @@ function BeforeAfterSlider() {
           className="object-cover"
           draggable={false}
         />
-        {/* Solution text overlay on left side */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/70" />
-        <div className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-left max-w-[40%]">
+        {/* Solution text overlay on right side */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/70" />
+        <div className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-right max-w-[40%]">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 mb-3">
             <svg
               className="h-4 w-4 text-green-400"
@@ -138,6 +94,50 @@ function BeforeAfterSlider() {
           </h3>
           <p className="text-white/80 text-xs sm:text-sm drop-shadow-md hidden sm:block">
             Real-time monitoring & efficiency
+          </p>
+        </div>
+      </div>
+
+      {/* Chaos image (foreground - left side, revealed by slider) */}
+      <div
+        className="absolute inset-0 overflow-hidden"
+        style={{
+          clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
+        }}
+      >
+        <Image
+          src="/mri-chaos.png"
+          alt="Hospital maintenance challenges"
+          fill
+          className="object-cover"
+          draggable={false}
+        />
+        {/* Challenge text overlay on left side */}
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/70" />
+        <div className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-left max-w-[40%]">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/30 mb-3">
+            <svg
+              className="h-4 w-4 text-red-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-2.186-.833-2.956 0L3.858 16.5c-.77.833.192 2.5 1.732 2.5z"
+              />
+            </svg>
+            <span className="text-red-300 text-xs sm:text-sm font-medium">
+              Before Davon
+            </span>
+          </div>
+          <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg">
+            The Challenge
+          </h3>
+          <p className="text-white/80 text-xs sm:text-sm drop-shadow-md hidden sm:block">
+            Equipment downtime & maintenance chaos
           </p>
         </div>
       </div>
