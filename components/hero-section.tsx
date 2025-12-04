@@ -1,0 +1,155 @@
+import { Button } from "@/components/ui/button"
+import RotatingText from "./RotatingText"
+import Image from "next/image"
+import Aurora from "./Aurora"
+
+const ArrowRight = () => (
+  <svg
+    className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+)
+
+const Play = () => (
+  <svg
+    className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m-6-8h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z"
+    />
+  </svg>
+)
+
+export function HeroSection() {
+  return (
+    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Aurora colorStops={["#7f1d1d", "#dc2626", "#450a0a"]} amplitude={1.2} blend={0.6} speed={0.8} />
+      </div>
+
+      <div className="absolute inset-0 w-full h-full z-[1] pointer-events-none">
+        <Image
+          src="/images/davon-girl-mri-fix.png"
+          alt="Healthcare professional with MRI equipment"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark overlay for text readability since image is mostly white */}
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
+      <div className="max-w-4xl lg:max-w-5xl mx-auto text-center relative z-10 animate-fade-in-hero">
+        {/* Badge */}
+        <div className="inline-flex items-center px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
+          <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
+          CMMS & EAM Solutions for Healthcare
+        </div>
+
+        {/* Main Heading - Updated text colors for visibility on white background */}
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6 animate-fade-in-heading">
+          <span className="text-white drop-shadow-lg">Empowering Hospital</span>
+          <br />
+          <span className="inline-flex items-center justify-center flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
+            <span className="text-white drop-shadow-lg">Operations with</span>
+            <RotatingText
+              texts={["CMMS", "EAM", "Safety", "Efficiency", "Innovation"]}
+              mainClassName="px-2 sm:px-2 md:px-3 bg-red-600 text-white overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-lg"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-1 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
+          </span>
+        </h1>
+
+        {/* Subheading - White text with shadow for visibility */}
+        <p className="text-base sm:text-xl md:text-2xl text-white drop-shadow-lg text-balance max-w-sm sm:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
+          At Davon, we specialize in creating robust Computerized Maintenance Management Systems and Enterprise Asset
+          Management software tailored specifically for hospitals.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
+          <Button
+            size="lg"
+            className="bg-red-600 text-white rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
+          >
+            Request a Demo
+            <ArrowRight />
+          </Button>
+
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full px-8 py-4 text-lg font-medium border-white/50 text-white hover:bg-white/20 transition-all duration-200 hover:scale-105 group bg-black/30 backdrop-blur-sm cursor-pointer"
+          >
+            <Play />
+            About Us
+          </Button>
+        </div>
+
+        {/* Trust Indicators - Added dark background for visibility */}
+        <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
+          <p className="text-sm text-white drop-shadow-lg mb-6">Trusted by leading healthcare institutions</p>
+          <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-4 px-6">
+            <div className="flex items-center gap-8 opacity-80 hover:opacity-100 transition-all duration-500 animate-slide-left">
+              <div className="flex items-center gap-8 whitespace-nowrap">
+                <div className="text-base sm:text-lg font-semibold text-white">SIEMENS</div>
+                <div className="text-base sm:text-lg font-semibold text-white">MEDİPOL</div>
+                <div className="text-base sm:text-lg font-semibold text-white">ACIBADEM</div>
+                <div className="text-base sm:text-lg font-semibold text-white">ANADOLU</div>
+                <div className="text-base sm:text-lg font-semibold text-white">KOÇ ÜNİVERSİTESİ</div>
+                <div className="text-base sm:text-lg font-semibold text-white">AMERİKAN HASTANESİ</div>
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className="flex items-center gap-8 whitespace-nowrap">
+                <div className="text-base sm:text-lg font-semibold text-white">SIEMENS</div>
+                <div className="text-base sm:text-lg font-semibold text-white">MEDİPOL</div>
+                <div className="text-base sm:text-lg font-semibold text-white">ACIBADEM</div>
+                <div className="text-base sm:text-lg font-semibold text-white">ANADOLU</div>
+                <div className="text-base sm:text-lg font-semibold text-white">KOÇ ÜNİVERSİTESİ</div>
+                <div className="text-base sm:text-lg font-semibold text-white">AMERİKAN HASTANESİ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Trust Indicators */}
+        <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
+          <p className="text-sm text-white drop-shadow-lg mb-6">Trusted by leading healthcare institutions</p>
+          <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-3 px-4">
+            <div className="flex items-center gap-6 opacity-80 animate-slide-left-mobile">
+              <div className="flex items-center gap-6 whitespace-nowrap">
+                <div className="text-sm font-semibold text-white">SIEMENS</div>
+                <div className="text-sm font-semibold text-white">MEDİPOL</div>
+                <div className="text-sm font-semibold text-white">ACIBADEM</div>
+                <div className="text-sm font-semibold text-white">ANADOLU</div>
+              </div>
+              <div className="flex items-center gap-6 whitespace-nowrap">
+                <div className="text-sm font-semibold text-white">SIEMENS</div>
+                <div className="text-sm font-semibold text-white">MEDİPOL</div>
+                <div className="text-sm font-semibold text-white">ACIBADEM</div>
+                <div className="text-sm font-semibold text-white">ANADOLU</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
