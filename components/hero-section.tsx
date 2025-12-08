@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import RotatingText from "./RotatingText"
 import Image from "next/image"
+import Link from "next/link"
 import Aurora from "./Aurora"
 
 const ArrowRight = () => (
@@ -85,22 +86,26 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
-          <Button
-            size="lg"
-            className="bg-red-600 text-white rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
-          >
-            Request a Demo
-            <ArrowRight />
-          </Button>
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="bg-red-600 text-white rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
+            >
+              Request a Demo
+              <ArrowRight />
+            </Button>
+          </Link>
 
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full px-8 py-4 text-lg font-medium border-white/50 text-white hover:bg-white/20 transition-all duration-200 hover:scale-105 group bg-black/30 backdrop-blur-sm cursor-pointer"
-          >
-            <Play />
-            About Us
-          </Button>
+          <Link href="/about-davon">
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full px-8 py-4 text-lg font-medium border-white/50 text-white hover:bg-white/20 transition-all duration-200 hover:scale-105 group bg-black/30 backdrop-blur-sm cursor-pointer"
+            >
+              <Play />
+              About Us
+            </Button>
+          </Link>
         </div>
 
         {/* Trust Indicators - logos of trusted institutions */}
@@ -109,56 +114,56 @@ export function HeroSection() {
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-4 px-6">
             <div className="flex items-center gap-8 opacity-80 animate-slide-left">
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
                     alt="Siemens Healthineers"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol University Hospital"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
                     alt="Acıbadem Healthcare Group"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Medical Center"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
                     alt="Koç University Hospital"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
                     alt="American Hospital"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
@@ -166,56 +171,56 @@ export function HeroSection() {
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
                     alt="Siemens Healthineers"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol University Hospital"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
                     alt="Acıbadem Healthcare Group"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Medical Center"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/koc-universitesi-logo.png"
                     alt="Koç University Hospital"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Amerikan_Hastanesi_Logo.png"
                     alt="American Hospital"
-                    width={120}
+                    width={180}
                     height={40}
                     className="h-full w-auto object-contain"
                   />
@@ -231,76 +236,76 @@ export function HeroSection() {
           <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-3 px-4">
             <div className="flex items-center gap-6 opacity-80 animate-slide-left-mobile">
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
                     alt="Siemens Healthineers"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol University Hospital"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
                     alt="Acıbadem Healthcare Group"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Medical Center"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
                 </div>
               </div>
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Siemens-logo.png"
                     alt="Siemens Healthineers"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/medipol-logo.svg"
                     alt="Medipol University Hospital"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/Acıbadem_Grup_logo.svg.png"
                     alt="Acıbadem Healthcare Group"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
                 </div>
-                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                   <Image
                     src="/reference-logos/anadolu-hastanesi-logo.png"
                     alt="Anadolu Medical Center"
-                    width={90}
+                    width={130}
                     height={30}
                     className="h-full w-auto object-contain"
                   />
