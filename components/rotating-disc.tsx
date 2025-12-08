@@ -16,6 +16,7 @@ export function RotatingDisc({ src, alt, className = "" }: RotatingDiscProps) {
   const [rotation, setRotation] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const animationRef = useRef<number | null>(null)
+  const rawRotationRef = useRef(0)
 
   const animateSwing = useCallback((targetAngle: number, initialVelocity: number) => {
     setIsAnimating(true)
@@ -53,26 +54,36 @@ export function RotatingDisc({ src, alt, className = "" }: RotatingDiscProps) {
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
-      if (!discRef.current || isAnimating) return
+      if (!discRef.current) return
+
+      // If a swing animation is running, stop it so user control takes over
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+        animationRef.current = null
+        setIsAnimating(false)
+      }
 
       const rect = discRef.current.getBoundingClientRect()
       const centerX = rect.left + rect.width / 2
       const centerY = rect.top + rect.height / 2
 
-      // Calculate target angle from center to mouse
+      // Calculate base target angle from center to mouse (-180 to 180)
       const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI)
-      const target = angle + 90
+      const targetBase = angle + 90
 
-      // Rotate towards target using shortest path to avoid big jumps
       setRotation((prev) => {
-        const normalizedPrev = ((prev % 360) + 360) % 360
-        const normalizedTarget = ((target % 360) + 360) % 360
-        let delta = normalizedTarget - normalizedPrev
+        const prevRaw = rawRotationRef.current || prev
+        const prevMod = ((prevRaw % 360) + 360) % 360
 
+        // Unwrap target so motion is continuous rather than flipping at 180°
+        let delta = targetBase - prevMod
         if (delta > 180) delta -= 360
         if (delta < -180) delta += 360
 
-        return normalizedPrev + delta * 0.2
+        // Move a fraction toward the new angle for smooth motion
+        const next = prevRaw + delta * 0.35
+        rawRotationRef.current = next
+        return next
       })
     },
     [isAnimating],

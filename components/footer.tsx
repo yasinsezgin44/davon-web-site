@@ -3,6 +3,7 @@ import type React from "react"
 import type { ComponentProps, ReactNode } from "react"
 import { motion, useReducedMotion } from "framer-motion"
 import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "lucide-react"
+import Image from "next/image"
 
 interface FooterLink {
   title: string
@@ -61,8 +62,14 @@ export function Footer() {
 
       <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
         <AnimatedContainer className="space-y-4">
-          <div className="text-3xl font-light tracking-wider text-white">
-            D<span className="text-red-500">A</span>VON
+          <div className="flex items-center">
+            <Image
+              src="/logo-white.webp"
+              alt="Davon logo"
+              width={160}
+              height={40}
+              className="h-10 w-auto"
+            />
           </div>
           <p className="text-muted-foreground text-sm max-w-xs">
             Empowering hospital operations with cutting-edge CMMS and EAM solutions for over 20 years.

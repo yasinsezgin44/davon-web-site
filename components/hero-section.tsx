@@ -107,95 +107,119 @@ export function HeroSection() {
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
           <p className="text-sm text-white drop-shadow-lg mb-6">Trusted by leading healthcare institutions</p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-4 px-6">
-            <div className="flex items-center gap-8 opacity-80 hover:opacity-100 transition-all duration-500 animate-slide-left">
+            <div className="flex items-center gap-8 opacity-80 animate-slide-left">
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <Image
-                  src="/reference-logos/Siemens-logo.png"
-                  alt="Siemens Healthineers"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/medipol-logo.svg"
-                  alt="Medipol University Hospital"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                  alt="Acıbadem Healthcare Group"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/anadolu-hastanesi-logo.png"
-                  alt="Anadolu Medical Center"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/koc-universitesi-logo.png"
-                  alt="Koç University Hospital"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                  alt="American Hospital"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Siemens-logo.png"
+                    alt="Siemens Healthineers"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol University Hospital"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
+                    alt="Acıbadem Healthcare Group"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Medical Center"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/koc-universitesi-logo.png"
+                    alt="Koç University Hospital"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
+                    alt="American Hospital"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <Image
-                  src="/reference-logos/Siemens-logo.png"
-                  alt="Siemens Healthineers"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/medipol-logo.svg"
-                  alt="Medipol University Hospital"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                  alt="Acıbadem Healthcare Group"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/anadolu-hastanesi-logo.png"
-                  alt="Anadolu Medical Center"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/koc-universitesi-logo.png"
-                  alt="Koç University Hospital"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                  alt="American Hospital"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                />
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Siemens-logo.png"
+                    alt="Siemens Healthineers"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol University Hospital"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
+                    alt="Acıbadem Healthcare Group"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Medical Center"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/koc-universitesi-logo.png"
+                    alt="Koç University Hospital"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-8 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
+                    alt="American Hospital"
+                    width={120}
+                    height={40}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -207,64 +231,80 @@ export function HeroSection() {
           <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-3 px-4">
             <div className="flex items-center gap-6 opacity-80 animate-slide-left-mobile">
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <Image
-                  src="/reference-logos/Siemens-logo.png"
-                  alt="Siemens Healthineers"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/medipol-logo.svg"
-                  alt="Medipol University Hospital"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                  alt="Acıbadem Healthcare Group"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/anadolu-hastanesi-logo.png"
-                  alt="Anadolu Medical Center"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Siemens-logo.png"
+                    alt="Siemens Healthineers"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol University Hospital"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
+                    alt="Acıbadem Healthcare Group"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Medical Center"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
               </div>
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <Image
-                  src="/reference-logos/Siemens-logo.png"
-                  alt="Siemens Healthineers"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/medipol-logo.svg"
-                  alt="Medipol University Hospital"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                  alt="Acıbadem Healthcare Group"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
-                <Image
-                  src="/reference-logos/anadolu-hastanesi-logo.png"
-                  alt="Anadolu Medical Center"
-                  width={90}
-                  height={30}
-                  className="h-6 w-auto object-contain"
-                />
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Siemens-logo.png"
+                    alt="Siemens Healthineers"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/medipol-logo.svg"
+                    alt="Medipol University Hospital"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
+                    alt="Acıbadem Healthcare Group"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <div className="h-6 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src="/reference-logos/anadolu-hastanesi-logo.png"
+                    alt="Anadolu Medical Center"
+                    width={90}
+                    height={30}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
               </div>
             </div>
           </div>

@@ -57,7 +57,7 @@ function BeforeAfterSlider() {
       {/* Calm image (background - right side) */}
       <div className="absolute inset-0">
         <Image
-          src="/images/calm-mri.png"
+          src="/calm-mri.png"
           alt="Davon CMMS solution"
           fill
           className="object-cover"
