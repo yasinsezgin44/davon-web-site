@@ -68,7 +68,7 @@ const Play = () => (
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center lg:justify-start px-4 lg:px-12 xl:px-20 py-20 relative overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0">
         <Aurora
           colorStops={["#7f1d1d", "#dc2626", "#450a0a"]}
@@ -90,7 +90,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="max-w-4xl lg:max-w-5xl w-full mx-auto lg:mx-0 lg:ml-8 xl:ml-12 text-center lg:text-left relative z-10 animate-fade-in-hero flex flex-col items-center lg:items-start">
+      <div className="w-full max-w-4xl lg:max-w-3xl xl:max-w-4xl mx-auto lg:mx-0 lg:ml-16 xl:ml-24 text-center lg:text-left relative z-10 animate-fade-in-hero flex flex-col items-center lg:items-start lg:pr-10">
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
           <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>

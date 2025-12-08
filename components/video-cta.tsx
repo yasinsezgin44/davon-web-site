@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Volume2, VolumeX } from "lucide-react"
-import Link from "next/link"
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, Volume2, VolumeX } from "lucide-react";
+import Link from "next/link";
 
 interface VideoCTAProps {
-  className?: string
+  className?: string;
 }
 
 export function VideoCTA({ className = "" }: VideoCTAProps) {
-  const sectionRef = useRef<HTMLElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isMuted, setIsMuted] = useState(true)
-  const [hasStarted, setHasStarted] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,43 +20,46 @@ export function VideoCTA({ className = "" }: VideoCTAProps) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (videoRef.current && !hasStarted) {
-              videoRef.current.play()
-              setHasStarted(true)
+              videoRef.current.play();
+              setHasStarted(true);
             }
 
-            const elements = entry.target.querySelectorAll(".fade-in-element")
+            const elements = entry.target.querySelectorAll(".fade-in-element");
             elements.forEach((element, index) => {
               setTimeout(() => {
-                element.classList.add("animate-fade-in-up")
-              }, index * 200)
-            })
+                element.classList.add("animate-fade-in-up");
+              }, index * 200);
+            });
           } else {
             // Pause when out of view
             if (videoRef.current) {
-              videoRef.current.pause()
+              videoRef.current.pause();
             }
           }
-        })
+        });
       },
-      { threshold: 0.3 },
-    )
+      { threshold: 0.3 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [hasStarted])
+    return () => observer.disconnect();
+  }, [hasStarted]);
 
   const toggleMute = () => {
     if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
     }
-  }
+  };
 
   return (
-    <section ref={sectionRef} className={`relative py-8 px-4 sm:px-6 lg:px-8 mb-16 ${className}`}>
+    <section
+      ref={sectionRef}
+      className={`relative py-8 px-4 sm:px-6 lg:px-8 mb-16 ${className}`}
+    >
       <div className="relative max-w-5xl mx-auto">
         <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -68,7 +71,7 @@ export function VideoCTA({ className = "" }: VideoCTAProps) {
               preload="metadata"
               className="w-full h-[500px] md:h-[600px] object-cover"
             >
-              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1204-2%20%281%29-uZkEOHeCR3I3z8vnW94BTU5Q4hqE29.mp4" type="video/mp4" />
+              <source src="/cta-video.mp4" type="video/mp4" />
             </video>
 
             {/* Overlay gradient for text readability */}
@@ -95,7 +98,8 @@ export function VideoCTA({ className = "" }: VideoCTAProps) {
                 </span>
               </h3>
               <p className="text-base md:text-lg text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-                Transform your hospital's operational excellence with Davon's cutting-edge CMMS and EAM solutions.
+                Transform your hospital's operational excellence with Davon's
+                cutting-edge CMMS and EAM solutions.
               </p>
 
               <Link
@@ -133,5 +137,5 @@ export function VideoCTA({ className = "" }: VideoCTAProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }
