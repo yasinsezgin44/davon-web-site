@@ -155,26 +155,19 @@ export function HeroSection() {
             Trusted by leading healthcare institutions
           </p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/10 backdrop-blur-sm rounded-xl py-4 px-6">
-            <div className="flex items-center gap-8 opacity-90 animate-slide-left">
-              {[0, 1].map((dup) => (
+            <div className="flex items-center gap-10 opacity-90 animate-slide-left whitespace-nowrap w-max">
+              {loopedLogos.map((logo, idx) => (
                 <div
-                  key={dup}
-                  className="flex items-center gap-8 whitespace-nowrap w-max"
+                  key={`${idx}-${logo.alt}`}
+                  className="h-12 flex items-center opacity-80 grayscale hover:grayscale-0 hover:opacity-100 drop-shadow-sm transition-all duration-300 shrink-0"
                 >
-                  {loopedLogos.map((logo, idx) => (
-                    <div
-                      key={`${dup}-${idx}-${logo.alt}`}
-                      className="h-12 flex items-center opacity-100 drop-shadow-sm transition-all duration-300 shrink-0"
-                    >
-                      <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={200}
-                        height={52}
-                        className="h-11 w-auto object-contain"
-                      />
-                    </div>
-                  ))}
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={170}
+                    height={48}
+                    className="h-11 w-auto object-contain"
+                  />
                 </div>
               ))}
             </div>
@@ -187,26 +180,19 @@ export function HeroSection() {
             Trusted by leading healthcare institutions
           </p>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/10 backdrop-blur-sm rounded-xl py-3 px-4">
-            <div className="flex items-center gap-6 opacity-90 animate-slide-left-mobile">
-              {[0, 1].map((dup) => (
+            <div className="flex items-center gap-8 opacity-90 animate-slide-left-mobile whitespace-nowrap w-max">
+              {loopedLogos.map((logo, idx) => (
                 <div
-                  key={dup}
-                  className="flex items-center gap-6 whitespace-nowrap w-max"
+                  key={`${idx}-${logo.alt}-mobile`}
+                  className="h-10 flex items-center opacity-80 grayscale hover:grayscale-0 hover:opacity-100 drop-shadow-sm transition-all duration-300 shrink-0"
                 >
-                  {loopedLogos.map((logo, idx) => (
-                    <div
-                      key={`${dup}-${idx}-${logo.alt}-mobile`}
-                      className="h-10 flex items-center opacity-100 drop-shadow-sm transition-all duration-300 shrink-0"
-                    >
-                      <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={150}
-                        height={36}
-                        className="h-9 w-auto object-contain"
-                      />
-                    </div>
-                  ))}
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={140}
+                    height={34}
+                    className="h-9 w-auto object-contain"
+                  />
                 </div>
               ))}
             </div>
