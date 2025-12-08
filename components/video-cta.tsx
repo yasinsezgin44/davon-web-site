@@ -90,21 +90,21 @@ export function VideoCTA({ className = "" }: VideoCTAProps) {
             </button>
 
             {/* Embedded content over video */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-              <h3 className="text-2xl md:text-4xl lg:text-5xl font-light text-white mb-4 text-balance leading-tight drop-shadow-lg">
+            <div className="absolute inset-0 flex flex-col items-center lg:items-start justify-center lg:justify-end text-center lg:text-left px-6 lg:px-12 xl:px-16 w-full pb-10 lg:pb-16">
+              <h3 className="text-2xl md:text-4xl lg:text-5xl font-light text-white mb-4 text-balance leading-tight drop-shadow-lg max-w-3xl">
                 Join Leading{" "}
                 <span className="font-semibold bg-gradient-to-r from-red-400 to-red-300 bg-clip-text text-transparent">
                   Healthcare Institutions
                 </span>
               </h3>
-              <p className="text-base md:text-lg text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+              <p className="text-base md:text-lg text-white/90 mb-8 max-w-2xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
                 Transform your hospital's operational excellence with Davon's
                 cutting-edge CMMS and EAM solutions.
               </p>
 
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-3 px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-full font-semibold text-base md:text-lg hover:from-red-700 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-2xl"
+                className="group inline-flex items-center gap-3 px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-full font-semibold text-base md:text-lg hover:from-red-700 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-2xl mx-auto lg:mx-0"
               >
                 Schedule a Demo
                 <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-200" />
