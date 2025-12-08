@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 
 const navigation = [
@@ -96,7 +97,6 @@ export function GlassmorphismNav() {
   const textColor = isOnWhiteSection ? "text-slate-900" : "text-white"
   const textColorMuted = isOnWhiteSection ? "text-slate-700" : "text-white/80"
   const bgColor = isOnWhiteSection ? "bg-white/90 border-slate-200 shadow-lg" : "bg-white/10 border-white/20"
-  const logoAccent = "text-red-500"
 
   return (
     <>
@@ -117,11 +117,30 @@ export function GlassmorphismNav() {
                 href="/"
                 className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer"
               >
-                <span
-                  className={`text-2xl md:text-3xl font-light tracking-wider ${textColor} transition-colors duration-300`}
-                >
-                  D<span className={logoAccent}>A</span>VON
-                </span>
+                <div className="relative h-8 w-[140px]">
+                  {/* Dark text / light background logo */}
+                  <Image
+                    src="/logo.webp"
+                    alt="Davon logo"
+                    width={140}
+                    height={32}
+                    className={`h-8 w-auto object-contain transition-opacity duration-300 ${
+                      isOnWhiteSection ? "opacity-100" : "opacity-0 absolute inset-0"
+                    }`}
+                    priority
+                  />
+                  {/* White logo for dark backgrounds */}
+                  <Image
+                    src="/logo-white.webp"
+                    alt="Davon logo"
+                    width={140}
+                    height={32}
+                    className={`h-8 w-auto object-contain transition-opacity duration-300 ${
+                      isOnWhiteSection ? "opacity-0 absolute inset-0" : "opacity-100"
+                    }`}
+                    priority
+                  />
+                </div>
               </Link>
 
               <div className="hidden md:flex items-center space-x-8">

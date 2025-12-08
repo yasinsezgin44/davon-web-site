@@ -94,7 +94,10 @@ export default function FeaturesPage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-red-900/20 to-black/80" />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-red-900/20 to-black/80"
+          style={{ transform: "translateY(calc(var(--scroll-y, 0px) * 0.3))" }}
+        />
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 text-center lg:text-left">
