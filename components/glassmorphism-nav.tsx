@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation"
 const navigation = [
   { name: "About Davon", href: "/about-davon" },
   { name: "Features", href: "/features" },
-  { name: "Solutions", href: "/solutions" },
   { name: "Why Choose Us", href: "/why-choose-us" },
   { name: "R&D", href: "/r-d" },
 ]
@@ -94,9 +93,9 @@ export function GlassmorphismNav() {
     setIsOpen(false)
   }
 
-  const textColor = isOnWhiteSection ? "text-slate-800" : "text-white"
-  const textColorMuted = isOnWhiteSection ? "text-slate-600" : "text-white/80"
-  const bgColor = isOnWhiteSection ? "bg-slate-900/10 border-slate-200" : "bg-white/10 border-white/20"
+  const textColor = isOnWhiteSection ? "text-slate-900" : "text-white"
+  const textColorMuted = isOnWhiteSection ? "text-slate-700" : "text-white/80"
+  const bgColor = isOnWhiteSection ? "bg-white/90 border-slate-200 shadow-lg" : "bg-white/10 border-white/20"
   const logoAccent = "text-red-500"
 
   return (
