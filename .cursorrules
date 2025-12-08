@@ -1,0 +1,57 @@
+# Cursor Rules for Davon.Health Website Maintenance
+
+## Pre-Commit Checklist
+Before committing changes, ensure:
+
+### Date Updates (Always Required)
+- [ ] Update `dateModified` in `src/app/page.tsx` structured data
+- [ ] Update `lastmod` in `public/sitemap.xml`
+- [ ] Use current date in YYYY-MM-DD format
+
+### Content Changes
+- [ ] If adding FAQ questions, update `faqData` array in `src/app/page.tsx`
+- [ ] If changing meta descriptions, update `src/app/layout.tsx`
+- [ ] If adding images, optimize to WebP and add alt text
+- [ ] If changing company info, update Organization schema
+
+### SEO Validation
+- [ ] Test structured data with Rich Results Test
+- [ ] Validate sitemap.xml format
+- [ ] Check robots.txt accessibility
+- [ ] Verify llms.txt content accuracy
+
+## Code Quality Rules
+
+### TypeScript
+- Use proper TypeScript types for all variables
+- Avoid `any` type except when necessary
+- Add JSDoc comments for complex functions
+
+### React Components
+- Use functional components with hooks
+- Implement proper error boundaries
+- Add loading states for async operations
+
+### SEO Best Practices
+- All images must have alt text
+- Use semantic HTML elements
+- Maintain proper heading hierarchy (H1→H2→H3)
+- Keep URLs clean and descriptive
+
+## File Organization
+- Keep components in `/src/components/`
+- Static assets in `/public/`
+- Utility functions in `/src/lib/`
+- Page components in `/src/app/`
+
+## Performance Guidelines
+- Optimize images before committing
+- Avoid large bundle sizes
+- Use lazy loading for below-fold content
+- Minimize unused CSS/JS
+
+## Deployment Reminders
+- Update domain URLs before production deploy
+- Test on multiple devices/browsers
+- Validate all external links
+- Check console for errors

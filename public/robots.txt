@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block access to Next.js internal paths
+Disallow: /_next/
+Disallow: /api/
+
+# Block access to sensitive files
+Disallow: /.env
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://davon.health/sitemap.xml
