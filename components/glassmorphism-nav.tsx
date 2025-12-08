@@ -180,19 +180,13 @@ export function GlassmorphismNav() {
               </div>
 
               <div className="hidden md:block">
-                <button
+                <Link
+                  href="/contact"
                   className={`relative ${isOnWhiteSection ? "bg-slate-900 hover:bg-slate-800 text-white" : "bg-white hover:bg-gray-50 text-black"} font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group`}
-                  onClick={() => {
-                    if (pathname === "/") {
-                      scrollToSection("#contact")
-                    } else {
-                      window.location.href = "/#contact"
-                    }
-                  }}
                 >
                   <span className="mr-2">Contact</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                </Link>
               </div>
 
               <button
@@ -274,24 +268,19 @@ export function GlassmorphismNav() {
                   ),
                 )}
                 <div className="h-px bg-white/10 my-2" />
-                <button
+                <Link
+                  href="/contact"
                   className={`relative ${isOnWhiteSection ? "bg-slate-900 hover:bg-slate-800 text-white" : "bg-white hover:bg-gray-50 text-black"} font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
                     isOpen ? "animate-mobile-menu-item" : ""
                   }`}
                   style={{
                     animationDelay: isOpen ? `${navigation.length * 80 + 150}ms` : "0ms",
                   }}
-                  onClick={() => {
-                    if (pathname === "/") {
-                      scrollToSection("#contact")
-                    } else {
-                      window.location.href = "/#contact"
-                    }
-                  }}
+                  onClick={() => setIsOpen(false)}
                 >
                   <span className="mr-2">Contact</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

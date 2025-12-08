@@ -86,9 +86,12 @@ export default function RnDPage() {
             </div>
           </section>
 
-          {/* R&D Philosophy Section */}
+          {/* R&D Philosophy Section with subtle parallax */}
           <section className="py-20 px-4" data-white-section="true">
-            <div className="bg-white rounded-[3rem] py-20 px-8">
+            <div
+              className="bg-white rounded-[3rem] py-20 px-8"
+              style={{ transform: "translateY(calc(var(--scroll-y, 0px) * 0.12))" }}
+            >
               <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                   <div className="lg:w-1/2">
