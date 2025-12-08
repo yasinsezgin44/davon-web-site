@@ -10,28 +10,28 @@ const reasons = [
     title: "Experience and Expertise in the Healthcare Sector",
     description:
       "CMMS/EAM solutions in general are different from those specifically designed for healthcare facilities. Davon offers solutions tailored to the needs of healthcare institutions, drawing on years of experience and a team of experts in the healthcare field.",
-    image: "/images/device-inventory.webp",
+    image: "/images/experience-expertise.png",
   },
   {
     icon: Lightbulb,
     title: "Innovation and Technology",
     description:
       "Davon continuously enhances the competitive edge of healthcare institutions with its innovative technologies and solutions. We stay ahead of industry trends to deliver cutting-edge features that transform hospital operations.",
-    image: "/images/dashboard-charts.webp",
+    image: "/images/innovation-technology.png",
   },
   {
     icon: Users,
     title: "Customer Satisfaction Focused Service",
     description:
       "Davon not only provides a software solution but also actively participates in your business development processes, helping your technical teams improve and achieve success. Prioritizing customer satisfaction, Davon meets and supports the needs of healthcare institutions.",
-    image: "/images/repair-analysis.webp",
+    image: "/images/customer-satisfaction.png",
   },
   {
     icon: Settings,
     title: "Comprehensive and Flexible Solutions",
     description:
       "Davon offers a product that ensures compliance with standards while improving hospital operations. It has the flexibility to be tailored to the specific needs of your institution. The functions provided for healthcare facilities, combined with integration capabilities, meet the unique requirements of healthcare institutions.",
-    image: "/images/device-inventory-search.webp",
+    image: "/images/comprehensive-flexible.png",
   },
 ]
 

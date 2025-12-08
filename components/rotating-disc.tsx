@@ -59,9 +59,21 @@ export function RotatingDisc({ src, alt, className = "" }: RotatingDiscProps) {
       const centerX = rect.left + rect.width / 2
       const centerY = rect.top + rect.height / 2
 
-      // Calculate angle from center to mouse
+      // Calculate target angle from center to mouse
       const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI)
-      setRotation(angle + 90)
+      const target = angle + 90
+
+      // Rotate towards target using shortest path to avoid big jumps
+      setRotation((prev) => {
+        const normalizedPrev = ((prev % 360) + 360) % 360
+        const normalizedTarget = ((target % 360) + 360) % 360
+        let delta = normalizedTarget - normalizedPrev
+
+        if (delta > 180) delta -= 360
+        if (delta < -180) delta += 360
+
+        return normalizedPrev + delta * 0.2
+      })
     },
     [isAnimating],
   )

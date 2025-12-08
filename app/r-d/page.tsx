@@ -51,16 +51,9 @@ const innovations = [
     image: "/images/count-app1.jpeg",
   },
   {
-    title: "Predictive Maintenance AI",
-    description:
-      "Machine learning algorithms that analyze equipment usage patterns to predict failures before they occur, minimizing downtime.",
-    image: "/ai-dashboard-with-graphs-and-predictions.jpg",
-  },
-  {
-    title: "Cloud-Based Architecture",
-    description:
-      "Scalable, secure, and accessible from anywhere - our cloud infrastructure ensures your data is always available when you need it.",
-    image: "/cloud-computing-network-diagram.jpg",
+    title: "SQL Agent",
+    description: "Natural language database query agent that lets your team ask complex questions in plain language.",
+    image: "/images/Query-agent.png",
   },
 ]
 
@@ -111,8 +104,8 @@ export default function RnDPage() {
               <div className="lg:w-1/2">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/modern-research-lab-with-computers-and-medical-tec.jpg"
-                    alt="R&D Laboratory"
+                    src="/images/innovation-healthcare.png"
+                    alt="Innovative healthcare technology in R&D"
                     width={600}
                     height={500}
                     className="w-full h-auto"
