@@ -1,26 +1,44 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { ArrowRight } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { ArrowRight, Volume2, VolumeX } from "lucide-react"
+import Link from "next/link"
 
-export function CTASection() {
+interface VideoCTAProps {
+  className?: string
+}
+
+export function VideoCTA({ className = "" }: VideoCTAProps) {
   const sectionRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isMuted, setIsMuted] = useState(true)
+  const [hasStarted, setHasStarted] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            if (videoRef.current && !hasStarted) {
+              videoRef.current.play()
+              setHasStarted(true)
+            }
+
             const elements = entry.target.querySelectorAll(".fade-in-element")
             elements.forEach((element, index) => {
               setTimeout(() => {
                 element.classList.add("animate-fade-in-up")
               }, index * 200)
             })
+          } else {
+            // Pause when out of view
+            if (videoRef.current) {
+              videoRef.current.pause()
+            }
           }
         })
       },
-      { threshold: 0.1 },
+      { threshold: 0.3 },
     )
 
     if (sectionRef.current) {
@@ -28,20 +46,45 @@ export function CTASection() {
     }
 
     return () => observer.disconnect()
-  }, [])
+  }, [hasStarted])
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
+  }
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-8 px-4 sm:px-6 lg:px-8 mb-32">
+    <section ref={sectionRef} className={`relative py-8 px-4 sm:px-6 lg:px-8 mb-16 ${className}`}>
       <div className="relative max-w-5xl mx-auto">
         <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            {/* Video background */}
-            <video autoPlay muted loop playsInline className="w-full h-[500px] md:h-[600px] object-cover">
+            <video
+              ref={videoRef}
+              muted={isMuted}
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full h-[500px] md:h-[600px] object-cover"
+            >
               <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1204-2%20%281%29-uZkEOHeCR3I3z8vnW94BTU5Q4hqE29.mp4" type="video/mp4" />
             </video>
 
             {/* Overlay gradient for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+            <button
+              onClick={toggleMute}
+              className="absolute top-4 right-4 z-20 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-black/70 transition-all duration-200 group"
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+              {isMuted ? (
+                <VolumeX className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              ) : (
+                <Volume2 className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              )}
+            </button>
 
             {/* Embedded content over video */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
@@ -55,10 +98,13 @@ export function CTASection() {
                 Transform your hospital's operational excellence with Davon's cutting-edge CMMS and EAM solutions.
               </p>
 
-              <button className="group inline-flex items-center gap-3 px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-full font-semibold text-base md:text-lg hover:from-red-700 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-2xl">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-3 px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-full font-semibold text-base md:text-lg hover:from-red-700 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-2xl"
+              >
                 Schedule a Demo
                 <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-200" />
-              </button>
+              </Link>
             </div>
           </div>
 
