@@ -1,108 +1,90 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef } from "react";
-import {
-  Smartphone,
-  QrCode,
-  CheckCircle,
-  Package,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
-import Image from "next/image";
+import { useState, useEffect, useRef } from "react"
+import { Smartphone, QrCode, CheckCircle, Package, ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 const features = [
   {
     icon: QrCode,
     title: "QR Code Scanning",
-    description:
-      "Instantly identify and count equipment by scanning QR codes attached to each asset.",
+    description: "Instantly identify and count equipment by scanning QR codes attached to each asset.",
   },
   {
     icon: Package,
     title: "Location-Based Tracking",
-    description:
-      "Organize counts by blocks, floors, and departments for comprehensive inventory management.",
+    description: "Organize counts by blocks, floors, and departments for comprehensive inventory management.",
   },
   {
     icon: CheckCircle,
     title: "Real-Time Sync",
-    description:
-      "All counts sync instantly to Davon CMMS, eliminating manual data entry errors.",
+    description: "All counts sync instantly to Davon CMMS, eliminating manual data entry errors.",
   },
-];
+]
 
 export function CountAppSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [activeScreen, setActiveScreen] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [activeScreen, setActiveScreen] = useState(0)
 
   const screens = [
-    { src: "/count-app/count-app1.jpeg", label: "Login" },
-    { src: "/count-app/count-app2.jpeg", label: "Locations" },
-    { src: "/count-app/count-app3.jpeg", label: "Count Screen" },
-    { src: "/count-app/count-app4.jpeg", label: "Equipment Detail" },
-  ];
+    { src: "/images/count-app1.jpeg", label: "Login" },
+    { src: "/images/count-app2.jpeg", label: "Locations" },
+    { src: "/images/count-app3.jpeg", label: "Count Screen" },
+    { src: "/images/count-app4.jpeg", label: "Equipment Detail" },
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setIsVisible(true)
         }
       },
       {
         threshold: 0.1,
         rootMargin: "0px 0px -100px 0px",
-      }
-    );
+      },
+    )
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      observer.observe(sectionRef.current)
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+        observer.unobserve(sectionRef.current)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   // Auto-rotate screens
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveScreen((prev) => (prev + 1) % screens.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [screens.length]);
+      setActiveScreen((prev) => (prev + 1) % screens.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [screens.length])
 
   const goToPrevious = () => {
-    setActiveScreen((prev) => (prev - 1 + screens.length) % screens.length);
-  };
+    setActiveScreen((prev) => (prev - 1 + screens.length) % screens.length)
+  }
 
   const goToNext = () => {
-    setActiveScreen((prev) => (prev + 1) % screens.length);
-  };
+    setActiveScreen((prev) => (prev + 1) % screens.length)
+  }
 
-  const getPreviousIndex = () =>
-    (activeScreen - 1 + screens.length) % screens.length;
-  const getNextIndex = () => (activeScreen + 1) % screens.length;
+  const getPreviousIndex = () => (activeScreen - 1 + screens.length) % screens.length
+  const getNextIndex = () => (activeScreen + 1) % screens.length
 
   return (
-    <section
-      id="solutions"
-      ref={sectionRef}
-      className="relative z-10"
-      data-white-section="true"
-    >
+    <section id="solutions" ref={sectionRef} className="relative z-10" data-white-section="true">
       <div className="bg-white rounded-b-[3rem] pt-16 sm:pt-24 pb-16 sm:pb-24 px-4 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <div
               className={`inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium mb-6 transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
               <Smartphone className="w-4 h-4" />
@@ -111,9 +93,7 @@ export function CountAppSection() {
 
             <h2
               className={`text-4xl md:text-5xl font-bold text-slate-900 mb-4 transition-all duration-1000 delay-200 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
               Mobile{" "}
@@ -124,13 +104,10 @@ export function CountAppSection() {
 
             <p
               className={`text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-400 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              Streamline your hospital inventory counts with our powerful mobile
-              application.
+              Streamline your hospital inventory counts with our powerful mobile application.
             </p>
           </div>
 
@@ -139,9 +116,7 @@ export function CountAppSection() {
             <div className="w-full lg:w-1/2 flex justify-center order-1">
               <div
                 className={`relative transition-all duration-1000 delay-600 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
                 {/* Phone frame with interactive screens - 3 phones layout */}
@@ -154,10 +129,7 @@ export function CountAppSection() {
                       <div className="bg-black rounded-[2rem] p-1">
                         <div className="relative w-[180px] h-[380px] rounded-[1.5rem] overflow-hidden bg-white">
                           <Image
-                            src={
-                              screens[getPreviousIndex()].src ||
-                              "/placeholder.svg"
-                            }
+                            src={screens[getPreviousIndex()].src || "/placeholder.svg"}
                             alt="Previous screen"
                             fill
                             className="object-cover object-top"
@@ -182,9 +154,7 @@ export function CountAppSection() {
                             <div
                               key={index}
                               className={`absolute inset-0 transition-all duration-500 ${
-                                activeScreen === index
-                                  ? "opacity-100 scale-100"
-                                  : "opacity-0 scale-95"
+                                activeScreen === index ? "opacity-100 scale-100" : "opacity-0 scale-95"
                               }`}
                             >
                               <Image
@@ -208,9 +178,7 @@ export function CountAppSection() {
                       <div className="bg-black rounded-[2rem] p-1">
                         <div className="relative w-[180px] h-[380px] rounded-[1.5rem] overflow-hidden bg-white">
                           <Image
-                            src={
-                              screens[getNextIndex()].src || "/placeholder.svg"
-                            }
+                            src={screens[getNextIndex()].src || "/placeholder.svg"}
                             alt="Next screen"
                             fill
                             className="object-cover object-top"
@@ -250,9 +218,7 @@ export function CountAppSection() {
             <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6 lg:space-y-8 order-2">
               <div
                 className={`transition-all duration-1000 delay-600 ${
-                  isVisible
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-8"
+                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
                 }`}
               >
                 <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 lg:mb-6">
@@ -261,14 +227,13 @@ export function CountAppSection() {
 
                 <div className="space-y-3 lg:space-y-4 text-base lg:text-lg text-slate-700 leading-relaxed">
                   <p>
-                    The Davon Count App transforms tedious inventory counts into
-                    a streamlined mobile experience. Simply scan QR codes to
-                    identify equipment and mark them as counted.
+                    The Davon Count App transforms tedious inventory counts into a streamlined mobile experience. Simply
+                    scan QR codes to identify equipment and mark them as counted.
                   </p>
 
                   <p>
-                    Track progress by location, see completion status in
-                    real-time, and sync everything directly to your Davon CMMS.
+                    Track progress by location, see completion status in real-time, and sync everything directly to your
+                    Davon CMMS.
                   </p>
                 </div>
               </div>
@@ -276,9 +241,7 @@ export function CountAppSection() {
               {/* Feature cards */}
               <div
                 className={`space-y-4 transition-all duration-1000 delay-800 ${
-                  isVisible
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-8"
+                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
                 }`}
               >
                 {features.map((feature, index) => (
@@ -290,12 +253,8 @@ export function CountAppSection() {
                       <feature.icon className="w-5 h-5 text-red-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900 mb-1">
-                        {feature.title}
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        {feature.description}
-                      </p>
+                      <h4 className="font-semibold text-slate-900 mb-1">{feature.title}</h4>
+                      <p className="text-sm text-slate-600">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -304,9 +263,7 @@ export function CountAppSection() {
               {/* Stats */}
               <div
                 className={`grid grid-cols-3 gap-4 transition-all duration-1000 delay-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
                 <div className="text-center p-4 bg-slate-50 rounded-xl">
@@ -327,5 +284,5 @@ export function CountAppSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

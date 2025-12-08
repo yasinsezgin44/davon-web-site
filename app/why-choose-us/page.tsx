@@ -1,27 +1,37 @@
 import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import { Footer } from "@/components/footer"
 import { VideoCTA } from "@/components/video-cta"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, Award, Users, Lightbulb, Settings } from "lucide-react"
 import Image from "next/image"
 
 const reasons = [
   {
+    icon: Award,
     title: "Experience and Expertise in the Healthcare Sector",
     description:
       "CMMS/EAM solutions in general are different from those specifically designed for healthcare facilities. Davon offers solutions tailored to the needs of healthcare institutions, drawing on years of experience and a team of experts in the healthcare field.",
     image: "/images/device-inventory.webp",
   },
   {
+    icon: Lightbulb,
     title: "Innovation and Technology",
     description:
-      "Davon continuously enhances the competitive edge of healthcare institutions with its innovative technologies and solutions. We stay ahead of industry trends to deliver cutting-edge features.",
+      "Davon continuously enhances the competitive edge of healthcare institutions with its innovative technologies and solutions. We stay ahead of industry trends to deliver cutting-edge features that transform hospital operations.",
     image: "/images/dashboard-charts.webp",
   },
   {
+    icon: Users,
     title: "Customer Satisfaction Focused Service",
     description:
       "Davon not only provides a software solution but also actively participates in your business development processes, helping your technical teams improve and achieve success. Prioritizing customer satisfaction, Davon meets and supports the needs of healthcare institutions.",
     image: "/images/repair-analysis.webp",
+  },
+  {
+    icon: Settings,
+    title: "Comprehensive and Flexible Solutions",
+    description:
+      "Davon offers a product that ensures compliance with standards while improving hospital operations. It has the flexibility to be tailored to the specific needs of your institution. The functions provided for healthcare facilities, combined with integration capabilities, meet the unique requirements of healthcare institutions.",
+    image: "/images/device-inventory-search.webp",
   },
 ]
 
@@ -36,7 +46,7 @@ const benefits = [
   "24/7 technical support from healthcare experts",
 ]
 
-export default function SolutionsPage() {
+export default function WhyChooseUsPage() {
   return (
     <div className="min-h-screen bg-black">
       <GlassmorphismNav />
@@ -46,10 +56,10 @@ export default function SolutionsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-red-900/20 to-black/80" />
         <div className="container mx-auto relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-red-600/20 text-red-400 rounded-full text-sm font-medium mb-6">
-            Comprehensive Healthcare Solutions
+            Journey to Success with Davon
           </span>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Our <span className="text-red-500">Solutions</span>
+            Why Choose <span className="text-red-500">Us?</span>
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
             Transform Your Institution with Davon, and Step Confidently Towards Success!
@@ -76,10 +86,16 @@ export default function SolutionsPage() {
                         height={500}
                         className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   </div>
                   <div className="lg:w-1/2">
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{reason.title}</h3>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                        <reason.icon className="w-6 h-6 text-red-600" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-900">{reason.title}</h3>
+                    </div>
                     <p className="text-lg text-slate-600 leading-relaxed">{reason.description}</p>
                   </div>
                 </div>

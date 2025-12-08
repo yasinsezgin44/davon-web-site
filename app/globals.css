@@ -37,6 +37,7 @@
   --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(0.2 0 0);
   --sidebar-ring: oklch(0.55 0.22 25);
+  --scroll-y: 0px;
 }
 
 .dark {
@@ -175,6 +176,19 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Added parallax scroll utility */
+  .parallax-slow {
+    transform: translateY(calc(var(--scroll-y) * 0.3));
+  }
+
+  .parallax-medium {
+    transform: translateY(calc(var(--scroll-y) * 0.5));
+  }
+
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll-y) * 0.7));
   }
 }
 
@@ -907,4 +921,27 @@
 
 .animate-bounce-right {
   animation: bounce-right 1s ease-in-out infinite;
+}
+
+/* Added swing animation for rotating disc */
+@keyframes swing-settle {
+  0% {
+    transform: rotate(var(--swing-start));
+  }
+  25% {
+    transform: rotate(calc(var(--swing-start) + 15deg));
+  }
+  50% {
+    transform: rotate(calc(var(--swing-start) - 10deg));
+  }
+  75% {
+    transform: rotate(calc(var(--swing-start) + 5deg));
+  }
+  100% {
+    transform: rotate(var(--swing-end));
+  }
+}
+
+.animate-swing-settle {
+  animation: swing-settle 0.8s ease-out forwards;
 }

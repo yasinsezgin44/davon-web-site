@@ -4,7 +4,7 @@ import type React from "react"
 
 import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import { Footer } from "@/components/footer"
-import { MapPin, Phone, Mail, Send } from "lucide-react"
+import { MapPin, Phone, Mail, Send, ArrowRight } from "lucide-react"
 import { useState } from "react"
 
 export default function ContactPage() {
@@ -18,7 +18,6 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("[v0] Form submitted:", formData)
-    // Add your form submission logic here
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -98,6 +97,15 @@ export default function ContactPage() {
                     <p className="text-white/60">info@davon.com.tr</p>
                   </div>
                 </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-red-600/20 to-red-500/10 backdrop-blur-sm border border-red-500/30 rounded-2xl p-8">
+                <h3 className="text-xl font-semibold text-white mb-3">Ready to Transform Your Operations?</h3>
+                <p className="text-white/70 mb-4">Schedule a personalized demo with our healthcare experts.</p>
+                <button className="group inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all duration-300">
+                  Schedule a Demo
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
             </div>
 
