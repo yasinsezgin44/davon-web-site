@@ -7,6 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navigation = [
+  { name: "Home", href: "/" },
   { name: "About Davon", href: "/about-davon" },
   { name: "Features", href: "/features" },
   { name: "Why Choose Us", href: "/why-choose-us" },
@@ -159,7 +160,7 @@ export function GlassmorphismNav() {
                 </div>
               </Link>
 
-              <div className="hidden md:flex items-center space-x-8">
+              <div className="hidden md:flex items-center space-x-8 md:ml-6 lg:ml-10">
                 {navigation.map((item) =>
                   item.href.startsWith("/") && !item.href.includes("#") ? (
                     <Link

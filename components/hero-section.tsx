@@ -90,7 +90,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="max-w-4xl lg:max-w-5xl mx-auto text-center relative z-10 animate-fade-in-hero">
+      <div className="max-w-4xl lg:max-w-5xl w-full mx-auto lg:mx-0 lg:ml-8 xl:ml-12 text-center lg:text-left relative z-10 animate-fade-in-hero flex flex-col items-center lg:items-start">
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
           <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
@@ -101,7 +101,7 @@ export function HeroSection() {
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6 animate-fade-in-heading">
           <span className="text-white drop-shadow-lg">Empowering Hospital</span>
           <br />
-          <span className="inline-flex items-center justify-center flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
+          <span className="inline-flex items-center justify-center lg:justify-start flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
             <span className="text-white drop-shadow-lg">Operations with</span>
             <RotatingText
               texts={["CMMS", "EAM", "Safety", "Efficiency", "Innovation"]}
@@ -119,14 +119,14 @@ export function HeroSection() {
         </h1>
 
         {/* Subheading - White text with shadow for visibility */}
-        <p className="text-base sm:text-xl md:text-2xl text-white drop-shadow-lg text-balance max-w-sm sm:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
+        <p className="text-base sm:text-xl md:text-2xl text-white drop-shadow-lg text-balance max-w-sm sm:max-w-2xl lg:max-w-3xl mx-auto lg:mx-0 mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
           At Davon, we specialize in creating robust Computerized Maintenance
           Management Systems and Enterprise Asset Management software tailored
           specifically for hospitals.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
+        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
           <Link href="/contact">
             <Button
               size="lg"
