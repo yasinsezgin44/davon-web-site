@@ -155,7 +155,7 @@ export function HeroSection() {
             Trusted by leading healthcare institutions
           </p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/10 backdrop-blur-sm rounded-xl py-4 px-6">
-            <div className="flex items-center gap-10 opacity-90 animate-slide-left whitespace-nowrap w-max">
+            <div className="flex items-center gap-12 opacity-90 animate-slide-left whitespace-nowrap w-max">
               {loopedLogos.map((logo, idx) => (
                 <div
                   key={`${idx}-${logo.alt}`}
@@ -164,9 +164,9 @@ export function HeroSection() {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={170}
-                    height={48}
-                    className="h-11 w-auto object-contain"
+                    width={220}
+                    height={60}
+                    className="h-10 sm:h-11 w-auto min-w-[130px] max-w-[220px] object-contain"
                   />
                 </div>
               ))}
@@ -180,7 +180,7 @@ export function HeroSection() {
             Trusted by leading healthcare institutions
           </p>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/10 backdrop-blur-sm rounded-xl py-3 px-4">
-            <div className="flex items-center gap-8 opacity-90 animate-slide-left-mobile whitespace-nowrap w-max">
+            <div className="flex items-center gap-10 opacity-90 animate-slide-left-mobile whitespace-nowrap w-max">
               {loopedLogos.map((logo, idx) => (
                 <div
                   key={`${idx}-${logo.alt}-mobile`}
@@ -189,9 +189,9 @@ export function HeroSection() {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={140}
-                    height={34}
-                    className="h-9 w-auto object-contain"
+                    width={180}
+                    height={46}
+                    className="h-9 w-auto min-w-[110px] max-w-[180px] object-contain"
                   />
                 </div>
               ))}
