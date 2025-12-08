@@ -20,11 +20,46 @@ const caveat = Caveat({
   display: "swap",
 })
 
+const siteUrl = "https://davon.health"
+
 export const metadata: Metadata = {
-  title: "Davon - CMMS & EAM Solutions for Healthcare",
+  title: "Davon Health – AI-Powered Healthcare Equipment Monitoring & Predictive Maintenance",
   description:
-    "Empowering hospital operations with cutting-edge CMMS and EAM software. Streamline maintenance, improve efficiency, and ensure patient safety.",
+    "Davon Health provides an AI-powered healthcare equipment monitoring and predictive maintenance platform that helps hospitals increase equipment uptime, improve patient safety, and optimize asset management.",
   generator: "v0.app",
+  metadataBase: new URL(siteUrl),
+}
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}#organization`,
+  name: "Davon Health",
+  url: siteUrl,
+  logo: `${siteUrl}/logo.webp`,
+  description:
+    "Davon Health provides an AI-powered healthcare equipment monitoring and predictive maintenance platform for hospitals and healthcare facilities.",
+  sameAs: [
+    "https://tr.linkedin.com/company/davon-health",
+    "https://twitter.com/davonhealth",
+    "https://davon.health",
+  ],
+  foundingDate: "2007",
+  location: {
+    "@type": "Place",
+    name: "Urla, Turkey",
+  },
+}
+
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}#website`,
+  url: siteUrl,
+  name: "Davon Health",
+  publisher: {
+    "@id": `${siteUrl}#organization`,
+  },
 }
 
 export default function RootLayout({
@@ -32,9 +67,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const structuredData = [organizationJsonLd, webSiteJsonLd]
+
   return (
     <html lang="en" className="dark">
       <body className={`font-sans antialiased ${dancingScript.variable} ${caveat.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <GlobalParallaxProvider>
           <Suspense fallback={null}>
             <NavigationTransition />
