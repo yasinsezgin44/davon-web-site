@@ -1,46 +1,46 @@
-\"use client\"
+"use client";
 
-import { useState, useEffect, useRef } from \"react\"
+import { useState, useEffect, useRef } from "react";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from \"@/components/ui/collapsible\"
+} from "@/components/ui/collapsible";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from \"@/components/ui/accordion\"
-import { faqs } from \"@/lib/faq-data\"
+} from "@/components/ui/accordion";
+import { faqs } from "@/lib/faq-data";
 
 export function FAQSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       {
         threshold: 0.1,
         rootMargin: "0px 0px -100px 0px",
       }
-    )
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <section
@@ -102,7 +102,5 @@ export function FAQSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
-
