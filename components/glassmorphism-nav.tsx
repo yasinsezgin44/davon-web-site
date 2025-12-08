@@ -1,111 +1,127 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Menu, X, ArrowRight } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { name: "About Davon", href: "/about-davon" },
   { name: "Features", href: "/features" },
   { name: "Why Choose Us", href: "/why-choose-us" },
   { name: "R&D", href: "/r-d" },
-]
+];
 
 export function GlassmorphismNav() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const [hasLoaded, setHasLoaded] = useState(false)
-  const [isOnWhiteSection, setIsOnWhiteSection] = useState(false)
-  const lastScrollY = useRef(0)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [isOnWhiteSection, setIsOnWhiteSection] = useState(false);
+  const lastScrollY = useRef(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setHasLoaded(true)
-    }, 100)
+      setHasLoaded(true);
+    }, 100);
 
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
-        const currentScrollY = window.scrollY
+        const currentScrollY = window.scrollY;
 
         if (currentScrollY > 50) {
-          if (currentScrollY > lastScrollY.current && currentScrollY - lastScrollY.current > 5) {
-            setIsVisible(false)
+          if (
+            currentScrollY > lastScrollY.current &&
+            currentScrollY - lastScrollY.current > 5
+          ) {
+            setIsVisible(false);
           } else if (lastScrollY.current - currentScrollY > 5) {
-            setIsVisible(true)
+            setIsVisible(true);
           }
         } else {
-          setIsVisible(true)
+          setIsVisible(true);
         }
 
-        const whiteSections = document.querySelectorAll('.bg-white, [data-white-section="true"]')
-        let overWhite = false
+        const whiteSections = document.querySelectorAll(
+          '.bg-white, [data-white-section="true"]'
+        );
+        let overWhite = false;
         whiteSections.forEach((section) => {
-          const rect = section.getBoundingClientRect()
+          const rect = section.getBoundingClientRect();
           if (rect.top < 100 && rect.bottom > 0) {
-            overWhite = true
+            overWhite = true;
           }
-        })
-        setIsOnWhiteSection(overWhite)
+        });
+        setIsOnWhiteSection(overWhite);
 
-        lastScrollY.current = currentScrollY
+        lastScrollY.current = currentScrollY;
       }
-    }
+    };
 
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar, { passive: true })
-      controlNavbar() // Initial check
+      window.addEventListener("scroll", controlNavbar, { passive: true });
+      controlNavbar(); // Initial check
 
       return () => {
-        window.removeEventListener("scroll", controlNavbar)
-        clearTimeout(timer)
-      }
+        window.removeEventListener("scroll", controlNavbar);
+        clearTimeout(timer);
+      };
     }
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("/") && !href.includes("#")) {
-      return
+      return;
     }
 
     // Handle hash links on other pages
     if (href.includes("#") && !href.startsWith("/#")) {
-      return
+      return;
     }
 
-    const hashPart = href.includes("#") ? href.split("#")[1] : href.replace("#", "")
-    const element = document.querySelector(`#${hashPart}`)
+    const hashPart = href.includes("#")
+      ? href.split("#")[1]
+      : href.replace("#", "");
+    const element = document.querySelector(`#${hashPart}`);
     if (element) {
-      const rect = element.getBoundingClientRect()
-      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop
-      const elementAbsoluteTop = rect.top + currentScrollY
-      const navbarHeight = 100
-      const targetPosition = Math.max(0, elementAbsoluteTop - navbarHeight)
+      const rect = element.getBoundingClientRect();
+      const currentScrollY =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const elementAbsoluteTop = rect.top + currentScrollY;
+      const navbarHeight = 100;
+      const targetPosition = Math.max(0, elementAbsoluteTop - navbarHeight);
 
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
-      })
+      });
     }
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
-  const textColor = isOnWhiteSection ? "text-slate-900" : "text-white"
-  const textColorMuted = isOnWhiteSection ? "text-slate-700" : "text-white/80"
-  const bgColor = isOnWhiteSection ? "bg-white/90 border-slate-200 shadow-lg" : "bg-white/10 border-white/20"
+  const textColor = isOnWhiteSection ? "text-slate-900" : "text-white";
+  const textColorMuted = isOnWhiteSection ? "text-slate-700" : "text-white/80";
+  const bgColor = isOnWhiteSection
+    ? "bg-white/90 border-slate-200 shadow-lg"
+    : "bg-white/10 border-white/20";
 
   return (
     <>
       <nav
         className={`fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-20 md:-translate-y-24 opacity-0"
-        } ${hasLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          isVisible
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-20 md:-translate-y-24 opacity-0"
+        } ${
+          hasLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
         style={{
-          transition: hasLoaded ? "all 0.5s ease-out" : "opacity 0.8s ease-out, transform 0.8s ease-out",
+          transition: hasLoaded
+            ? "all 0.5s ease-out"
+            : "opacity 0.8s ease-out, transform 0.8s ease-out",
         }}
       >
         <div className="w-[90vw] max-w-xs md:max-w-4xl mx-auto">
@@ -122,10 +138,10 @@ export function GlassmorphismNav() {
                   <Image
                     src="/logo.webp"
                     alt="Davon logo"
-                    width={140}
-                    height={32}
-                    className={`h-8 w-auto object-contain transition-opacity duration-300 ${
-                      isOnWhiteSection ? "opacity-100" : "opacity-0 absolute inset-0"
+                    width={200}
+                    height={48}
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-10 w-auto scale-[1.35] origin-left object-contain transition-opacity duration-300 ${
+                      isOnWhiteSection ? "opacity-100" : "opacity-0"
                     }`}
                     priority
                   />
@@ -133,10 +149,10 @@ export function GlassmorphismNav() {
                   <Image
                     src="/logo-white.webp"
                     alt="Davon logo"
-                    width={140}
-                    height={32}
-                    className={`h-8 w-auto object-contain transition-opacity duration-300 ${
-                      isOnWhiteSection ? "opacity-0 absolute inset-0" : "opacity-100"
+                    width={200}
+                    height={48}
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-10 w-auto scale-[1.35] origin-left object-contain transition-opacity duration-300 ${
+                      isOnWhiteSection ? "opacity-0" : "opacity-100"
                     }`}
                     priority
                   />
@@ -159,8 +175,8 @@ export function GlassmorphismNav() {
                       href={item.href}
                       onClick={(e) => {
                         if (pathname === "/") {
-                          e.preventDefault()
-                          scrollToSection(item.href)
+                          e.preventDefault();
+                          scrollToSection(item.href);
                         }
                       }}
                       className={`${textColorMuted} hover:${textColor} hover:scale-105 transition-all duration-200 font-medium cursor-pointer`}
@@ -175,17 +191,24 @@ export function GlassmorphismNav() {
                     >
                       {item.name}
                     </button>
-                  ),
+                  )
                 )}
               </div>
 
               <div className="hidden md:block">
                 <Link
                   href="/contact"
-                  className={`relative ${isOnWhiteSection ? "bg-slate-900 hover:bg-slate-800 text-white" : "bg-white hover:bg-gray-50 text-black"} font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group`}
+                  className={`relative ${
+                    isOnWhiteSection
+                      ? "bg-slate-900 hover:bg-slate-800 text-white"
+                      : "bg-white hover:bg-gray-50 text-black"
+                  } font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group`}
                 >
                   <span className="mr-2">Contact</span>
-                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
                 </Link>
               </div>
 
@@ -197,13 +220,17 @@ export function GlassmorphismNav() {
                   <Menu
                     size={24}
                     className={`absolute inset-0 transition-all duration-300 ${
-                      isOpen ? "opacity-0 rotate-180 scale-75" : "opacity-100 rotate-0 scale-100"
+                      isOpen
+                        ? "opacity-0 rotate-180 scale-75"
+                        : "opacity-100 rotate-0 scale-100"
                     }`}
                   />
                   <X
                     size={24}
                     className={`absolute inset-0 transition-all duration-300 ${
-                      isOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-180 scale-75"
+                      isOpen
+                        ? "opacity-100 rotate-0 scale-100"
+                        : "opacity-0 -rotate-180 scale-75"
                     }`}
                   />
                 </div>
@@ -224,7 +251,9 @@ export function GlassmorphismNav() {
 
           <div
             className={`mt-2 w-[90vw] max-w-xs mx-auto transition-all duration-500 ease-out transform-gpu ${
-              isOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
+              isOpen
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
             }`}
           >
             <div
@@ -240,7 +269,9 @@ export function GlassmorphismNav() {
                         isOpen ? "animate-mobile-menu-item" : ""
                       }`}
                       style={{
-                        animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+                        animationDelay: isOpen
+                          ? `${index * 80 + 100}ms`
+                          : "0ms",
                       }}
                       onClick={() => setIsOpen(false)}
                     >
@@ -251,35 +282,46 @@ export function GlassmorphismNav() {
                       key={item.name}
                       onClick={() => {
                         if (item.href.startsWith("/#") && pathname !== "/") {
-                          window.location.href = item.href
+                          window.location.href = item.href;
                         } else {
-                          scrollToSection(item.href)
+                          scrollToSection(item.href);
                         }
                       }}
                       className={`${textColorMuted} hover:${textColor} hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
                         isOpen ? "animate-mobile-menu-item" : ""
                       }`}
                       style={{
-                        animationDelay: isOpen ? `${index * 80 + 100}ms` : "0ms",
+                        animationDelay: isOpen
+                          ? `${index * 80 + 100}ms`
+                          : "0ms",
                       }}
                     >
                       {item.name}
                     </button>
-                  ),
+                  )
                 )}
                 <div className="h-px bg-white/10 my-2" />
                 <Link
                   href="/contact"
-                  className={`relative ${isOnWhiteSection ? "bg-slate-900 hover:bg-slate-800 text-white" : "bg-white hover:bg-gray-50 text-black"} font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
+                  className={`relative ${
+                    isOnWhiteSection
+                      ? "bg-slate-900 hover:bg-slate-800 text-white"
+                      : "bg-white hover:bg-gray-50 text-black"
+                  } font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
                     isOpen ? "animate-mobile-menu-item" : ""
                   }`}
                   style={{
-                    animationDelay: isOpen ? `${navigation.length * 80 + 150}ms` : "0ms",
+                    animationDelay: isOpen
+                      ? `${navigation.length * 80 + 150}ms`
+                      : "0ms",
                   }}
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="mr-2">Contact</span>
-                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
                 </Link>
               </div>
             </div>
@@ -287,5 +329,5 @@ export function GlassmorphismNav() {
         </div>
       </nav>
     </>
-  )
+  );
 }

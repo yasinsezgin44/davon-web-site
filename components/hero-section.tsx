@@ -1,8 +1,38 @@
-import { Button } from "@/components/ui/button"
-import RotatingText from "./RotatingText"
-import Image from "next/image"
-import Link from "next/link"
-import Aurora from "./Aurora"
+import { Button } from "@/components/ui/button";
+import RotatingText from "./RotatingText";
+import Image from "next/image";
+import Link from "next/link";
+import Aurora from "./Aurora";
+
+const logos = [
+  { src: "/reference-logos/Siemens-logo.png", alt: "Siemens Healthineers" },
+  {
+    src: "/reference-logos/medipol-logo.svg",
+    alt: "Medipol University Hospital",
+  },
+  {
+    src: "/reference-logos/Acıbadem_Grup_logo.svg.png",
+    alt: "Acıbadem Healthcare Group",
+  },
+  {
+    src: "/reference-logos/anadolu-hastanesi-logo.png",
+    alt: "Anadolu Medical Center",
+  },
+  {
+    src: "/reference-logos/anadolu_hopkins_logo.png",
+    alt: "Anadolu Johns Hopkins",
+  },
+  {
+    src: "/reference-logos/koc-universitesi-logo.png",
+    alt: "Koç University Hospital",
+  },
+  {
+    src: "/reference-logos/Amerikan_Hastanesi_Logo.png",
+    alt: "American Hospital",
+  },
+];
+
+const loopedLogos = [...logos, ...logos];
 
 const ArrowRight = () => (
   <svg
@@ -11,9 +41,14 @@ const ArrowRight = () => (
     stroke="currentColor"
     viewBox="0 0 24 24"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9 5l7 7-7 7"
+    />
   </svg>
-)
+);
 
 const Play = () => (
   <svg
@@ -29,13 +64,18 @@ const Play = () => (
       d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m-6-8h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z"
     />
   </svg>
-)
+);
 
 export function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0">
-        <Aurora colorStops={["#7f1d1d", "#dc2626", "#450a0a"]} amplitude={1.2} blend={0.6} speed={0.8} />
+        <Aurora
+          colorStops={["#7f1d1d", "#dc2626", "#450a0a"]}
+          amplitude={1.2}
+          blend={0.6}
+          speed={0.8}
+        />
       </div>
 
       <div className="absolute inset-0 w-full h-full z-[1] pointer-events-none">
@@ -80,8 +120,9 @@ export function HeroSection() {
 
         {/* Subheading - White text with shadow for visibility */}
         <p className="text-base sm:text-xl md:text-2xl text-white drop-shadow-lg text-balance max-w-sm sm:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          At Davon, we specialize in creating robust Computerized Maintenance Management Systems and Enterprise Asset
-          Management software tailored specifically for hospitals.
+          At Davon, we specialize in creating robust Computerized Maintenance
+          Management Systems and Enterprise Asset Management software tailored
+          specifically for hospitals.
         </p>
 
         {/* CTA Buttons */}
@@ -110,211 +151,68 @@ export function HeroSection() {
 
         {/* Trust Indicators - logos of trusted institutions */}
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white drop-shadow-lg mb-6">Trusted by leading healthcare institutions</p>
-          <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-4 px-6">
-            <div className="flex items-center gap-8 opacity-80 animate-slide-left">
-              <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Siemens-logo.png"
-                    alt="Siemens Healthineers"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
+          <p className="text-sm text-white drop-shadow-lg mb-6">
+            Trusted by leading healthcare institutions
+          </p>
+          <div className="relative overflow-hidden w-full max-w-4xl mx-auto bg-black/10 backdrop-blur-sm rounded-xl py-4 px-6">
+            <div className="flex items-center gap-8 opacity-90 animate-slide-left">
+              {[0, 1].map((dup) => (
+                <div
+                  key={dup}
+                  className="flex items-center gap-8 whitespace-nowrap w-max"
+                >
+                  {loopedLogos.map((logo, idx) => (
+                    <div
+                      key={`${dup}-${idx}-${logo.alt}`}
+                      className="h-12 flex items-center opacity-100 drop-shadow-sm transition-all duration-300 shrink-0"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={200}
+                        height={52}
+                        className="h-11 w-auto object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol University Hospital"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                    alt="Acıbadem Healthcare Group"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Medical Center"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/koc-universitesi-logo.png"
-                    alt="Koç University Hospital"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                    alt="American Hospital"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-              </div>
-              {/* Duplicate for seamless loop */}
-              <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Siemens-logo.png"
-                    alt="Siemens Healthineers"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol University Hospital"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                    alt="Acıbadem Healthcare Group"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Medical Center"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/koc-universitesi-logo.png"
-                    alt="Koç University Hospital"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-12 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Amerikan_Hastanesi_Logo.png"
-                    alt="American Hospital"
-                    width={180}
-                    height={40}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Mobile Trust Indicators */}
         <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white drop-shadow-lg mb-6">Trusted by leading healthcare institutions</p>
-          <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/40 backdrop-blur-sm rounded-xl py-3 px-4">
-            <div className="flex items-center gap-6 opacity-80 animate-slide-left-mobile">
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Siemens-logo.png"
-                    alt="Siemens Healthineers"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
+          <p className="text-sm text-white drop-shadow-lg mb-6">
+            Trusted by leading healthcare institutions
+          </p>
+          <div className="relative overflow-hidden w-full max-w-sm mx-auto bg-black/10 backdrop-blur-sm rounded-xl py-3 px-4">
+            <div className="flex items-center gap-6 opacity-90 animate-slide-left-mobile">
+              {[0, 1].map((dup) => (
+                <div
+                  key={dup}
+                  className="flex items-center gap-6 whitespace-nowrap w-max"
+                >
+                  {loopedLogos.map((logo, idx) => (
+                    <div
+                      key={`${dup}-${idx}-${logo.alt}-mobile`}
+                      className="h-10 flex items-center opacity-100 drop-shadow-sm transition-all duration-300 shrink-0"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={150}
+                        height={36}
+                        className="h-9 w-auto object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol University Hospital"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                    alt="Acıbadem Healthcare Group"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Medical Center"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-              </div>
-              <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Siemens-logo.png"
-                    alt="Siemens Healthineers"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/medipol-logo.svg"
-                    alt="Medipol University Hospital"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/Acıbadem_Grup_logo.svg.png"
-                    alt="Acıbadem Healthcare Group"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-                <div className="h-10 flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                  <Image
-                    src="/reference-logos/anadolu-hastanesi-logo.png"
-                    alt="Anadolu Medical Center"
-                    width={130}
-                    height={30}
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
