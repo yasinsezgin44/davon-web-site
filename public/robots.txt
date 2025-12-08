@@ -9,15 +9,5 @@ Disallow: /api/
 Disallow: /.env
 Disallow: /node_modules/
 
-# Allow all major search engine bots
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
 # Sitemap location
 Sitemap: https://davon.health/sitemap.xml
