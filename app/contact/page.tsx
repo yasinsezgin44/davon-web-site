@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 import { GlassmorphismNav } from "@/components/glassmorphism-nav";
 import { Footer } from "@/components/footer";
@@ -9,25 +9,33 @@ import Aurora from "@/components/Aurora";
 import { MapPin, Phone, Mail, Send, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
   const handleZohoSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
-      // Preserve Zoho validation/mandatory logic
       if (
         typeof document === "undefined" ||
         typeof globalThis === "undefined"
       ) {
         return;
       }
-      document.charset = "UTF-8";
-      const checker =
-        // @ts-expect-error external script
-        globalThis.checkMandatory930112000000520835;
+      (document as unknown as { charset?: string }).charset = "UTF-8";
+      // @ts-expect-error Zoho global
+      const checker = globalThis.checkMandatory930112000000520835;
       if (typeof checker === "function" && checker() === false) {
         e.preventDefault();
       }
     },
     []
   );
+
+  useEffect(() => {
+    emailRef.current?.setAttribute("ftype", "email");
+    if (honeypotRef.current) {
+      honeypotRef.current.value = "";
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-black overflow-hidden">
@@ -144,13 +152,13 @@ export default function ContactPage() {
                     <input
                       type="hidden"
                       name="xnQsjsdp"
-                      value="cdb46a67faf927a7535becf7e30864a24c368e77d23ce89ecf8c0d8dd72e60da"
+                      value="63e1159e1417fe20d780b42657b44678239d9a9afc62deb17d27ae550259581b"
                     />
                     <input type="hidden" name="zc_gad" id="zc_gad" value="" />
                     <input
                       type="hidden"
                       name="xmIwtLD"
-                      value="151d91efaf7f5ec7a2ae31df0df7a746188582bb2bcb2e410d4342219ad255237c52aff06d35c0bd7a18cf30f4fc4eaa"
+                      value="97d10a7af47fd2797921af9033a603cf53e18b96fe6ea58eb5d77159c9cd1c6ade3d9826cc79d6f50d73f0fb69a1ca72"
                     />
                     <input type="hidden" name="actionType" value="TGVhZHM=" />
                     <input
@@ -180,7 +188,9 @@ export default function ContactPage() {
                         id="Email"
                         name="Email"
                         placeholder="E-Mail Address"
+                        ref={emailRef}
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-red-500/50 transition-all"
+                        autoComplete="off"
                       />
                     </div>
                     <div>
@@ -206,6 +216,7 @@ export default function ContactPage() {
                       type="hidden"
                       name="aG9uZXlwb3Q"
                       className="hidden"
+                      ref={honeypotRef}
                     />
 
                     <button
@@ -396,7 +407,7 @@ export default function ContactPage() {
       />
       <Script
         id="wf_anal"
-        src="https://crm.zohopublic.eu/crm/WebFormAnalyticsServeServlet?rid=16e6f09bf48fd0fb1a3aeec7ea03ef608b639f39676e529b2323037ae4a0f6c3c53fddd8cbe3c2c31fd34fd0df8b18ffgid2726dabaa27904593f8e19888fd87fdc4b948e0d3f690fd8d480ce60860bf59bgidfb7cc15d3bf85c7cfd954786d309232c95f374a9c5f857a141c72565536bc770gid26a5e383f56fd53d3a1219760318b883fd6702adedbf2341ad079973b06718aa&tw=894875625b60697278763fe201e9b85f5bb5b03514b02e560e78ab7eccd7d861"
+        src="https://crm.zohopublic.eu/crm/WebFormAnalyticsServeServlet?rid=95cf41cbfd15f2928c2613bbf4b825ec59fad2320a24c2409f540783601599399daa5daca97a8244958f5aa38fc6f961gide8db865cf9824d75089298cd666d8aef6f827f7f367f63510f07bb06111fc890gidf309cde1219f569941814fb8a9d51975dda565febcd4d4d1fbe85c7a31be6d33gida33b36f32d0c007590a1f1b56555e039815e8d98b544dbd6315ccb3a67d8d8cb&tw=7e0d48b55cae33c57644848333f82e7b0d57d3d53ed1246e67593cf018f5e9e6"
         strategy="afterInteractive"
       />
     </div>
