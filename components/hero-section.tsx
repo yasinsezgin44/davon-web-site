@@ -105,7 +105,7 @@ export function HeroSection() {
             <span className="text-white drop-shadow-lg">Operations with</span>
             <RotatingText
               texts={["CMMS", "EAM", "Safety", "Efficiency", "Innovation"]}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-red-600 text-white overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-lg"
+              mainClassName="px-2 sm:px-2 md:px-3 bg-red-600 text-white overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-lg text-center shrink-0 min-w-[8.5rem] sm:min-w-[9rem] md:min-w-[10rem]"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}

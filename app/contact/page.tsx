@@ -1,34 +1,33 @@
 "use client";
 
-import type React from "react";
+import Script from "next/script";
+import { useCallback } from "react";
 
 import { GlassmorphismNav } from "@/components/glassmorphism-nav";
 import { Footer } from "@/components/footer";
 import Aurora from "@/components/Aurora";
 import { MapPin, Phone, Mail, Send, ArrowRight } from "lucide-react";
-import { useState } from "react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("[v0] Form submitted:", formData);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  const handleZohoSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      // Preserve Zoho validation/mandatory logic
+      if (
+        typeof document === "undefined" ||
+        typeof globalThis === "undefined"
+      ) {
+        return;
+      }
+      document.charset = "UTF-8";
+      const checker =
+        // @ts-expect-error external script
+        globalThis.checkMandatory930112000000520835;
+      if (typeof checker === "function" && checker() === false) {
+        e.preventDefault();
+      }
+    },
+    []
+  );
 
   return (
     <div className="min-h-screen bg-black overflow-hidden">
@@ -133,52 +132,85 @@ export default function ContactPage() {
                   <h2 className="text-2xl font-bold text-white mb-6">
                     Contact Us
                   </h2>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form
+                    id="webform930112000000520835"
+                    name="WebToLeads930112000000520835"
+                    action="https://crm.zoho.eu/crm/WebToLeadForm"
+                    method="POST"
+                    acceptCharset="UTF-8"
+                    onSubmit={handleZohoSubmit}
+                    className="space-y-4"
+                  >
+                    <input
+                      type="hidden"
+                      name="xnQsjsdp"
+                      value="cdb46a67faf927a7535becf7e30864a24c368e77d23ce89ecf8c0d8dd72e60da"
+                    />
+                    <input type="hidden" name="zc_gad" id="zc_gad" value="" />
+                    <input
+                      type="hidden"
+                      name="xmIwtLD"
+                      value="151d91efaf7f5ec7a2ae31df0df7a746188582bb2bcb2e410d4342219ad255237c52aff06d35c0bd7a18cf30f4fc4eaa"
+                    />
+                    <input type="hidden" name="actionType" value="TGVhZHM=" />
+                    <input
+                      type="hidden"
+                      name="returnURL"
+                      value="https://davon.health/contact/thank-you"
+                    />
+                    {/* Do not remove this code. */}
+                    <input type="hidden" id="ldeskuid" name="ldeskuid" />
+                    <input type="hidden" id="LDTuvid" name="LDTuvid" />
+                    {/* Do not remove this code. */}
+
                     <div>
                       <input
                         type="text"
-                        name="fullName"
+                        id="Last_Name"
+                        name="Last Name"
                         placeholder="Full Name*"
-                        value={formData.fullName}
-                        onChange={handleChange}
                         required
+                        aria-required="true"
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-red-500/50 transition-all"
                       />
                     </div>
                     <div>
                       <input
                         type="email"
-                        name="email"
-                        placeholder="E-Mail Address*"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
+                        id="Email"
+                        name="Email"
+                        placeholder="E-Mail Address"
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-red-500/50 transition-all"
                       />
                     </div>
                     <div>
                       <input
                         type="tel"
-                        name="phone"
-                        placeholder="Phone Number*"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
+                        id="Phone"
+                        name="Phone"
+                        placeholder="Phone Number"
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-red-500/50 transition-all"
                       />
                     </div>
                     <div>
                       <textarea
-                        name="message"
+                        id="Description"
+                        name="Description"
                         placeholder="Message"
-                        value={formData.message}
-                        onChange={handleChange}
                         rows={5}
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-red-500/50 transition-all resize-none"
                       />
                     </div>
+
+                    <input
+                      type="hidden"
+                      name="aG9uZXlwb3Q"
+                      className="hidden"
+                    />
+
                     <button
                       type="submit"
+                      id="formsubmit"
                       className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group"
                     >
                       Send
@@ -212,6 +244,7 @@ export default function ContactPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="grayscale"
+                    title="Davon Health office location"
                   />
                 </div>
               </div>
@@ -231,6 +264,141 @@ export default function ContactPage() {
           />
         </div>
       </main>
+
+      {/* Zoho validation and tracking scripts */}
+      <Script
+        id="zoho-validation"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: String.raw`
+            function validateEmail930112000000520835(){
+              var form = document.forms['WebToLeads930112000000520835'];
+              var emailFld = form.querySelectorAll('[ftype=email]');
+              var i;
+              for(i = 0; i < emailFld.length; i++){
+                var emailVal = emailFld[i].value;
+                if((emailVal.replace(/^\\s+|\\s+$/g,'' )).length != 0){
+                  var atpos = emailVal.indexOf('@');
+                  var dotpos = emailVal.lastIndexOf('.');
+                  if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length){
+                    alert('Please enter a valid email address. ');
+                    emailFld[i].focus();
+                    return false;
+                  }
+                }
+              }
+              return true;
+            }
+            function checkMandatory930112000000520835(){
+              var mndFileds = new Array('Last Name');
+              var fldLangVal = new Array('Last Name');
+              for(i = 0; i < mndFileds.length; i++){
+                var fieldObj = document.forms['WebToLeads930112000000520835'][mndFileds[i]];
+                if(fieldObj){
+                  if(((fieldObj.value).replace(/^\\s+|\\s+$/g,'' )).length == 0){
+                    if(fieldObj.type == 'file'){
+                      alert('Please select a file to upload.');
+                      fieldObj.focus();
+                      return false;
+                    }
+                    alert(fldLangVal[i] + ' cannot be empty.');
+                    fieldObj.focus();
+                    return false;
+                  } else if(fieldObj.nodeName == 'SELECT'){
+                    if(fieldObj.options[fieldObj.selectedIndex].value == '-None-'){
+                      alert(fldLangVal[i] + ' cannot be none.');
+                      fieldObj.focus();
+                      return false;
+                    }
+                  } else if(fieldObj.type == 'checkbox'){
+                    if(fieldObj.checked == false){
+                      alert('Please accept ' + fldLangVal[i]);
+                      fieldObj.focus();
+                      return false;
+                    }
+                  }
+                  try{
+                    if(fieldObj.name == 'Last Name'){
+                      name = fieldObj.value;
+                    }
+                  }catch(e){}
+                }
+              }
+              trackVisitor930112000000520835();
+              if(!validateEmail930112000000520835()){
+                return false;
+              }
+              var urlparams = new URLSearchParams(window.location.search);
+              if(urlparams.has('service') && (urlparams.get('service') === 'smarturl')){
+                var webform = document.getElementById('webform930112000000520835');
+                var service = urlparams.get('service');
+                var smarturlfield = document.createElement('input');
+                smarturlfield.setAttribute('type','hidden');
+                smarturlfield.setAttribute('value',service);
+                smarturlfield.setAttribute('name','service');
+                webform.appendChild(smarturlfield);
+              }
+              document.querySelector('.crmWebToEntityForm .formsubmit')?.setAttribute('disabled', true);
+            }
+            function tooltipShow930112000000520835(el){
+              var tooltip = el.nextElementSibling;
+              var tooltipDisplay = tooltip.style.display;
+              if(tooltipDisplay == 'none'){
+                var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+                for(i = 0; i < allTooltip.length; i++){
+                  allTooltip[i].style.display = 'none';
+                }
+                tooltip.style.display = 'block';
+              }else{
+                tooltip.style.display = 'none';
+              }
+            }
+          `,
+        }}
+      />
+      <Script
+        id="VisitorTracking"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: String.raw`
+            var $zoho = $zoho || {};
+            $zoho.salesiq = $zoho.salesiq || {widgetcode:'siqfe0fd684240acd020f713c0bb572f6e4c39f92bb6221eb95db278a1e4a18564c', values:{}, ready:function(){}};
+            var d = document;
+            s = d.createElement('script');
+            s.type = 'text/javascript';
+            s.id = 'zsiqscript';
+            s.defer = true;
+            s.src = 'https://salesiq.zoho.eu/widget';
+            t = d.getElementsByTagName('script')[0];
+            t.parentNode.insertBefore(s, t);
+            function trackVisitor930112000000520835(){
+              try{
+                if($zoho){
+                  var LDTuvidObj = document.forms['WebToLeads930112000000520835']['LDTuvid'];
+                  if(LDTuvidObj){
+                    LDTuvidObj.value = $zoho.salesiq.visitor.uniqueid();
+                  }
+                  var firstnameObj = document.forms['WebToLeads930112000000520835']['First Name'];
+                  if(firstnameObj){
+                    name = firstnameObj.value + ' ' + name;
+                  }
+                  $zoho.salesiq.visitor.name(name);
+                  var emailObj = document.forms['WebToLeads930112000000520835']['Email'];
+                  if(emailObj){
+                    email = emailObj.value;
+                    $zoho.salesiq.visitor.email(email);
+                  }
+                }
+              }catch(e){}
+            }
+          `,
+        }}
+      />
+      <Script
+        id="wf_anal"
+        src="https://crm.zohopublic.eu/crm/WebFormAnalyticsServeServlet?rid=16e6f09bf48fd0fb1a3aeec7ea03ef608b639f39676e529b2323037ae4a0f6c3c53fddd8cbe3c2c31fd34fd0df8b18ffgid2726dabaa27904593f8e19888fd87fdc4b948e0d3f690fd8d480ce60860bf59bgidfb7cc15d3bf85c7cfd954786d309232c95f374a9c5f857a141c72565536bc770gid26a5e383f56fd53d3a1219760318b883fd6702adedbf2341ad079973b06718aa&tw=894875625b60697278763fe201e9b85f5bb5b03514b02e560e78ab7eccd7d861"
+        strategy="afterInteractive"
+      />
     </div>
   );
 }
