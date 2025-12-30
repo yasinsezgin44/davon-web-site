@@ -109,10 +109,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 #### Website Development Tools
 - **V0**: For getting website templates and applying style changes
-- **Vercel**: Deployment platform
+- **Vercel**: Deployment platform (Yasin Sezgin Davon Google Account is used)
 
 #### Image Generation Tools
-- **Gemini Nano Banana Pro**: For creating images
+- **Gemini Nano Banana Pro**: For creating images (Yasin Sezgin Davon Google Account is used)
 - **Not recommended**: Grok image and Sora are not good for image generation
 - **Alternative**: Midjourney keeps consistency of images but does not have a free tier
 
