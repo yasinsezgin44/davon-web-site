@@ -94,7 +94,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
    - `https://davon.health/llms.txt`
 3. **Rich Results Testing**: Use live URLs in Google's Rich Results Test
 
-## Monitoring & Tools
+## Monitoring & Tools 
+
+**Note**: If an account is needed, Yasin Sezgin Davon Google Account is used primarily.
 
 #### SEO Monitoring Tools
 - **Google Search Console**: Free, official Google tool
